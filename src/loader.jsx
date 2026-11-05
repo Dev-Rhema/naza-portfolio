@@ -8,10 +8,10 @@ gsap.registerPlugin(useGSAP);
 
 function Reveal({ id, className, children }) {
   return (
-    <div className={`absolute -mx-[16px] overflow-hidden px-[16px] whitespace-nowrap ${className}`}>
-      <div className={`will-change-transform ${id}`}>
-        {children}
-      </div>
+    <div
+      className={`absolute -mx-4 overflow-hidden px-4 whitespace-nowrap ${className}`}
+    >
+      <div className={`will-change-transform ${id}`}>{children}</div>
     </div>
   );
 }
@@ -25,7 +25,10 @@ export function Loader({ onComplete }) {
       const tl = createLoaderTimeline(root.current, { onComplete });
       let cancelled = false;
 
-      Promise.all([document.fonts.ready, statueRef.current.decode().catch(() => {})]).then(() => {
+      Promise.all([
+        document.fonts.ready,
+        statueRef.current.decode().catch(() => {}),
+      ]).then(() => {
         if (!cancelled) requestAnimationFrame(() => !cancelled && tl.play());
       });
 
@@ -37,35 +40,38 @@ export function Loader({ onComplete }) {
   );
 
   return (
-    <div ref={root} className="fixed inset-0 z-50 overflow-hidden bg-[#030303]" aria-label="Loading" role="status">
+    <div
+      ref={root}
+      className="fixed inset-0 z-50 overflow-hidden bg-[#030303]"
+      aria-label="Loading"
+      role="status"
+    >
       <img
         ref={statueRef}
         src={statue}
         alt=""
-        className="pointer-events-none absolute bottom-[-4px] left-1/2 h-[1024px] w-[938px] max-w-none -translate-x-1/2 opacity-0 select-none will-change-transform statue"
+        className="pointer-events-none absolute -bottom-1 left-1/2 h-256 w-234.5 max-w-none -translate-x-1/2 opacity-0 select-none will-change-transform statue"
       />
 
       <Reveal
         id="quem"
-        className="top-[86px] left-[80px] font-kalnia text-[96px] leading-[1.2] font-medium text-white h-[117px] [font-stretch:100%]"
+        className="top-21.5 left-20 font-kalnia text-[96px] leading-[1.2] font-medium text-white h-29.25 font-stretch-100%"
       >
         QUEM
       </Reveal>
-      <p
-        className="absolute top-[80.7px] right-[80px] font-helvetica text-[24px] leading-[1.2] text-[#4d4d4d] will-change-[opacity] fade"
-      >
+      <p className="absolute top-[80.7px] right-20 font-helvetica text-[24px] leading-[1.2] text-[#4d4d4d] will-change-[opacity] fade">
         <span className="count">0</span>%
       </p>
 
       <Reveal
         id="name"
-        className="top-1/2 mt-[-1.65px] left-[80px] font-helvetica text-[48px] leading-[1.2] tracking-[-0.0105em] text-white h-[50.6px]"
+        className="top-1/2 mt-[-1.65px] left-20 font-helvetica text-[48px] leading-[1.2] tracking-[-0.0105em] text-white h-[50.6px]"
       >
         Chinaza Icheke
       </Reveal>
       <Reveal
         id="como"
-        className="top-1/2 mt-[-55.4px] inset-x-0 text-center font-kalnia text-[96px] leading-[1.2] font-medium text-white h-[119.4px] [font-stretch:100%]"
+        className="top-1/2 mt-[-55.4px] inset-x-0 text-center font-kalnia text-[96px] leading-[1.2] font-medium text-white h-[119.4px] font-stretch-100%"
       >
         COMO
       </Reveal>
@@ -76,14 +82,12 @@ export function Loader({ onComplete }) {
         Product Designer
       </Reveal>
 
-      <p
-        className="absolute bottom-[71.6px] left-[80px] font-helvetica text-[24px] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] will-change-[opacity] fade"
-      >
+      <p className="absolute bottom-[71.6px] left-20 font-helvetica text-[24px] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] will-change-[opacity] fade">
         Loading
       </p>
       <Reveal
         id="deus"
-        className="right-[80px] bottom-[77.1px] font-kalnia text-[96px] leading-[1.2] font-medium text-white [font-stretch:100%]"
+        className="right-20 bottom-[77.1px] font-kalnia text-[96px] leading-[1.2] font-medium text-white font-stretch-100%"
       >
         DEUS
       </Reveal>
