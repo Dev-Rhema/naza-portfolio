@@ -9,7 +9,7 @@ gsap.registerPlugin(useGSAP);
 function Reveal({ id, className, children }) {
   return (
     <div className={`absolute -mx-[16px] overflow-hidden px-[16px] whitespace-nowrap ${className}`}>
-      <div data-loader-text={id} className="will-change-transform">
+      <div className={`will-change-transform ${id}`}>
         {children}
       </div>
     </div>
@@ -26,8 +26,6 @@ export function Loader({ onComplete }) {
       let cancelled = false;
 
       Promise.all([document.fonts.ready, statueRef.current.decode().catch(() => {})]).then(() => {
-        const seek = new URLSearchParams(location.search).get("seek");
-        if (seek !== null) return tl.seek(+seek);
         if (!cancelled) requestAnimationFrame(() => !cancelled && tl.play());
       });
 
@@ -42,10 +40,9 @@ export function Loader({ onComplete }) {
     <div ref={root} className="fixed inset-0 z-50 overflow-hidden bg-[#030303]" aria-label="Loading" role="status">
       <img
         ref={statueRef}
-        data-loader-statue
         src={statue}
         alt=""
-        className="pointer-events-none absolute bottom-[-4px] left-1/2 h-[1024px] w-[938px] max-w-none -translate-x-1/2 opacity-0 select-none will-change-transform"
+        className="pointer-events-none absolute bottom-[-4px] left-1/2 h-[1024px] w-[938px] max-w-none -translate-x-1/2 opacity-0 select-none will-change-transform statue"
       />
 
       <Reveal
@@ -55,10 +52,9 @@ export function Loader({ onComplete }) {
         QUEM
       </Reveal>
       <p
-        data-loader-fade
-        className="absolute top-[80.7px] right-[80px] font-helvetica text-[24px] leading-[1.2] text-[#4d4d4d] opacity-0 will-change-[opacity]"
+        className="absolute top-[80.7px] right-[80px] font-helvetica text-[24px] leading-[1.2] text-[#4d4d4d] will-change-[opacity] fade"
       >
-        <span data-loader-count>0</span>%
+        <span className="count">0</span>%
       </p>
 
       <Reveal
@@ -81,8 +77,7 @@ export function Loader({ onComplete }) {
       </Reveal>
 
       <p
-        data-loader-fade
-        className="absolute bottom-[71.6px] left-[80px] font-helvetica text-[24px] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] opacity-0 will-change-[opacity]"
+        className="absolute bottom-[71.6px] left-[80px] font-helvetica text-[24px] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] will-change-[opacity] fade"
       >
         Loading
       </p>
@@ -96,11 +91,8 @@ export function Loader({ onComplete }) {
       <div className="absolute inset-0 flex">
         {Array.from({ length: 12 }, (_, i) => (
           <div key={i} className="relative h-full flex-1">
-            <div data-loader-decor={i} className="absolute inset-0 origin-bottom scale-y-0 bg-[#e85626] will-change-transform" />
-            <div
-              data-loader-final={i}
-              className="absolute inset-y-0 left-0 -right-px origin-bottom scale-y-0 bg-[#030303] will-change-transform"
-            />
+            <div className="absolute inset-0 origin-bottom bg-[#e85626] will-change-transform decor" />
+            <div className="absolute inset-y-0 left-0 -right-px origin-bottom bg-[#030303] will-change-transform final" />
           </div>
         ))}
       </div>
