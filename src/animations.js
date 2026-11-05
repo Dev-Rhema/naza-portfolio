@@ -16,7 +16,7 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
     .timeline({ paused: true, onComplete })
     .set(q(".statue"), { opacity: 1 }, 0)
     .from(q(".fade"), { opacity: 0, duration: 1, ease: "loaderFade" }, 0)
-    .to(q(".count"), { textContent: 100, duration: 4.4, ease: "none", snap: { textContent: 1 } }, 0)
+    .to(q(".count"), { textContent: 100, duration: 2.39, ease: "none", snap: { textContent: 1 } }, 0)
     .from(q(".quem"), { y: 123, ...text }, 0)
     .from(q(".como"), { y: 124, ...text }, 0.1)
     .from(q(".deus"), { y: 124, ...text }, 0.2)
