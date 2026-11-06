@@ -34,13 +34,14 @@ export function createHeroScroll(section) {
   const q = gsap.utils.selector(section);
   const arch = q(".arch")[0];
   const nft = q(".nft")[0];
+  const archEnd = () => section.offsetHeight - 26 - arch.offsetHeight;
 
   return gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=100%", pin: true, scrub: true, invalidateOnRefresh: true } })
-    .to(arch, { y: () => 128 - arch.offsetTop, ease: "none" })
+    .to(arch, { y: () => archEnd() - arch.offsetTop, ease: "none" })
     .to(nft, {
       x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2,
-      y: () => 128 + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
+      y: () => archEnd() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
       scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
       ease: "none",
     });

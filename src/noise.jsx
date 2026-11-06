@@ -4,7 +4,7 @@ import gsap from "gsap";
 
 gsap.registerPlugin(useGSAP);
 
-export function Noise({ visible }) {
+export function Noise({ visible, className = "fixed inset-0 -z-10" }) {
   const canvas = useRef(null);
 
   useGSAP(() => {
@@ -42,8 +42,8 @@ export function Noise({ visible }) {
     };
 
     const resize = () => {
-      el.width = Math.round(innerWidth * devicePixelRatio);
-      el.height = Math.round(innerHeight * devicePixelRatio);
+      el.width = Math.round(el.clientWidth * devicePixelRatio);
+      el.height = Math.round(el.clientHeight * devicePixelRatio);
       draw();
     };
 
@@ -61,7 +61,7 @@ export function Noise({ visible }) {
     <canvas
       ref={canvas}
       aria-hidden="true"
-      className="pointer-events-none fixed inset-0 -z-10 h-full w-full opacity-0"
+      className={`pointer-events-none h-full w-full opacity-0 ${className}`}
     />
   );
 }
