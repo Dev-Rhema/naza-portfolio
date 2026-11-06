@@ -24,7 +24,7 @@ export function Hero() {
         <img src={icheke} alt="Icheke" className="aspect-487/180 min-w-0 flex-487" />
       </div>
 
-      <div className="mt-8 flex shrink-0 items-baseline justify-between font-helvetica text-[40px] leading-none tracking-[-0.04em]">
+      <div className="mt-8 flex shrink-0 items-baseline justify-between font-helvetica text-[24px] leading-none tracking-[-0.04em]">
         <p className="font-medium text-white">Product Designer</p>
         <p className="mr-0.5 font-normal text-[#595959]">Design as a means to solve problems</p>
       </div>

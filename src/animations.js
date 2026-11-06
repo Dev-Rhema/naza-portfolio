@@ -39,8 +39,8 @@ export function createHeroScroll(section) {
   return gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=100%", pin: true, scrub: true, invalidateOnRefresh: true } })
     .to(arch, { y: () => archEnd() - arch.offsetTop, ease: "none" })
+    .set(nft, { x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2 })
     .to(nft, {
-      x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2,
       y: () => archEnd() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
       scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
       ease: "none",

@@ -5,13 +5,15 @@ import aboutUser from "../assets/images/aboutIcons/aboutUser.svg";
 
 export function About() {
   return (
-    <section className="px-20 py-18">
-      <p className="flex items-center gap-2 font-helvetica text-[22px] font-medium leading-none tracking-[-0.04em] text-white">
-        <img src={sectionIcon} alt="" className="size-6" />
-        <span className="pt-0.75">ABOUT ME</span>
+    <section className="relative px-20 py-22">
+      <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-34 bg-linear-to-b from-[#030303] to-transparent" />
+
+      <p className="flex items-center gap-2 font-helvetica text-[16px] font-medium leading-none tracking-[-0.04em] text-white">
+        <img src={sectionIcon} alt="" className="size-4.5" />
+        <span className="pt-0.5">ABOUT ME</span>
       </p>
 
-      <h2 className="isolate mt-6 font-helvetica text-[48px] font-medium leading-12.5 tracking-[-0.04em] text-white">
+      <h2 className="isolate mt-6 font-helvetica text-[48px] font-normal leading-[1.2] tracking-[-0.04em] text-white">
         Design is an avenue to create memories{" "}
         <span className="relative mr-[4.5px] ml-1.75 inline-block size-12 align-middle">
           <img src={aboutHand} alt="" className="absolute -top-2 -left-58.75 -z-10 max-w-none" />
@@ -29,7 +31,7 @@ export function About() {
       <div className="mt-12 flex items-end justify-between">
         <a
           href="#about"
-          className="flex h-13 w-40.25 items-center justify-center rounded-full bg-[#e85626] pt-0.75 font-helvetica text-[17px] font-medium leading-none text-white shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
+          className="flex h-10 w-32.25 items-center justify-center rounded-full bg-[#e85626] pt-0.75 font-helvetica text-[17px] font-medium leading-none text-white shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
         >
           About Me
         </a>

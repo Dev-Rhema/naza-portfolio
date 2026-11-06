@@ -3,10 +3,10 @@ import videoContainer from "../assets/images/VideoContainer.svg";
 
 export function Reel() {
   return (
-    <section className="px-20 py-18">
-      <p className="flex items-center justify-center gap-2 font-helvetica text-[22px] font-medium leading-none tracking-[-0.04em] text-white">
-        <img src={sectionIcon} alt="" className="size-6" />
-        <span className="pt-0.75">A DRAMATIC PRODUCT REEL</span>
+    <section className="px-20 py-22">
+      <p className="flex items-center justify-center gap-2 font-helvetica text-[16px] font-medium leading-none tracking-[-0.04em] text-white">
+        <img src={sectionIcon} alt="" className="size-4.5" />
+        <span className="pt-0.5">A DRAMATIC PRODUCT REEL</span>
       </p>
 
       <div className="relative mt-8">
