@@ -1,7 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Noise from "../noise";
-import { Navbar } from "../Navbar";
 import { Hero } from "../Sections/Hero";
 import { About } from "../Sections/About";
 import { Reel } from "../Sections/Reel";
@@ -16,7 +15,6 @@ export const Home = ({ loaded }) => {
       <Noise visible={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <Navbar />
           <Hero />
           <About />
           <Reel />

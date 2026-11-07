@@ -8,6 +8,7 @@ import tao from "../assets/images/HeaderImgs/tao.svg";
 import footium from "../assets/images/HeaderImgs/footium.svg";
 import vidaio from "../assets/images/HeaderImgs/vidaio.svg";
 import { createHeroScroll } from "../animations";
+import Navbar from "../Navbar";
 
 export function Hero() {
   const section = useRef(null);
@@ -21,6 +22,8 @@ export function Hero() {
       ref={section}
       className="relative flex h-screen flex-col overflow-hidden px-20 pt-32"
     >
+      <Navbar />
+
       <div className="flex shrink-0 items-start gap-[34.84px]">
         <div className="min-w-0 flex-579 overflow-hidden">
           <img
