@@ -37,12 +37,14 @@ export function createHeroScroll(section) {
   const archEnd = () => section.offsetHeight - 26 - arch.offsetHeight;
 
   return gsap
-    .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=100%", pin: true, scrub: true, invalidateOnRefresh: true } })
+    .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })
     .to(arch, { y: () => archEnd() - arch.offsetTop, ease: "none" })
+    .to(q(".slide"), { yPercent: 100, ease: "none" }, 0)
     .set(nft, { x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2 })
     .to(nft, {
       y: () => archEnd() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
       scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
+      duration: 0.25,
       ease: "none",
     });
 }

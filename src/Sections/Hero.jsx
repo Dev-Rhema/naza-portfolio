@@ -19,20 +19,24 @@ export function Hero() {
   return (
     <section ref={section} className="relative flex h-screen flex-col overflow-hidden px-20 pt-32">
       <div className="flex shrink-0 items-start gap-[34.84px]">
-        <img src={chinaza} alt="Chinaza" className="aspect-579/180 min-w-0 flex-579" />
+        <div className="min-w-0 flex-579 overflow-hidden">
+          <img src={chinaza} alt="Chinaza" className="aspect-579/180 w-full will-change-transform slide" />
+        </div>
         <img src={nft} alt="" className="aspect-145/180 min-w-0 flex-145 will-change-transform nft" />
-        <img src={icheke} alt="Icheke" className="aspect-487/180 min-w-0 flex-487" />
+        <div className="min-w-0 flex-487 overflow-hidden">
+          <img src={icheke} alt="Icheke" className="aspect-487/180 w-full will-change-transform slide" />
+        </div>
       </div>
 
-      <div className="mt-8 flex shrink-0 items-baseline justify-between font-helvetica text-[24px] leading-none tracking-[-0.04em]">
-        <p className="font-medium text-white">Product Designer</p>
-        <p className="mr-0.5 font-normal text-[#595959]">Design as a means to solve problems</p>
+      <div className="mt-8 flex shrink-0 items-baseline justify-between overflow-hidden font-helvetica text-[24px] leading-none tracking-[-0.04em]">
+        <p className="pb-1 font-medium text-white will-change-transform slide">Product Designer</p>
+        <p className="mr-0.5 pb-1 font-normal text-[#595959] will-change-transform slide">Design as a means to solve problems</p>
       </div>
 
       <img
         src={arch}
         alt=""
-        className="pointer-events-none relative z-10 mt-6.5 aspect-1300/871 w-[101.5625%] max-w-none shrink-0 self-center select-none will-change-transform arch"
+        className="pointer-events-none relative z-10 mt-5.5 aspect-1100/737 w-[85.9375%] max-w-none shrink-0 self-center select-none will-change-transform arch"
       />
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-86 bg-linear-to-b from-transparent to-[#030303]" />

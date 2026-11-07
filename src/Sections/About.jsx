@@ -1,3 +1,4 @@
+import Button from "../Button";
 import sectionIcon from "../assets/images/sectionIcon.svg";
 import aboutHand from "../assets/images/aboutIcons/aboutHand.svg";
 import aboutTorch from "../assets/images/aboutIcons/aboutTorch.svg";
@@ -29,12 +30,7 @@ export function About() {
       </h2>
 
       <div className="mt-12 flex items-end justify-between">
-        <a
-          href="#about"
-          className="flex h-10 w-32.25 items-center justify-center rounded-full bg-[#e85626] pt-0.75 font-helvetica text-[17px] font-medium leading-none text-white shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
-        >
-          About Me
-        </a>
+        <Button href="#about">About Me</Button>
         <p className="mb-[-5.5px] w-120 font-helvetica text-[16px] leading-4.75 tracking-[-0.04em] text-[#7d7d7d]">
           With experience in designing for various sectors, I am able to provide solutions that are adaptable. The sectors I have worked in include{" "}
           <span className="text-white">blockchain</span>, <span className="text-white">security</span>,{" "}

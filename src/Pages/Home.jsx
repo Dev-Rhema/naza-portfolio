@@ -14,9 +14,9 @@ export const Home = ({ loaded }) => {
   return (
     <main className="overflow-x-clip">
       <Noise visible={loaded} />
-      <Navbar loaded={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
+          <Navbar />
           <Hero />
           <About />
           <Reel />
