@@ -44,6 +44,7 @@ export function createHeroScroll(section) {
       y: () => bottom() - arch.offsetHeight * 0.232 - nft.offsetTop - nft.offsetHeight / 2,
       scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
       duration: 0.25,
+      force3D: false,
       ease: "none",
     });
 }

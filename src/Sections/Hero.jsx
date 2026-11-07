@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import arch from "../assets/images/HeaderImgs/Arch.svg";
 import chinaza from "../assets/images/HeaderImgs/CHINAZA.svg";
 import icheke from "../assets/images/HeaderImgs/ICHEKE.svg";
-import nft from "../assets/images/HeaderImgs/nft.svg";
+import nft from "../assets/images/HeaderImgs/nft.png";
 import tao from "../assets/images/HeaderImgs/tao.svg";
 import footium from "../assets/images/HeaderImgs/footium.svg";
 import vidaio from "../assets/images/HeaderImgs/vidaio.svg";
