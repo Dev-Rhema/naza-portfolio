@@ -21,11 +21,11 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
     .set(q(".statue"), { opacity: 1 }, 0)
     .from(q(".fade"), { opacity: 0, duration: 1, ease: "loaderFade" }, 0)
     .to(q(".count"), { textContent: 100, duration: 2.39, ease: "none", snap: { textContent: 1 } }, 0)
-    .from(q(".quem"), { y: 123, ...text }, 0)
-    .from(q(".como"), { y: 124, ...text }, 0.1)
-    .from(q(".deus"), { y: 124, ...text }, 0.2)
-    .from(q(".name"), { y: 136, ...text }, 0.3)
-    .from(q(".role"), { y: 134, ...text }, 0.38)
+    .from(q(".quem"), { yPercent: 106.77, ...text }, 0)
+    .from(q(".como"), { yPercent: 107.64, ...text }, 0.1)
+    .from(q(".deus"), { yPercent: 107.64, ...text }, 0.2)
+    .from(q(".name"), { yPercent: 236.11, ...text }, 0.3)
+    .from(q(".role"), { yPercent: 279.17, ...text }, 0.38)
     .from(q(".decor"), { scaleY: 0, ...columns }, 2.39)
     .to(q(".slice"), { height: 0, ...columns }, 2.49);
 }
