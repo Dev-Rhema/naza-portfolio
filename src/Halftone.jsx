@@ -10,9 +10,10 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
   useGSAP(() => {
     const ctx = canvas.current.getContext("2d");
     const dpr = Math.min(window.devicePixelRatio, 2);
-    canvas.current.width = width * dpr;
-    canvas.current.height = height * dpr;
+    canvas.current.width = (width + 120) * dpr;
+    canvas.current.height = (height + 120) * dpr;
     ctx.scale(dpr, dpr);
+    ctx.translate(60, 60);
 
     const tint = gsap.utils.interpolate("#f4f3f3", "#e85626");
     const dots = [];
@@ -43,7 +44,7 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
     const draw = () => {
       if (!awake) return;
       awake = px > -radius && px < width + radius && py > -radius && py < height + radius;
-      ctx.clearRect(0, 0, width, height);
+      ctx.clearRect(-60, -60, width + 120, height + 120);
       for (const d of dots) {
         const dx = d.x - px;
         const dy = d.y - py;
@@ -68,8 +69,8 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
 
     const move = (e) => {
       const box = canvas.current.getBoundingClientRect();
-      px = e.clientX - box.left;
-      py = e.clientY - box.top;
+      px = e.clientX - box.left - 60;
+      py = e.clientY - box.top - 60;
       if (shape) awake = true;
     };
 
@@ -81,7 +82,11 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
     };
   });
 
-  return <canvas ref={canvas} aria-hidden="true" className={className} />;
+  return (
+    <div aria-hidden="true" className={className}>
+      <canvas ref={canvas} className="absolute -inset-15" />
+    </div>
+  );
 };
 
 export default Halftone;
