@@ -4,6 +4,7 @@ import Noise from "../noise";
 import { Hero } from "../Sections/Hero";
 import { About } from "../Sections/About";
 import { Reel } from "../Sections/Reel";
+import { Footer } from "../Sections/Footer";
 
 export const Home = ({ loaded }) => {
   useGSAP(() => {
@@ -18,6 +19,7 @@ export const Home = ({ loaded }) => {
           <Hero />
           <About />
           <Reel />
+          <Footer />
         </div>
       </div>
     </main>
