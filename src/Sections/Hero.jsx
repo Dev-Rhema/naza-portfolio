@@ -63,7 +63,7 @@ export function Hero() {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-86 bg-linear-to-b from-transparent to-[#030303]" />
 
-      <p className="absolute bottom-9.75 left-20 z-20 font-helvetica text-[24px] font-medium leading-[28.8px] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
+      <p className="absolute bottom-9.75 left-20 z-20 font-helvetica text-[24px] font-normal leading-[28.8px] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
         <span className="block">
           Creating to inspire has always been my drive. This has
         </span>
