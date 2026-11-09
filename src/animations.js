@@ -12,7 +12,7 @@ CustomEase.create("loaderDecor", "0.85,0,0.15,1");
 export function createLoaderTimeline(scope, { onComplete } = {}) {
   const q = gsap.utils.selector(scope);
   const text = { duration: 2, ease: "loaderText" };
-  const columns = { duration: 1.4, ease: "loaderDecor", stagger: (i) => i * 0.1 + (i >= 10 ? 0.1 : 0) };
+  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i) => i * 0.065 + (i >= 10 ? 0.065 : 0) };
 
   gsap.set(q(".slice-inner"), { xPercent: (i) => (-i * 100) / 12 });
 
@@ -27,7 +27,7 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
     .from(q(".name"), { yPercent: 236.11, ...text }, 0.3)
     .from(q(".role"), { yPercent: 279.17, ...text }, 0.38)
     .from(q(".decor"), { scaleY: 0, ...columns }, 2.39)
-    .to(q(".slice"), { height: 0, ...columns }, 2.49);
+    .to(q(".slice"), { height: 0, ...columns }, 2.455);
 }
 
 export function createHeroScroll(section) {

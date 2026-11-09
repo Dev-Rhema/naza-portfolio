@@ -17,15 +17,15 @@ export function About() {
       <h2 className="isolate mt-6 font-helvetica text-[48px] font-normal leading-[1.2] tracking-[-0.04em] text-white">
         Design is an avenue to create memories{" "}
         <span className="relative mr-[4.5px] ml-1.75 inline-block size-12 align-middle">
-          <img src={aboutHand} alt="" className="absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none" />
+          <img src={aboutHand} alt="" className="pointer-events-none absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none select-none" />
         </span>{" "}
         and for 7 years I have always searched{" "}
         <span className="relative mr-[4.5px] ml-1.75 inline-block size-12 align-middle">
-          <img src={aboutTorch} alt="" className="absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none" />
+          <img src={aboutTorch} alt="" className="pointer-events-none absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none select-none" />
         </span>{" "}
         for ways to create not just interfaces but wholesome experiences for users{" "}
         <span className="relative mr-[4.5px] ml-1.75 inline-block size-12 align-middle">
-          <img src={aboutUser} alt="" className="absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none" />
+          <img src={aboutUser} alt="" className="pointer-events-none absolute -top-2 -left-58.75 -z-10 w-129.5 max-w-none select-none" />
         </span>
       </h2>
 
