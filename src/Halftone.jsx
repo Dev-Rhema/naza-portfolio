@@ -84,7 +84,7 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
 
   return (
     <div aria-hidden="true" className={className}>
-      <canvas ref={canvas} className="absolute -inset-15" />
+      <canvas ref={canvas} className="absolute -top-15 -left-15 h-[calc(100%+120px)] w-[calc(100%+120px)] max-w-none" />
     </div>
   );
 };
