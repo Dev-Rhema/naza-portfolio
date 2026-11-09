@@ -37,9 +37,6 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
           if (tone > 0.04) dots.push({ x, y, vx: 0, vy: 0, hx: x, hy: y, r: Math.sqrt(tone) * gap * 0.56 });
         }
       }
-      s.globalCompositeOperation = "source-in";
-      s.fillStyle = "#030303";
-      s.fillRect(0, 0, width, height);
       awake = true;
     };
 
@@ -47,7 +44,6 @@ export const Halftone = ({ src, width, height, gap = 4, radius = 60, className =
       if (!awake) return;
       awake = px > -radius && px < width + radius && py > -radius && py < height + radius;
       ctx.clearRect(0, 0, width, height);
-      ctx.drawImage(shape, 0, 0);
       for (const d of dots) {
         const dx = d.x - px;
         const dy = d.y - py;
