@@ -1,4 +1,5 @@
 import Button from "../Button";
+import Halftone from "../Halftone";
 import glass from "../assets/images/footerImgs/glass.png";
 import reflection from "../assets/images/footerImgs/reflection.png";
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.png";
@@ -8,7 +9,7 @@ export function Footer() {
     <footer className="relative h-[727px] overflow-hidden px-20 pt-[40.5px]">
       <img src={reflection} alt="" className="pointer-events-none absolute top-75 left-1/2 -ml-180 w-360 max-w-none select-none" />
       <img src={glass} alt="" className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 w-321.75 max-w-none opacity-45 select-none" />
-      <img src={nazaSitting} alt="" className="pointer-events-none absolute top-[337.5px] left-1/2 -ml-63.25 w-114.25 max-w-none select-none" />
+      <Halftone src={nazaSitting} width={457} height={390} className="pointer-events-none absolute top-[337.5px] left-1/2 -ml-63.25 h-97.5 w-114.25 max-w-none select-none" />
 
       <div className="relative">
         <h2 className="font-helvetica text-[32px] font-normal leading-[1.1] tracking-[-0.04em] text-white">
