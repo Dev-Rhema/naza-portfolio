@@ -7,7 +7,7 @@ gsap.registerPlugin(CustomEase, ScrollTrigger, ScrollSmoother);
 
 CustomEase.create("loaderText", "0.85,0,0.15,1");
 CustomEase.create("loaderFade", "0.5,0,0.03,1");
-CustomEase.create("loaderDecor", "0.85,0,0.15,1");
+CustomEase.create("loaderDecor", "0.65,0,0.35,1");
 
 export function createLoaderTimeline(scope, { onComplete } = {}) {
   const q = gsap.utils.selector(scope);
