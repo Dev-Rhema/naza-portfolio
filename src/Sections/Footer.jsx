@@ -6,10 +6,23 @@ import nazaSitting from "../assets/images/footerImgs/NazaSitting.png";
 
 export function Footer() {
   return (
-    <footer className="relative h-[727px] overflow-hidden px-20 pt-[40.5px]">
-      <img src={reflection} alt="" className="pointer-events-none absolute top-75 left-1/2 -ml-180 w-360 max-w-none select-none" />
-      <img src={glass} alt="" className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 w-321.75 max-w-none opacity-45 select-none" />
-      <Halftone src={nazaSitting} width={457} height={390} className="pointer-events-none absolute top-[337.5px] left-1/2 -ml-63.25 h-97.5 w-114.25 max-w-none select-none" />
+    <footer className="relative h-181.75 overflow-hidden px-20 pt-[40.5px]">
+      <img
+        src={reflection}
+        alt=""
+        className="pointer-events-none absolute top-75 left-1/2 -ml-180 w-360 max-w-none select-none"
+      />
+      <img
+        src={glass}
+        alt=""
+        className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 w-321.75 max-w-none opacity-45 select-none"
+      />
+      <Halftone
+        src={nazaSitting}
+        width={457}
+        height={390}
+        className="pointer-events-none absolute top-[337.5px] left-1/2 -ml-63.25 h-97.5 w-114.25 max-w-none select-none"
+      />
 
       <div className="relative">
         <h2 className="font-helvetica text-[32px] font-normal leading-[1.1] tracking-[-0.04em] text-white">
@@ -41,20 +54,32 @@ export function Footer() {
         <div className="flex">
           <div>
             <p className="text-[16px] font-normal text-[#4f4f4f]">Built by</p>
-            <p className="mt-[11.7px] text-[18px] font-medium text-white">Rhema</p>
+            <p className="mt-[11.7px] text-[18px] font-medium text-white">
+              Rhema
+            </p>
           </div>
           <div className="ml-[37.5px]">
             <p className="text-[16px] font-normal text-[#4f4f4f]">3D art by</p>
-            <p className="mt-[11.7px] text-[18px] font-medium text-white">Kewve</p>
+            <p className="mt-[11.7px] text-[18px] font-medium text-white">
+              Kewve
+            </p>
           </div>
           <div className="ml-[33.5px]">
-            <p className="text-[16px] font-normal text-[#4f4f4f]">Illustrations by</p>
-            <p className="mt-[11.7px] text-[18px] font-medium text-white">Rhema, Omolade</p>
+            <p className="text-[16px] font-normal text-[#4f4f4f]">
+              Illustrations by
+            </p>
+            <p className="mt-[11.7px] text-[18px] font-medium text-white">
+              Rhema, Omolade
+            </p>
           </div>
         </div>
         <div className="text-right">
-          <p className="text-[16px] font-normal text-[#4f4f4f]">Stained Glass Illustrations From</p>
-          <p className="mt-[11.7px] text-[18px] font-medium text-white">Stained Glass Inc</p>
+          <p className="text-[16px] font-normal text-[#4f4f4f]">
+            Stained Glass Illustrations From
+          </p>
+          <p className="mt-[11.7px] text-[18px] font-medium text-white">
+            Stained Glass Inc
+          </p>
         </div>
       </div>
     </footer>
