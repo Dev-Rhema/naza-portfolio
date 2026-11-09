@@ -1,5 +1,5 @@
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import videoContainer from "../assets/images/VideoContainer.svg";
+import videoContainer from "../assets/images/VideoContainer.png";
 
 export function Reel() {
   return (

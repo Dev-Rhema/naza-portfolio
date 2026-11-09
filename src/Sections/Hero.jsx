@@ -35,7 +35,7 @@ export function Hero() {
         <img
           src={nft}
           alt=""
-          className="aspect-145/180 min-w-0 flex-145 nft"
+          className="aspect-145/180 min-w-0 flex-145 will-change-transform nft"
         />
         <div className="min-w-0 flex-487 overflow-hidden">
           <img

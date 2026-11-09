@@ -5,7 +5,7 @@ export const Navbar = () => {
   return (
     <header className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-20 pt-10">
       <a href="/" aria-label="Home">
-        <img src="/nazaLogo.svg" alt="Naza" className="size-12" />
+        <img src="/nazaLogo.png" alt="Naza" className="size-12" />
       </a>
 
       <div className="flex h-12 items-center">
