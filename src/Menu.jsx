@@ -31,15 +31,15 @@ export const Menu = ({ onClose }) =>
       <div className="relative flex flex-1 flex-col">
         <nav className="min-h-0 flex-1 overflow-y-auto pt-25 pl-10 font-helvetica">
           <p className="font-mono text-[16px] leading-none tracking-[3px] text-[#666666]">WORKS</p>
-          <ul className="mt-[3.5px] text-[48px] font-normal leading-20 text-white">
+          <ul className="mt-2 text-[40px] font-normal leading-16.5 text-white">
             {works.map((item) => (
               <li key={item}>
                 <a href="#">{item}</a>
               </li>
             ))}
           </ul>
-          <p className="mt-[35.5px] font-mono text-[16px] leading-none tracking-[3px] text-[#666666]">ME</p>
-          <ul className="mt-[3.5px] text-[48px] font-normal leading-20 text-white">
+          <p className="mt-10 font-mono text-[16px] leading-none tracking-[3px] text-[#666666]">ME</p>
+          <ul className="mt-2 text-[40px] font-normal leading-16.5 text-white">
             {me.map((item) => (
               <li key={item}>
                 <a href="#">{item}</a>
