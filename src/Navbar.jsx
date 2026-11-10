@@ -1,7 +1,11 @@
+import { useState } from "react";
 import musicIcon from "./assets/images/musicIcon.svg";
 import Button from "./Button";
+import Menu from "./Menu";
 
 export const Navbar = () => {
+  const [open, setOpen] = useState(false);
+
   return (
     <header className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-20 pt-10">
       <a href="/" aria-label="Home">
@@ -21,6 +25,7 @@ export const Navbar = () => {
         <button
           type="button"
           aria-label="Open menu"
+          onClick={() => setOpen(true)}
           className="ml-4 flex size-12 flex-col items-center justify-center gap-1 rounded-full bg-[#333333] shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
         >
           <span className="h-0.5 w-4.5 rounded-full bg-[#d9d9d9]" />
@@ -28,6 +33,7 @@ export const Navbar = () => {
           <span className="h-0.5 w-4.5 rounded-full bg-[#d9d9d9]" />
         </button>
       </div>
+      {open && <Menu onClose={() => setOpen(false)} />}
     </header>
   );
 };
