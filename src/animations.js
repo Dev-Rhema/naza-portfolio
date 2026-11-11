@@ -54,14 +54,26 @@ export function createMenuTimeline(scope) {
     .fromTo(q(".menu-bar"), { width: "0%" }, { width: "100%", duration: 0.96, ease: "menuReveal" }, 1.715)
     .from(q(".menu-label"), { y: "1.3333em", ...text, ease: "menuLabels", stagger: 0.3 }, 1.7)
     .from(q(".menu-item"), { y: "1.3333em", ...text, ease: "menuItems", stagger: (i) => (i + (i >= 6 ? 1 : 0)) * 0.05 }, 1.7)
-    .from(q(".menu-caption"), { y: 46, ...text, stagger: 0.055 }, 1.725)
+    .from(q(".menu-caption"), { y: "2.875rem", ...text, stagger: 0.055 }, 1.725)
     .from(q(".menu-crest"), { opacity: 0, duration: 1.06, ease: "menuCrest" }, 1.9);
+}
+
+export function createMenuClose(scope) {
+  const q = gsap.utils.selector(scope);
+  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i) => (11 - i) * 0.065 + (i <= 1 ? 0.065 : 0) };
+
+  gsap.set(q(".menu-close-inner"), { xPercent: (i) => (-i * 100) / 12 });
+
+  return gsap
+    .timeline()
+    .to(q(".menu-close-slice"), { height: "0%", ...columns }, 0)
+    .to(q(".menu-close-decor"), { scaleY: 0, ...columns }, 0.065);
 }
 
 export function createHeroScroll(section) {
   const arch = section.querySelector(".arch");
   const nft = section.querySelector(".nft");
-  const bottom = () => section.offsetHeight - 26;
+  const bottom = () => section.clientHeight - parseFloat(getComputedStyle(section).paddingBottom);
 
   return gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })

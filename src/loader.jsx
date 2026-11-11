@@ -34,39 +34,39 @@ export function Loader({ onComplete }) {
 
             <Reveal
               id="quem"
-              className="top-1/2 mt-[-204px] inset-x-0 text-center font-kalnia text-[56px] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[96px] md:h-29.25"
+              className="top-1/2 mt-[-12.75rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[6rem] md:h-29.25"
             >
               QUEM
             </Reveal>
-            <p className="absolute top-[22.4px] right-6 font-helvetica font-medium text-[16px] leading-[1.2] text-[#4d4d4d] fade md:top-[80.7px] md:right-20 md:text-[24px]">
+            <p className="absolute top-[1.4rem] right-6 font-helvetica font-medium text-[1rem] leading-[1.2] text-[#4d4d4d] fade md:top-[5.04375rem] md:right-20 md:text-[1.5rem]">
               <span className="count">0</span>%
             </p>
 
             <Reveal
               id="name"
-              className="top-1/2 mt-[-97px] inset-x-0 text-center font-helvetica font-normal text-[24px] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-1.65px] md:right-auto md:font-medium md:left-20 md:text-left md:text-[48px] md:h-[50.6px]"
+              className="top-1/2 mt-[-6.0625rem] inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-0.103125rem] md:right-auto md:font-medium md:left-20 md:text-left md:text-[3rem] md:h-[3.1625rem]"
             >
               Chinaza Icheke
             </Reveal>
             <Reveal
               id="como"
-              className="top-1/2 mt-[-35px] inset-x-0 text-center font-kalnia text-[56px] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-55.4px] md:text-[96px] md:h-[119.4px]"
+              className="top-1/2 mt-[-2.1875rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-3.4625rem] md:text-[6rem] md:h-[7.4625rem]"
             >
               COMO
             </Reveal>
             <Reveal
               id="role"
-              className="top-1/2 mt-[72.5px] inset-x-0 text-center font-helvetica font-normal text-[24px] leading-[1.2] tracking-[-0.0105em] text-[#4d4d4d] md:mt-[2.8px] md:tracking-[-0.0285em] md:left-auto md:font-medium md:right-[81.4px] md:text-left md:text-[40px] md:h-[46.2px]"
+              className="top-1/2 mt-[4.53125rem] inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-[#4d4d4d] md:mt-[0.175rem] md:tracking-[-0.0285em] md:left-auto md:font-medium md:right-[5.0875rem] md:text-left md:text-[2.5rem] md:h-[2.8875rem]"
             >
               Product Designer
             </Reveal>
 
-            <p className="absolute bottom-[26.5px] left-6 font-helvetica font-medium text-[16px] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] fade md:bottom-[71.6px] md:left-20 md:text-[24px]">
+            <p className="absolute bottom-[1.65625rem] left-6 font-helvetica font-medium text-[1rem] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] fade md:bottom-[4.475rem] md:left-20 md:text-[1.5rem]">
               Loading
             </p>
             <Reveal
               id="deus"
-              className="top-1/2 mt-[134.5px] inset-x-0 text-center font-kalnia text-[56px] leading-[1.2] font-medium text-white font-stretch-100% md:top-auto md:mt-0 md:left-auto md:right-20 md:bottom-[77.1px] md:text-left md:text-[96px]"
+              className="top-1/2 mt-[8.40625rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-auto md:mt-0 md:left-auto md:right-20 md:bottom-[4.81875rem] md:text-left md:text-[6rem]"
             >
               DEUS
             </Reveal>

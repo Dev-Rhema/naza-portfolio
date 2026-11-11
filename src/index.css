@@ -33,3 +33,9 @@
 body {
   background: #030303;
 }
+
+@media (min-width: 768px) {
+  html {
+    font-size: min(16px, calc(100vw / 90));
+  }
+}

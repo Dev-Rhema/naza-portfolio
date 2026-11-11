@@ -15,11 +15,11 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
 
       const tl = gsap
         .timeline({ defaults: { ease: "hamburger", overwrite: "auto" } })
-        .to([top, middle, bottom], { width: 18, duration: 0.3, ease: "power1.out" }, 0);
+        .to([top, middle, bottom], { scaleX: 1, transformOrigin: "50% 50%", duration: 0.3, ease: "power1.out" }, 0);
 
       if (open) {
-        tl.to(top, { y: 6, duration: 1.1 }, 0)
-          .to(bottom, { y: -6, duration: 1.1 }, 0)
+        tl.to(top, { y: "0.375rem", duration: 1.1 }, 0)
+          .to(bottom, { y: "-0.375rem", duration: 1.1 }, 0)
           .set(middle, { opacity: 0 }, 1)
           .to(top, { rotation: 45, duration: 1.15 }, 1)
           .to(bottom, { rotation: -45, duration: 1.15 }, 1);
@@ -41,8 +41,8 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
   const hover = contextSafe((button) => {
     const lines = button.querySelectorAll(".line");
     if (open || gsap.isTweening(lines)) return;
-    const line = { duration: 0.725, ease: "circ.inOut", stagger: 0.045 };
-    gsap.timeline().to(lines, { width: 5, ...line }).to(lines, { width: 18, ...line }, 0.985);
+    const line = { transformOrigin: "0% 50%", duration: 0.725, ease: "circ.inOut", stagger: 0.045 };
+    gsap.timeline().to(lines, { scaleX: 0.28, ...line }).to(lines, { scaleX: 1, ...line }, 0.985);
   });
 
   return (
@@ -55,11 +55,11 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
       onPointerDown={(e) => press(e.currentTarget, true)}
       onPointerUp={(e) => press(e.currentTarget, false)}
       onPointerLeave={(e) => press(e.currentTarget, false)}
-      className={`relative size-12 cursor-pointer rounded-full bg-[#333333] shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)] ${className}`}
+      className={`relative size-10 cursor-pointer md:size-12 rounded-full bg-[#333333] shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)] ${className}`}
     >
-      <span className="absolute top-1/2 left-1/2 -mt-1.75 -ml-2.25 h-0.5 w-4.5 rounded-full bg-[#d9d9d9] line" />
-      <span className="absolute top-1/2 left-1/2 -mt-px -ml-2.25 h-0.5 w-4.5 rounded-full bg-[#d9d9d9] line" />
-      <span className="absolute top-1/2 left-1/2 mt-1.25 -ml-2.25 h-0.5 w-4.5 rounded-full bg-[#d9d9d9] line" />
+      <span className="absolute top-1/2 left-1/2 -mt-1.75 -ml-2.5 h-0.5 w-5 md:-ml-2.25 md:w-4.5 rounded-full bg-[#d9d9d9] line" />
+      <span className="absolute top-1/2 left-1/2 -mt-px -ml-2.5 h-0.5 w-5 md:-ml-2.25 md:w-4.5 rounded-full bg-[#d9d9d9] line" />
+      <span className="absolute top-1/2 left-1/2 mt-1.25 -ml-2.5 h-0.5 w-5 md:-ml-2.25 md:w-4.5 rounded-full bg-[#d9d9d9] line" />
     </button>
   );
 };
