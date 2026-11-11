@@ -73,17 +73,25 @@ export function createMenuClose(scope) {
 export function createHeroScroll(section) {
   const arch = section.querySelector(".arch");
   const nft = section.querySelector(".nft");
-  const bottom = () => section.clientHeight - parseFloat(getComputedStyle(section).paddingBottom);
+  const style = getComputedStyle(section);
+  const mobile = innerWidth < 768;
+  const archTop = () =>
+    mobile ? parseFloat(style.paddingTop) : section.clientHeight - parseFloat(style.paddingBottom) - arch.offsetHeight;
 
   return gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })
-    .to(arch, { y: () => bottom() - arch.offsetHeight - arch.offsetTop, ease: "none" })
+    .to(arch, { y: () => archTop() - arch.offsetTop, ease: "none" })
     .to(section.querySelectorAll(".slide"), { yPercent: 100, ease: "none" }, 0)
-    .set(nft, { x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2 })
-    .to(nft, {
-      y: () => bottom() - arch.offsetHeight * 0.232 - nft.offsetTop - nft.offsetHeight / 2,
-      scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
-      duration: 0.25,
-      ease: "none",
-    });
+    .set(nft, { x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2 }, mobile ? 0.75 : 0.5)
+    .to(
+      nft,
+      {
+        x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2,
+        y: () => archTop() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
+        scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
+        duration: mobile ? 0.75 : 0.25,
+        ease: "none",
+      },
+      mobile ? 0 : 0.5,
+    );
 }

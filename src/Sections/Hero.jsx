@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
-import gsap from "gsap";
 import arch from "../assets/images/HeaderImgs/Arch.svg";
 import chinaza from "../assets/images/HeaderImgs/CHINAZA.svg";
 import icheke from "../assets/images/HeaderImgs/ICHEKE.svg";
@@ -16,9 +15,7 @@ export function Hero() {
   const section = useRef(null);
 
   useGSAP(() => {
-    gsap.matchMedia().add("(min-width: 768px)", () => {
-      createHeroScroll(section.current);
-    });
+    createHeroScroll(section.current);
   });
 
   return (
@@ -39,13 +36,13 @@ export function Hero() {
         <img
           src={nft}
           alt=""
-          className="absolute top-[17.03125rem] right-6 aspect-145/180 w-[4.1875rem] min-w-0 will-change-transform md:static md:w-auto md:flex-145 nft"
+          className="order-last mt-[1.66%] aspect-145/180 w-[17.16%] min-w-0 self-center will-change-transform md:order-none md:mt-0 md:w-auto md:flex-145 md:self-auto nft"
         />
-        <div className="w-[84.11%] min-w-0 overflow-hidden md:w-auto md:flex-487">
+        <div className="w-[82.84%] min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
           <img
             src={icheke}
             alt="Icheke"
-            className="aspect-487/180 w-full will-change-transform slide"
+            className="aspect-487/180 w-[101.53%] max-w-none will-change-transform md:w-full slide"
           />
         </div>
       </div>
@@ -65,7 +62,7 @@ export function Hero() {
         className="pointer-events-none relative z-10 mt-[0.9375rem] aspect-1100/737 w-[46.25rem] max-w-none md:mt-6.5 md:w-[85.9375%] shrink-0 self-center select-none will-change-transform arch"
       />
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-86 bg-linear-to-b from-transparent to-[#030303]" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[10.625rem] bg-linear-to-b from-transparent to-[#030303] to-60% md:h-86 md:to-100%" />
 
       <p className="absolute bottom-9.75 left-20 z-20 hidden font-helvetica md:block text-[1.5rem] font-normal leading-[1.8rem] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
         <span className="block">
