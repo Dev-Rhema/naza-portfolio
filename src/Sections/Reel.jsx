@@ -1,9 +1,6 @@
 import sectionIcon from "../assets/images/sectionIcon.svg";
 import painting from "../assets/images/reelPainting.png";
-import cornerTL from "../assets/images/reelCornerTL.png";
-import cornerTR from "../assets/images/reelCornerTR.png";
-import cornerBL from "../assets/images/reelCornerBL.png";
-import cornerBR from "../assets/images/reelCornerBR.png";
+import corner from "../assets/images/corner.png";
 
 export function Reel() {
   return (
@@ -15,10 +12,10 @@ export function Reel() {
 
       <div className="relative mt-4 aspect-392/335 md:mt-8 md:aspect-1280/725">
         <img src={painting} alt="" className="pointer-events-none absolute inset-0 size-full object-cover select-none" />
-        <img src={cornerTL} alt="" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14" />
-        <img src={cornerTR} alt="" className="pointer-events-none absolute top-0 right-0 w-10 select-none md:w-14" />
-        <img src={cornerBL} alt="" className="pointer-events-none absolute bottom-0 left-0 w-10 select-none md:w-14" />
-        <img src={cornerBR} alt="" className="pointer-events-none absolute right-0 bottom-0 w-10 select-none md:w-14" />
+        <img src={corner} alt="" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14" />
+        <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14" />
+        <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14" />
+        <img src={corner} alt="" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-14" />
         <div className="absolute inset-x-[1.0625rem] top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-14 md:top-13 md:bottom-14.25 md:rounded-xl">
           <button
             type="button"

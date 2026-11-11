@@ -6,10 +6,7 @@ import { createMenuTimeline, createMenuClose } from "./animations";
 import Hamburger from "./Hamburger";
 import painting from "./assets/images/menuImgs/menuPainting.png";
 import crest from "./assets/images/menuImgs/menuCrest.png";
-import cornerTL from "./assets/images/menuImgs/menuCornerTL.png";
-import cornerTR from "./assets/images/menuImgs/menuCornerTR.png";
-import cornerBL from "./assets/images/menuImgs/menuCornerBL.png";
-import cornerBR from "./assets/images/menuImgs/menuCornerBR.png";
+import corner from "./assets/images/corner.png";
 import background from "./assets/images/menuImgs/menuBg.png";
 
 gsap.registerPlugin(useGSAP);
@@ -23,10 +20,10 @@ const MenuContent = ({ band }) => (
       <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-painting">
         <div className="relative h-screen w-full">
           <img src={painting} alt="" className="pointer-events-none size-full object-cover object-top select-none" />
-          <img src={cornerTL} alt="" className="pointer-events-none absolute top-0 left-0 w-25 select-none menu-corner" />
-          <img src={cornerTR} alt="" className="pointer-events-none absolute top-0 right-0 w-25 select-none menu-corner" />
-          <img src={cornerBL} alt="" className="pointer-events-none absolute bottom-0 left-0 w-25 select-none menu-corner" />
-          <img src={cornerBR} alt="" className="pointer-events-none absolute right-0 bottom-0 w-25 select-none menu-corner" />
+          <img src={corner} alt="" className="pointer-events-none absolute top-0 left-0 w-[6.03125rem] select-none menu-corner" />
+          <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-[6.03125rem] -scale-x-100 select-none menu-corner" />
+          <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-[6.03125rem] -scale-y-100 select-none menu-corner" />
+          <img src={corner} alt="" className="pointer-events-none absolute right-0 bottom-0 w-[6.03125rem] rotate-180 select-none menu-corner" />
         </div>
       </div>
       <img
