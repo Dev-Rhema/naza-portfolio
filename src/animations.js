@@ -81,21 +81,29 @@ export function createHeroScroll(section) {
   const mobile = innerWidth < 768;
   const archTop = () =>
     mobile ? parseFloat(style.paddingTop) : section.clientHeight - parseFloat(style.paddingBottom) - arch.offsetHeight;
+  const nftCenterX = () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2;
+  const nftCenterY = () =>
+    archTop() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2;
+  const nftScale = () => (arch.offsetWidth * 0.198) / nft.offsetWidth;
 
-  return gsap
+  const timeline = gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })
     .to(arch, { y: () => archTop() - arch.offsetTop, ease: "none" })
-    .to(section.querySelectorAll(".slide"), { yPercent: 100, ease: "none" }, 0)
-    .set(nft, { x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2 }, mobile ? 0.75 : 0.5)
-    .to(
+    .to(section.querySelectorAll(".slide"), { yPercent: 100, ease: "none" }, 0);
+
+  if (mobile) {
+    return timeline.fromTo(
       nft,
       {
-        x: () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2,
-        y: () => archTop() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2,
-        scale: () => (arch.offsetWidth * 0.198) / nft.offsetWidth,
-        duration: mobile ? 0.75 : 0.25,
-        ease: "none",
+        x: nftCenterX,
+        y: () => arch.offsetTop - nft.offsetTop,
       },
-      mobile ? 0 : 0.5,
+      { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.75, ease: "none" },
+      0,
     );
+  }
+
+  return timeline
+    .set(nft, { x: nftCenterX }, 0.5)
+    .to(nft, { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.25, ease: "none" }, 0.5);
 }

@@ -21,12 +21,12 @@ export function Hero() {
   return (
     <section
       ref={section}
-      className="relative flex flex-col overflow-hidden px-6 pt-28 pb-5.5 md:h-screen md:px-20 md:pt-32 md:pb-6.5"
+      className="relative flex h-screen flex-col overflow-hidden px-6 pt-28 pb-5.5 md:px-20 md:pt-32 md:pb-6.5"
     >
       <Navbar />
 
       <div className="flex shrink-0 flex-wrap items-start gap-y-4 md:flex-nowrap md:gap-[2.1775rem]">
-        <div className="w-full min-w-0 overflow-hidden md:w-auto md:flex-579">
+        <div className="relative z-10 w-full min-w-0 overflow-hidden md:w-auto md:flex-579">
           <img
             src={chinaza}
             alt="Chinaza"
@@ -36,13 +36,13 @@ export function Hero() {
         <img
           src={nft}
           alt=""
-          className="order-last mt-[1.66%] aspect-145/180 w-[17.16%] min-w-0 self-center will-change-transform md:order-none md:mt-0 md:w-auto md:flex-145 md:self-auto nft"
+          className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-none md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
         />
-        <div className="w-[82.84%] min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
+        <div className="relative z-10 w-full min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
           <img
             src={icheke}
             alt="Icheke"
-            className="aspect-487/180 w-[101.53%] max-w-none will-change-transform md:w-full slide"
+            className="aspect-487/180 w-full max-w-none will-change-transform md:w-full slide"
           />
         </div>
       </div>
@@ -56,13 +56,12 @@ export function Hero() {
         </p>
       </div>
 
-      <img
-        src={arch}
-        alt=""
-        className="pointer-events-none relative z-10 mt-[0.9375rem] aspect-1100/737 w-[46.25rem] max-w-none md:mt-6.5 md:w-[85.9375%] shrink-0 self-center select-none will-change-transform arch"
-      />
+      <div className="relative z-10 mt-[0.9375rem] aspect-1100/737 w-[46.25rem] max-w-none shrink-0 self-center will-change-transform md:mt-6.5 md:w-[85.9375%] arch">
+        <img src={arch} alt="" className="pointer-events-none size-full select-none" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[16rem] bg-linear-to-b from-transparent to-[#030303] to-100% md:h-86" />
+      </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[10.625rem] bg-linear-to-b from-transparent to-[#030303] to-60% md:h-86 md:to-100%" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[16rem] bg-linear-to-b from-transparent to-[#030303] md:h-86" />
 
       <p className="absolute bottom-9.75 left-20 z-20 hidden font-helvetica md:block text-[1.5rem] font-normal leading-[1.8rem] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
         <span className="block">
@@ -93,7 +92,7 @@ export function Hero() {
         </span>
       </p>
 
-      <p className="relative z-20 -mt-[7.775rem] font-helvetica text-[1.25rem] font-normal leading-[1.625rem] tracking-[-0.04em] text-[#7d7d7d] md:hidden">
+      <p className="absolute right-6 bottom-[4.75rem] left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-[1.625rem] tracking-[-0.04em] text-[#7d7d7d] md:hidden">
         Creating to inspire has always been my drive.
         <br />
         This has guided my works at{" "}
@@ -105,9 +104,9 @@ export function Hero() {
         <img src={vidaio} alt="" className="mr-1 -my-1 inline size-6 align-[-0.1875rem]" />
         <span className="text-white">Vidaio</span> , and others
       </p>
-      <Button href="#contact" className="relative z-20 mt-[1.425rem] md:hidden">
-        Let’s Chat
-      </Button>
+      <div className="absolute bottom-2.5 left-6 z-20 md:hidden">
+        <Button href="#contact">Let’s Chat</Button>
+      </div>
     </section>
   );
 }
