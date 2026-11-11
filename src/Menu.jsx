@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import { createMenuTimeline, createMenuClose } from "./animations";
+import { columnCount, createMenuTimeline, createMenuClose } from "./animations";
 import Hamburger from "./Hamburger";
 import painting from "./assets/images/menuImgs/menuPainting.png";
 import crest from "./assets/images/menuImgs/menuCrest.png";
@@ -114,14 +114,14 @@ export const Menu = ({ onClose }) => {
     <div ref={root} className="fixed inset-0 z-50">
       <div className={`absolute inset-0 flex ${closing ? "invisible" : ""}`}>
         <div className="absolute inset-0 flex">
-          {Array.from({ length: 12 }, (_, i) => (
+          {Array.from({ length: columnCount() }, (_, i) => (
             <div key={i} className="relative h-full flex-1 overflow-hidden">
               <div className="absolute inset-0 origin-top bg-[#e85626] will-change-transform menu-decor" />
               <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-slice">
                 <img
                   src={background}
                   alt=""
-                  className="pointer-events-none absolute top-0 left-0 h-screen w-[1200%] max-w-none object-cover select-none menu-slice-inner"
+                  className="pointer-events-none absolute top-0 left-0 h-screen w-[400%] md:w-[1200%] max-w-none object-cover select-none menu-slice-inner"
                 />
               </div>
             </div>
@@ -132,11 +132,11 @@ export const Menu = ({ onClose }) => {
 
       {closing && (
         <div className="absolute inset-0 flex">
-          {Array.from({ length: 12 }, (_, i) => (
+          {Array.from({ length: columnCount() }, (_, i) => (
             <div key={i} className="relative h-full flex-1 overflow-hidden">
               <div className="absolute inset-0 origin-top bg-[#e85626] menu-close-decor" />
               <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-close-slice">
-                <div className="absolute top-0 left-0 flex h-screen w-[1200%] menu-close-inner">
+                <div className="absolute top-0 left-0 flex h-screen w-[400%] md:w-[1200%] menu-close-inner">
                   <img src={background} alt="" className="pointer-events-none absolute inset-0 size-full object-cover select-none" />
                   <MenuContent band={band} />
                 </div>

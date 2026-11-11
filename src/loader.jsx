@@ -2,7 +2,7 @@ import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import statue from "./assets/images/loaderStatue.webp";
-import { createLoaderTimeline } from "./animations";
+import { columnCount, createLoaderTimeline } from "./animations";
 
 gsap.registerPlugin(useGSAP);
 
@@ -23,9 +23,9 @@ export function Loader({ onComplete }) {
 
   return (
     <div ref={root} role="status" aria-label="Loading" className="fixed inset-0 z-50 flex overflow-hidden">
-      {Array.from({ length: 12 }, (_, i) => (
+      {Array.from({ length: columnCount() }, (_, i) => (
         <div key={i} aria-hidden={i > 0} className="relative h-full flex-1 overflow-hidden slice">
-          <div className="absolute top-0 left-0 h-screen w-[1200%] bg-[#030303] slice-inner">
+          <div className="absolute top-0 left-0 h-screen w-[400%] md:w-[1200%] bg-[#030303] slice-inner">
             <img
               src={statue}
               alt=""

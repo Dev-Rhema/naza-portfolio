@@ -17,12 +17,16 @@ CustomEase.create("menuItems", "0.55,0.01,0.24,1");
 CustomEase.create("menuBanner", "0.85,0,0.08,1");
 CustomEase.create("menuHover", "0.94,0,0.13,1");
 
+export const columnCount = () => (innerWidth < 768 ? 4 : 12);
+
+const columnDelay = (i, count) => (count === 12 ? i * 0.065 + (i >= 10 ? 0.065 : 0) : i * 0.26);
+
 export function createLoaderTimeline(scope, { onComplete } = {}) {
   const q = gsap.utils.selector(scope);
   const text = { duration: 2, ease: "loaderText" };
-  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i) => i * 0.065 + (i >= 10 ? 0.065 : 0) };
+  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i, _, all) => columnDelay(i, all.length) };
 
-  gsap.set(q(".slice-inner"), { xPercent: (i) => (-i * 100) / 12 });
+  gsap.set(q(".slice-inner"), { xPercent: (i, _, all) => (-i * 100) / all.length });
 
   return gsap
     .timeline({ onComplete })
@@ -40,10 +44,10 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
 
 export function createMenuTimeline(scope) {
   const q = gsap.utils.selector(scope);
-  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i) => (11 - i) * 0.065 + (i <= 1 ? 0.065 : 0) };
+  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i, _, all) => columnDelay(all.length - 1 - i, all.length) };
   const text = { duration: 1, ease: "menuText" };
 
-  gsap.set(q(".menu-slice-inner"), { xPercent: (i) => (-i * 100) / 12 });
+  gsap.set(q(".menu-slice-inner"), { xPercent: (i, _, all) => (-i * 100) / all.length });
 
   return gsap
     .timeline()
@@ -60,9 +64,9 @@ export function createMenuTimeline(scope) {
 
 export function createMenuClose(scope) {
   const q = gsap.utils.selector(scope);
-  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i) => (11 - i) * 0.065 + (i <= 1 ? 0.065 : 0) };
+  const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i, _, all) => columnDelay(all.length - 1 - i, all.length) };
 
-  gsap.set(q(".menu-close-inner"), { xPercent: (i) => (-i * 100) / 12 });
+  gsap.set(q(".menu-close-inner"), { xPercent: (i, _, all) => (-i * 100) / all.length });
 
   return gsap
     .timeline()
