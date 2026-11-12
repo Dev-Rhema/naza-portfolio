@@ -1,12 +1,12 @@
 import Button from "../Button";
 import glass from "../assets/images/footerImgs/glass.png";
-import glassCenter from "../assets/images/footerImgs/glassCenter.png";
+import glassMobile from "../assets/images/footerImgs/glassMobile.png";
 import reflection from "../assets/images/footerImgs/reflection.png";
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.png";
 
 export function Footer() {
   return (
-    <footer className="relative h-[70.35rem] overflow-hidden px-6 pt-[2.73125rem] md:h-181.75 md:px-20 md:pt-[2.53125rem]">
+    <footer className="relative h-[62.5rem] overflow-hidden px-6 pt-[2rem] md:h-181.75 md:px-20 md:pt-[2.53125rem]">
       <img
         src={reflection}
         alt=""
@@ -18,14 +18,14 @@ export function Footer() {
         className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 max-w-none opacity-45 select-none md:block"
       />
       <img
-        src={glassCenter}
+        src={glassMobile}
         alt=""
-        className="pointer-events-none absolute top-[22.2rem] left-1/2 -ml-[7.547rem] w-[15.094rem] max-w-none opacity-45 select-none md:hidden"
+        className="pointer-events-none absolute top-[23.7rem] left-1/2 w-screen max-w-none -translate-x-1/2 opacity-45 select-none md:hidden"
       />
       <img
         src={nazaSitting}
         alt=""
-        className="pointer-events-none absolute top-[40.6rem] -left-16 w-[27.14rem] max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
+        className="pointer-events-none absolute top-[35.8rem] -left-9 w-[27.14rem] max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
       />
 
       <div className="relative">
@@ -103,8 +103,8 @@ export function Footer() {
         </ul>
       </div>
 
-      <div className="absolute inset-x-6 bottom-[2.0625rem] flex flex-wrap gap-x-6 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:text-[1rem] md:bottom-[2.71875rem] md:flex-nowrap md:items-end md:justify-between md:gap-0">
-        <div className="contents md:flex">
+      <div className="absolute inset-x-6 bottom-[2.25rem] flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
+        <div className="flex gap-6 md:gap-0">
           <div>
             <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Built by</p>
             <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Rhema</p>
@@ -113,15 +113,16 @@ export function Footer() {
             <p className="font-normal text-[#4f4f4f] md:text-[1rem]">3D art by</p>
             <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Kewve</p>
           </div>
-          <div className="basis-full md:hidden" />
-          <div className="mt-3 w-[5.0625rem] whitespace-nowrap md:mt-0 md:ml-[2.09375rem] md:w-auto">
+        </div>
+        <div className="flex gap-6 md:contents">
+          <div className="w-[5.0625rem] whitespace-nowrap md:ml-[2.09375rem] md:w-auto">
             <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Illustrations by</p>
             <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Rhema, Omolade</p>
           </div>
-        </div>
-        <div className="mt-3 text-right md:mt-0">
-          <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Stained Glass Illustrations From</p>
-          <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Stained Glass Inc</p>
+          <div className="text-right">
+            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Stained Glass Illustrations From</p>
+            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Stained Glass Inc</p>
+          </div>
         </div>
       </div>
     </footer>
