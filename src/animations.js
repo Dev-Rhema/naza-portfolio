@@ -56,8 +56,8 @@ export function createMenuTimeline(scope) {
     .from(q(".menu-corner"), { opacity: 0, duration: 1.075, ease: "menuCorners" }, 1.29)
     .fromTo(q(".menu-painting"), { height: "0%" }, { height: "100%", duration: 1.03, ease: "menuBanner" }, 1.305)
     .fromTo(q(".menu-bar"), { width: "0%" }, { width: "100%", duration: 0.96, ease: "menuReveal" }, 1.715)
-    .from(q(".menu-label"), { y: "1.3333em", ...text, ease: "menuLabels", stagger: 0.3 }, 1.7)
-    .from(q(".menu-item"), { y: "1.3333em", ...text, ease: "menuItems", stagger: (i) => (i + (i >= 6 ? 1 : 0)) * 0.05 }, 1.7)
+    .from(q(".menu-label"), { y: "1.3333em", autoAlpha: 0, ...text, ease: "menuLabels", stagger: 0.3 }, 1.7)
+    .from(q(".menu-item"), { y: "1.3333em", autoAlpha: 0, ...text, ease: "menuItems", stagger: (i) => (i + (i >= 6 ? 1 : 0)) * 0.05 }, 1.7)
     .from(q(".menu-caption"), { y: "2.875rem", ...text, stagger: 0.055 }, 1.725)
     .from(q(".menu-crest"), { opacity: 0, duration: 1.06, ease: "menuCrest" }, 1.9);
 }

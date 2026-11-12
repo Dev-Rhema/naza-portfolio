@@ -16,7 +16,7 @@ const me = ["About Me", "My Games", "My Reads"];
 
 const MenuContent = ({ band }) => (
   <>
-    <div className="relative h-full w-[55.5556%] shrink-0">
+    <div className="relative hidden h-full w-[55.5556%] shrink-0 md:block">
       <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-painting">
         <div className="relative h-screen w-full">
           <img src={painting} alt="" className="pointer-events-none size-full object-cover object-top select-none" />
@@ -41,29 +41,29 @@ const MenuContent = ({ band }) => (
       </div>
     </div>
 
-    <div className="relative flex flex-1 flex-col">
+    <div className="relative flex w-full flex-1 flex-col md:w-auto">
       <nav className="min-h-0 flex-1 overflow-y-auto pt-25 font-helvetica">
-        <p className="overflow-hidden pl-10 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666]">
+        <p className="overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:pl-10">
           <span className="block menu-label">WORKS</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-13 text-white">
+        <ul className="mt-3 text-[2rem] font-normal leading-[3.5rem] text-white md:leading-13">
           {works.map((item) => (
             <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] [transform:scaleY(0)]" />
-              <a href="#" className="relative block pl-10 menu-item">
+              <a href="#" className="relative block pl-6 menu-item md:pl-10">
                 {item}
               </a>
             </li>
           ))}
         </ul>
-        <p className="mt-11 overflow-hidden pl-10 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666]">
+        <p className="mt-[1.25rem] overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10">
           <span className="block menu-label">ME</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-13 text-white">
+        <ul className="mt-3 text-[2rem] font-normal leading-[3.5rem] text-white md:leading-13">
           {me.map((item) => (
             <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] [transform:scaleY(0)]" />
-              <a href="#" className="relative block pl-10 menu-item">
+              <a href="#" className="relative block pl-6 menu-item md:pl-10">
                 {item}
               </a>
             </li>
@@ -71,8 +71,8 @@ const MenuContent = ({ band }) => (
         </ul>
       </nav>
 
-      <div className="h-14 shrink-0 overflow-hidden menu-bar">
-        <div className="grid h-14 w-[44.4444vw] grid-cols-3 items-center bg-[#030303] px-10 pt-[0.3125rem] font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white">
+      <div className="h-[2.625rem] shrink-0 overflow-hidden menu-bar md:h-14">
+        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-[0.3125rem] font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
           <a href="#">Twitter/X</a>
           <a href="#" className="text-center">
             LinkedIn
@@ -146,7 +146,9 @@ export const Menu = ({ onClose }) => {
         </div>
       )}
 
-      <div className="absolute top-10 right-20">
+      <img src="/nazaLogo.png" alt="Naza" className="pointer-events-none absolute top-8 left-6 z-20 size-10 select-none md:hidden" />
+
+      <div className="absolute top-8 right-6 z-20 md:top-10 md:right-20">
         <Hamburger open={!closing} onClick={close} />
       </div>
     </div>,
