@@ -90,7 +90,7 @@ export const About = () => {
           <img
             src={hatIcon}
             alt=""
-            className="mx-1 inline-block size-9 align-middle md:size-12"
+            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
           />
           <span className="text-[#4f4f4f]">
             depending on the situation my areas of expertise are in
@@ -98,25 +98,25 @@ export const About = () => {
           <img
             src={brushIcon}
             alt=""
-            className="mx-1 inline-block size-9 align-middle md:size-12"
+            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
           />
           <span className="text-white">Product Design,</span>
           <img
             src={hexagonIcon}
             alt=""
-            className="mx-1 inline-block size-9 align-middle md:size-12"
+            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
           />
           <span className="text-white">Design Systems,</span>
           <img
             src={megaphoneIcon}
             alt=""
-            className="mx-1 inline-block size-9 align-middle md:size-12"
+            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
           />
           <span className="text-white">Pitch Decks,</span>
           <img
             src={pendulumIcon}
             alt=""
-            className="mx-1 inline-block size-9 align-middle md:size-12"
+            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
           />
           <span className="text-white">Motion for Interfaces</span>
         </p>
