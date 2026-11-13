@@ -59,7 +59,7 @@ export function Footer() {
         <div className="mt-[2.425rem] flex font-helvetica leading-none tracking-[-0.04em] md:hidden">
           <div className="w-34">
             <p className="text-[0.875rem] font-normal text-[#4f4f4f]">Works</p>
-            <ul className="mt-[1.1375rem] flex flex-col gap-[1.0625rem] text-[1rem] font-medium text-white">
+            <ul className="mt-[1.1375rem] flex flex-col gap-[1.0625rem] text-[1rem] font-medium text-white ">
               <li>
                 <a href="#">Taostats</a>
               </li>
@@ -75,7 +75,7 @@ export function Footer() {
             <p className="text-[0.875rem] font-normal text-[#4f4f4f]">Me</p>
             <ul className="mt-[1.1375rem] flex flex-col gap-[1.0625rem] text-[1rem] font-medium text-white">
               <li>
-                <a href="#about">About Me</a>
+                <a href="/about">About Me</a>
               </li>
               <li>
                 <a href="#">My Games</a>
@@ -106,22 +106,38 @@ export function Footer() {
       <div className="absolute inset-x-6 bottom-[2.25rem] flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
         <div className="flex gap-6 md:gap-0">
           <div>
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Built by</p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Rhema</p>
+            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
+              Built by
+            </p>
+            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
+              Rhema
+            </p>
           </div>
           <div className="md:ml-[2.34375rem]">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">3D art by</p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Kewve</p>
+            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
+              3D art by
+            </p>
+            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
+              Kewve
+            </p>
           </div>
         </div>
         <div className="flex gap-6 md:contents">
           <div className="w-[5.0625rem] whitespace-nowrap md:ml-[2.09375rem] md:w-auto">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Illustrations by</p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Rhema, Omolade</p>
+            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
+              Illustrations by
+            </p>
+            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
+              Rhema, Omolade
+            </p>
           </div>
           <div className="text-right">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">Stained Glass Illustrations From</p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">Stained Glass Inc</p>
+            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
+              Stained Glass Illustrations From
+            </p>
+            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
+              Stained Glass Inc
+            </p>
           </div>
         </div>
       </div>

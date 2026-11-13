@@ -63,7 +63,7 @@ const MenuContent = ({ band }) => (
           {me.map((item) => (
             <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] [transform:scaleY(0)]" />
-              <a href="#" className="relative block pl-6 menu-item md:pl-10">
+              <a href={item === "About Me" ? "/about" : "#"} className="relative block pl-6 menu-item md:pl-10">
                 {item}
               </a>
             </li>

@@ -30,7 +30,7 @@ export function About() {
       </h2>
 
       <div className="mt-[1.78125rem] flex flex-col-reverse items-start gap-[1.65625rem] md:mt-12 md:flex-row md:items-end md:justify-between md:gap-0">
-        <Button href="#about">About Me</Button>
+        <Button href="/about">About Me</Button>
         <p className="font-helvetica text-[0.875rem] leading-[1.0625rem] md:mb-[-0.34375rem] md:w-120 md:text-[1rem] md:leading-4.75 tracking-[-0.04em] text-[#7d7d7d]">
           With experience in designing for various sectors, I am able to provide solutions that are adaptable. The sectors I have worked in include{" "}
           <span className="text-white">blockchain</span>, <span className="text-white">security</span>,{" "}
