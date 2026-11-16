@@ -100,7 +100,7 @@ export const About = ({ loaded }) => {
 
             <img src={heroSketch} alt="" className="pointer-events-none hidden w-160 select-none md:block" />
 
-            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-11.5 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
+            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
               Product Designer creating <br className="hidden md:block" />
               interfaces that challenge <br className="hidden md:block" />
               the norm
