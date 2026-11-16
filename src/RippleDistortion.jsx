@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Geometry, Mesh, Program, RenderTarget, Renderer, Texture, Triangle } from "ogl";
 
-const MAX_WAVES = 100;
+const MAX_WAVES = 240;
 const START_SCALE = 1.5;
 const LIFE_CONSTANT = Math.log(500);
 const BRUSH_SIZE_REM = 9.375;
@@ -204,7 +204,7 @@ export const RippleDistortion = ({ src, className = "" }) => {
     resizeObserver.observe(mount);
     resize();
 
-    const setNewWave = (x, y, power = 1) => {
+    const setNewWave = (x, y, power = 1, strength = 1) => {
       const wave = waves[current];
       current = (current + 1) % MAX_WAVES;
       wave.x = x;
@@ -212,7 +212,7 @@ export const RippleDistortion = ({ src, className = "" }) => {
       wave.scale = START_SCALE * power;
       wave.target = START_SCALE * SPREAD * power;
       wave.size = BRUSH_SIZE_REM * Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize);
-      wave.opacity = 1;
+      wave.opacity = strength;
     };
     const localPoint = (clientX, clientY) => {
       const rect = mount.getBoundingClientRect();
@@ -223,19 +223,28 @@ export const RippleDistortion = ({ src, className = "" }) => {
       return [clientX - rect.left, rect.height - (clientY - rect.top)];
     };
 
-    let previousX = 0;
-    let previousY = 0;
+    let previous = null;
     const onMove = (event) => {
       if (reduceMotion || isCoarsePointer) return;
       const point = localPoint(event.clientX, event.clientY);
-      if (!point) return;
-      const spacing = SPACING_REM * Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize);
-      if (Math.abs(point[0] - previousX) > spacing || Math.abs(point[1] - previousY) > spacing) {
-        setNewWave(point[0], point[1]);
-        previousX = point[0];
-        previousY = point[1];
+      if (!point) {
+        previous = null;
+        return;
       }
+      const rem = Number.parseFloat(window.getComputedStyle(document.documentElement).fontSize);
+      if (!previous) previous = point;
+      const dx = point[0] - previous[0];
+      const dy = point[1] - previous[1];
+      const distance = Math.hypot(dx, dy);
+      if (distance < 0.125 * rem) return;
+      const steps = Math.ceil(distance / (SPACING_REM * rem));
+      const strength = Math.min(1, distance / steps / (SPACING_REM * rem));
+      for (let i = 1; i <= steps; i += 1) {
+        setNewWave(previous[0] + (dx * i) / steps, previous[1] + (dy * i) / steps, 1, strength);
+      }
+      previous = point;
     };
+
     const onDown = (event) => {
       if (reduceMotion || !isCoarsePointer) return;
       const point = localPoint(event.clientX, event.clientY);

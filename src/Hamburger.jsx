@@ -38,11 +38,9 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
     gsap.to(button, down ? { scale: 0.96, duration: 0.08, ease: "power1.out" } : { scale: 1, duration: 0.13, ease: "power1.inOut" });
   });
 
-  const hover = contextSafe((button) => {
-    const lines = button.querySelectorAll(".line");
-    if (open || gsap.isTweening(lines)) return;
-    const line = { transformOrigin: "0% 50%", duration: 0.725, ease: "circ.inOut", stagger: 0.045 };
-    gsap.timeline().to(lines, { scaleX: 0.28, ...line }).to(lines, { scaleX: 1, ...line }, 0.985);
+  const hover = contextSafe((button, scaleX) => {
+    if (open) return;
+    gsap.to(button.querySelectorAll(".line"), { scaleX, transformOrigin: "0% 50%", duration: 0.725, ease: "circ.inOut", stagger: 0.045, overwrite: true });
   });
 
   return (
@@ -51,7 +49,8 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
       type="button"
       aria-label={open ? "Close menu" : "Open menu"}
       onClick={onClick}
-      onMouseEnter={(e) => hover(e.currentTarget)}
+      onMouseEnter={(e) => hover(e.currentTarget, 0.28)}
+      onMouseLeave={(e) => hover(e.currentTarget, 1)}
       onPointerDown={(e) => press(e.currentTarget, true)}
       onPointerUp={(e) => press(e.currentTarget, false)}
       onPointerLeave={(e) => press(e.currentTarget, false)}
