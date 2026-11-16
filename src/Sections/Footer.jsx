@@ -6,7 +6,7 @@ import nazaSitting from "../assets/images/footerImgs/NazaSitting.png";
 
 export function Footer() {
   return (
-    <footer className="relative h-[62.5rem] overflow-hidden px-6 pt-[2rem] md:h-181.75 md:px-20 md:pt-[2.53125rem]">
+    <footer className="relative h-[58.625rem] overflow-hidden px-6 pt-[2rem] md:h-181.75 md:px-20 md:pt-[2.53125rem]">
       <img
         src={reflection}
         alt=""
@@ -20,12 +20,12 @@ export function Footer() {
       <img
         src={glassMobile}
         alt=""
-        className="pointer-events-none absolute top-[23.7rem] left-1/2 w-screen max-w-none -translate-x-1/2 opacity-45 select-none md:hidden"
+        className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] w-[26.375rem] max-w-none opacity-45 select-none md:hidden"
       />
       <img
         src={nazaSitting}
         alt=""
-        className="pointer-events-none absolute top-[35.8rem] -left-9 w-[27.14rem] max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
+        className="pointer-events-none absolute top-[36rem] left-9 w-[20.75rem] max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
       />
 
       <div className="relative">

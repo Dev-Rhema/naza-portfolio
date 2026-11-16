@@ -8,7 +8,10 @@ import { Footer } from "../Sections/Footer";
 import sectionIcon from "../assets/images/sectionIcon.svg";
 import heroSketch from "../assets/images/aboutPageImgs/aboutHeroSketch.png";
 import photo from "../assets/images/aboutPageImgs/fineBoyNaza.png";
-import photoOverlay from "../assets/images/aboutPageImgs/photoOverlay.svg";
+import captionTop from "../assets/images/aboutPageImgs/photoCaptionTop.svg";
+import captionBottom from "../assets/images/aboutPageImgs/photoCaptionBottom.svg";
+import barcodeTop from "../assets/images/aboutPageImgs/photoBarcodeTop.svg";
+import barcodeBottom from "../assets/images/aboutPageImgs/photoBarcodeBottom.svg";
 import hatIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hat.png";
 import brushIcon from "../assets/images/aboutPageImgs/aboutPageIcons/brush.png";
 import hexagonIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hexagon.png";
@@ -65,12 +68,14 @@ const experiences = [
 ];
 
 const Icon = ({ src, className }) => (
-  <span className="relative -my-1 mr-0.5 ml-[0.3125rem] inline-block size-10 align-middle md:size-12">
-    <img src={src} alt="" className={`pointer-events-none absolute -top-[0.41667rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
+  <span className="relative -my-1 inline-block size-8 align-middle md:mr-0.5 md:ml-[0.3125rem] md:size-12">
+    <img src={src} alt="" className={`pointer-events-none absolute -top-[0.33333rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
   </span>
 );
 
-const wide = "-left-[12.23958rem] w-[26.97917rem] md:-left-58.75 md:w-129.5";
+const wide = "-left-[9.79167rem] w-[21.58333rem] md:-left-58.75 md:w-129.5";
+
+const megaphone = "-left-[3.33333rem] w-[15.125rem] md:-left-20 md:w-[22.6875rem]";
 
 export const About = ({ loaded }) => {
   useGSAP(() => {
@@ -82,35 +87,46 @@ export const About = ({ loaded }) => {
       <Noise visible={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <section className="relative px-6 pt-28 pb-10 md:px-20 md:pt-[7.375rem] md:pb-[2.3125rem]">
+          <section className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-[7.375rem] md:pb-[2.3125rem]">
             <Navbar />
 
-            <img src={heroSketch} alt="" className="pointer-events-none w-full select-none md:w-160" />
+            <div className="relative aspect-392/406 w-full md:absolute md:top-[7.375rem] md:right-20 md:aspect-600/800 md:w-150">
+              <RippleDistortion src={photo} className="absolute inset-0" />
+              <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-[9.8125rem] select-none md:top-[0.9375rem] md:left-4 md:w-[12.625rem]" />
+              <img src={barcodeTop} alt="" className="pointer-events-none absolute top-2 right-[0.4375rem] h-[3.125rem] w-[10.0625rem] select-none md:top-4 md:right-4 md:h-25 md:w-[15.375rem]" />
+              <img src={barcodeBottom} alt="" className="pointer-events-none absolute bottom-2 left-2 h-[3.1875rem] w-[11rem] select-none md:bottom-4 md:left-4 md:h-25 md:w-[16.75rem]" />
+              <img src={captionBottom} alt="" className="pointer-events-none absolute right-[0.625rem] bottom-[0.4375rem] w-[6.5rem] select-none md:right-[1.125rem] md:bottom-7 md:w-[8.375rem]" />
+            </div>
 
-            <h1 className="relative z-10 mt-4 font-helvetica text-[2.5rem] font-normal leading-none tracking-[-0.04em] text-white md:-mt-14 md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
+            <img src={heroSketch} alt="" className="pointer-events-none hidden w-160 select-none md:block" />
+
+            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-[0.9] tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
               Product Designer creating <br className="hidden md:block" />
               interfaces that challenge <br className="hidden md:block" />
               the norm
             </h1>
-            <p className="mt-4 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 md:text-[1.5rem]">
+            <p className="mt-[1.1875rem] font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 md:text-[1.5rem]">
               Design should make us better. Design should draw out positive emotions from our users. These have been some of my guides over the years
             </p>
-            <Button href="#contact" className="mt-6 md:mt-[1.40625rem]">
+            <Button href="#contact" className="mt-[1.59375rem] md:mt-[1.40625rem]">
               Book a Call
             </Button>
 
-            <div className="relative mt-10 aspect-600/800 w-full md:absolute md:top-[7.375rem] md:right-20 md:mt-0 md:w-150">
-              <RippleDistortion src={photo} className="absolute inset-0" />
-              <img src={photoOverlay} alt="" className="pointer-events-none absolute inset-0 size-full select-none" />
-            </div>
           </section>
 
-          <section className="px-6 py-10 md:px-20 md:pt-22 md:pb-40">
+          <section className="px-6 pt-10 pb-[5.03125rem] md:px-20 md:pt-22 md:pb-40">
             <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
               <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
               <span className="pt-0.5">THE DESIGNER</span>
             </p>
-            <p className="isolate mt-5 font-helvetica text-[1.75rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:text-[3rem] md:leading-[3.125rem]">
+            <p className="isolate mt-[0.9375rem] font-helvetica text-[2rem] font-normal leading-[2.5rem] tracking-[-0.04em] text-[#4f4f4f] md:hidden">
+              While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
+              <span className="text-white">
+                Product Design <Icon src={brushIcon} className={wide} /> , Design Systems <Icon src={hexagonIcon} className={wide} /> , Pitch Decks{" "}
+                <Icon src={megaphoneIcon} className={megaphone} /> <span className="whitespace-nowrap">, and</span> Motion for Interfaces <Icon src={pendulumIcon} className={wide} />
+              </span>
+            </p>
+            <p className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-[3.125rem]">
               While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
               <span className="whitespace-nowrap text-white">
                 <Icon src={brushIcon} className={wide} /> Product Design,
@@ -119,55 +135,55 @@ export const About = ({ loaded }) => {
                 <Icon src={hexagonIcon} className={wide} /> Design Systems,
               </span>{" "}
               <span className="whitespace-nowrap text-white">
-                <Icon src={megaphoneIcon} className="-left-[4.16667rem] w-[18.90625rem] md:-left-20 md:w-[22.6875rem]" /> Pitch Decks,
+                <Icon src={megaphoneIcon} className={megaphone} /> Pitch Decks,
               </span>{" "}
               <span className="whitespace-nowrap text-white">
                 <Icon src={pendulumIcon} className={wide} /> Motion for Interfaces
               </span>
             </p>
-            <Button href="#resume" className="mt-8 bg-[#262626]! md:mt-[2.59375rem]">
+            <Button href="#resume" className="mt-[1.8125rem] bg-[#262626]! md:mt-[2.59375rem]">
               My Resume
             </Button>
           </section>
 
-          <section className="flex flex-col gap-12 px-6 pb-10 md:flex-row md:gap-0 md:px-20 md:pb-[4.3125rem]">
+          <section className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-[4.3125rem]">
             <div className="relative md:w-170">
               <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
                 <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
                 <span className="pt-0.5">MY EXPERIENCE</span>
               </p>
-              <h2 className="mt-4 font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-[1.5625rem] md:text-[3rem]">
+              <h2 className="mt-[1.05rem] font-helvetica text-[1.75rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-[1.5625rem] md:text-[3rem]">
                 Over the years I have helped
                 <br />
                 brands go from 0 - 1
               </h2>
-              <p className="mt-4 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-[27.5rem] md:text-[1.25rem]">
+              <p className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-[27.5rem] md:text-[1.25rem]">
                 My experience has usually revolved around assisting startups define their visual language and establish a cohesive identity that is
                 impossible to ignore
               </p>
               <img
                 src={experienceIllustration}
                 alt=""
-                className="pointer-events-none mt-8 w-[12.75rem] select-none md:absolute md:top-40 md:left-0 md:mt-0"
+                className="pointer-events-none absolute top-40 left-0 hidden w-[12.75rem] select-none md:block"
               />
             </div>
 
-            <ol className="flex flex-col gap-[1.40625rem] md:flex-1 md:pt-[2.125rem]">
+            <ol className="flex flex-col gap-[1.3125rem] md:flex-1 md:gap-[1.40625rem] md:pt-[2.125rem]">
               {experiences.map((experience) => (
                 <li key={experience.name}>
-                  <div className="flex h-10 items-center font-helvetica tracking-[-0.04em]">
-                    <img src={experience.icon} alt="" className="size-10" />
-                    <h3 className="ml-4 text-[1.5rem] font-medium leading-none text-white md:text-[2rem]">{experience.name}</h3>
-                    <p className="ml-auto text-[0.875rem] font-normal leading-none text-[#7d7d7d] italic md:text-[1rem]">{experience.dates}</p>
+                  <div className="flex h-8 items-center font-helvetica tracking-[-0.04em] md:h-10">
+                    <img src={experience.icon} alt="" className="size-8 md:size-10" />
+                    <h3 className="ml-2 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:text-[2rem]">{experience.name}</h3>
+                    <p className="ml-auto text-[1rem] font-normal leading-none text-[#7d7d7d] italic">{experience.dates}</p>
                   </div>
-                  <div className="relative mt-4 pt-[0.15625rem] pl-14 font-helvetica tracking-[-0.04em] text-[#7d7d7d]">
-                    <div className="absolute inset-y-0 left-2 flex w-6 flex-col items-center">
-                      <span className="size-6 shrink-0 rounded-full bg-[#1f1f1f] shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
-                      <span className="-my-px w-1 flex-1 bg-[#1f1f1f]" />
-                      <span className="size-6 shrink-0 rounded-full bg-[#1f1f1f] shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                  <div className="relative mt-[0.84375rem] pl-10 font-helvetica tracking-[-0.04em] text-[#7d7d7d] md:mt-4 md:pt-[0.15625rem] md:pl-14">
+                    <div className="absolute inset-y-0 left-[0.4375rem] flex w-4.5 flex-col items-center md:left-2 md:w-6">
+                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                      <span className="-my-px w-0.75 flex-1 bg-[#1f1f1f] md:w-1" />
+                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
                     </div>
-                    <p className="text-[1.125rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
-                    <p className="mt-[1.7125rem] text-[0.875rem] font-normal leading-[1.2] md:w-[31.75rem] md:text-[1rem]">{experience.description}</p>
+                    <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
+                    <p className="mt-1.5 pr-5 text-[0.875rem] font-normal leading-[1.2] md:mt-[1.7125rem] md:pr-0 md:w-[31.75rem] md:text-[1rem]">{experience.description}</p>
                   </div>
                 </li>
               ))}

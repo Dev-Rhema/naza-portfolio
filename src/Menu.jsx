@@ -11,7 +11,7 @@ import background from "./assets/images/menuImgs/menuBg.png";
 
 gsap.registerPlugin(useGSAP);
 
-const works = ["Taostats", "Ebuka", "Footium", "Vidaio", "Hippius", "Attention Factory"];
+const works = ["Taostats", "Footium", "Vidaio", "Hippius", "Ebuka", "Attention Factory"];
 const me = ["About Me", "My Games", "My Reads"];
 
 const MenuContent = ({ band }) => (
