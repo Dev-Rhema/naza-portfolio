@@ -94,11 +94,8 @@ export function createHeroScroll(section) {
   if (mobile) {
     return timeline.fromTo(
       nft,
-      {
-        x: nftCenterX,
-        y: () => arch.offsetTop - nft.offsetTop,
-      },
-      { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.75, ease: "none" },
+      { x: nftCenterX, y: () => arch.offsetTop + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2, scale: 0 },
+      { x: nftCenterX, y: nftCenterY, scale: nftScale, ease: "none" },
       0,
     );
   }

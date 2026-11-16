@@ -1,11 +1,14 @@
+import { useGSAP } from "@gsap/react";
+import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Button from "../Button";
 import Navbar from "../Navbar";
+import Noise from "../noise";
 import RippleDistortion from "../RippleDistortion";
+import { Footer } from "../Sections/Footer";
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import aboutHeroSketch from "../assets/images/aboutPageImgs/aboutHeroSketch.png";
-import fineBoyNaza from "../assets/images/aboutPageImgs/fineBoyNaza.png";
-import topBarCode from "../assets/images/aboutPageImgs/topBarCode.svg";
-import bottomBarCode from "../assets/images/aboutPageImgs/bottomBarCode.svg";
+import heroSketch from "../assets/images/aboutPageImgs/aboutHeroSketch.png";
+import photo from "../assets/images/aboutPageImgs/fineBoyNaza.png";
+import photoOverlay from "../assets/images/aboutPageImgs/photoOverlay.svg";
 import hatIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hat.png";
 import brushIcon from "../assets/images/aboutPageImgs/aboutPageIcons/brush.png";
 import hexagonIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hexagon.png";
@@ -17,7 +20,6 @@ import vidaioIcon from "../assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg
 import hippiusIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
 import premblyIcon from "../assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "../assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-import experienceUnion from "../assets/images/aboutPageImgs/aboutPageIcons/Union.svg";
 
 const experiences = [
   {
@@ -27,8 +29,8 @@ const experiences = [
     role: "Product Designer",
     description: (
       <>
-        Designed the landing page for the largest documentary of Bittensor,{" "}
-        <span className="font-medium text-white">The Incentive Layer</span> which gathered over 61k views. Shedding more light on the importance of an open source intelligence layer
+        Designed the landing page for the largest documentary of Bittensor, <span className="font-medium text-white">The Incentive Layer</span> which
+        gathered over 61k views. Shedding more light on the importance of an open source intelligence layer
       </>
     ),
   },
@@ -62,187 +64,119 @@ const experiences = [
   },
 ];
 
-export const About = () => {
+const Icon = ({ src, className }) => (
+  <span className="relative -my-1 mr-0.5 ml-[0.3125rem] inline-block size-10 align-middle md:size-12">
+    <img src={src} alt="" className={`pointer-events-none absolute -top-[0.41667rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
+  </span>
+);
+
+const wide = "-left-[12.23958rem] w-[26.97917rem] md:-left-58.75 md:w-129.5";
+
+export const About = ({ loaded }) => {
+  useGSAP(() => {
+    ScrollSmoother.create({ smooth: 1.5 });
+  });
+
   return (
-    <main className="relative min-h-screen overflow-x-clip bg-[#030303]">
-      <Navbar />
-      <section className="relative min-h-screen overflow-hidden bg-[#030303] px-6 pt-28 pb-12 md:h-[60rem] md:min-h-0 md:px-20 md:pt-0 md:pb-0">
-        <img
-          src={aboutHeroSketch}
-          alt=""
-          className="pointer-events-none absolute top-36 -left-24 z-0 w-[32rem] max-w-none opacity-50 select-none md:top-[7.5rem] md:left-20 md:w-[40rem] md:opacity-20"
-        />
-        <RippleDistortion
-          src={fineBoyNaza}
-          className="pointer-events-none absolute top-40 -right-36 z-0 aspect-3/4 w-[26rem] md:top-[7.5rem] md:right-20 md:w-[37.5rem]"
-        />
-        <div
-          aria-hidden="true"
-          className="pointer-events-none absolute top-40 -right-36 z-0 aspect-3/4 w-[26rem] md:top-[7.5rem] md:right-20 md:w-[37.5rem]"
-        >
-          <p className="absolute top-[2%] left-[2.5%] w-[44%] font-mono text-[0.875rem] leading-[1.2] tracking-[-0.02em] text-[#7d7d7d] md:text-[1rem]">
-            Restraint is nothing
-            <br />
-            without the strength
-            <br />
-            to back it
-          </p>
-          <img
-            src={topBarCode}
-            alt=""
-            className="pointer-events-none absolute top-[2%] right-[2%] w-[41%] select-none"
-          />
-          <img
-            src={bottomBarCode}
-            alt=""
-            className="pointer-events-none absolute bottom-[2%] left-[2.5%] w-[44.75%] select-none"
-          />
-          <p className="absolute right-[2.5%] bottom-[4%] w-[24%] font-mono text-[0.75rem] leading-[1.1] tracking-[-0.02em] text-[#b0b0b0] md:text-[1rem]">
-            Best picture
-            <br />
-            taken of me,
-            <br />
-            in ages
-          </p>
-        </div>
+    <main className="overflow-x-clip">
+      <Noise visible={loaded} />
+      <div id="smooth-wrapper">
+        <div id="smooth-content">
+          <section className="relative px-6 pt-28 pb-10 md:px-20 md:pt-[7.375rem] md:pb-[2.3125rem]">
+            <Navbar />
 
-        <h1 className="relative z-10 font-helvetica text-[3rem] leading-[0.98] tracking-[-0.055em] text-white md:absolute md:top-[33.5rem] md:left-20 md:text-[4.25rem] 2xl:top-[25rem] 2xl:text-[7.5rem]">
-          <span className="block md:whitespace-nowrap">
-            Product Designer creating
-          </span>
-          <span className="block md:whitespace-nowrap">
-            interfaces that challenge
-          </span>
-          <span className="block">the norm</span>
-        </h1>
+            <img src={heroSketch} alt="" className="pointer-events-none w-full select-none md:w-160" />
 
-        <p className="relative z-10 mt-6 max-w-[31rem] font-helvetica text-[1.125rem] leading-[1.45] tracking-[-0.04em] text-[#7d7d7d] md:absolute md:top-[47.75rem] md:left-20 md:mt-0 md:max-w-none md:text-[1.5rem] md:leading-[1.75rem] 2xl:top-[48rem]">
-          Design should make us better. Design should draw
-          <br className="hidden md:block" /> out positive emotions from our
-          users. These have
-          <br className="hidden md:block" /> been some of my guides over the
-          years
-        </p>
-
-        <div className="relative z-10 mt-6 md:absolute md:top-[54.5rem] md:left-20 md:mt-0 2xl:top-[55.25rem]">
-          <Button href="#contact">Book a Call</Button>
-        </div>
-      </section>
-
-      <section className="bg-[#030303] px-6 pt-12 pb-12 md:px-20 md:pt-[5.25rem] md:pb-[5.875rem]">
-        <p className="flex items-center gap-1.5 font-helvetica text-[0.875rem] font-medium leading-none text-white">
-          <img src={sectionIcon} alt="" className="size-4" />
-          <span>THE DESIGNER</span>
-        </p>
-
-        <p className="mt-8 font-helvetica text-[1.375rem] leading-[1.25] tracking-[-0.04em] md:mt-[2.25rem] md:text-[3rem] md:leading-[1.1]">
-          <span className="text-[#4f4f4f]">While I wear many hats</span>
-          <img
-            src={hatIcon}
-            alt=""
-            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
-          />
-          <span className="text-[#4f4f4f]">
-            depending on the situation my areas of expertise are in
-          </span>
-          <img
-            src={brushIcon}
-            alt=""
-            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
-          />
-          <span className="text-white">Product Design,</span>
-          <img
-            src={hexagonIcon}
-            alt=""
-            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
-          />
-          <span className="text-white">Design Systems,</span>
-          <img
-            src={megaphoneIcon}
-            alt=""
-            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
-          />
-          <span className="text-white">Pitch Decks,</span>
-          <img
-            src={pendulumIcon}
-            alt=""
-            className="mx-1.5 inline-block size-9 align-middle md:mx-2 md:size-12"
-          />
-          <span className="text-white">Motion for Interfaces</span>
-        </p>
-
-        <Button href="#resume" className="mt-8 bg-[rgb(37_37_37)] md:mt-[3rem]">
-          My Resume
-        </Button>
-      </section>
-
-      <section className="bg-[#030303] px-6 pt-12 pb-12 md:px-20 md:pt-[4.5rem] md:pb-[2rem]">
-        <div className="grid gap-10 md:grid-cols-2 md:gap-20">
-          <div className="relative md:sticky md:top-0 md:h-fit md:min-h-[43rem] md:self-start">
-            <p className="flex items-center gap-1.5 font-helvetica text-[0.875rem] font-medium leading-none text-white">
-              <img src={sectionIcon} alt="" className="size-3.5" />
-              <span>MY EXPERIENCE</span>
+            <h1 className="relative z-10 mt-4 font-helvetica text-[2.5rem] font-normal leading-none tracking-[-0.04em] text-white md:mt-[1.125rem] md:text-[4.5rem]">
+              Product Designer creating <br className="hidden md:block" />
+              interfaces that challenge <br className="hidden md:block" />
+              the norm
+            </h1>
+            <p className="mt-4 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 md:text-[1.5rem]">
+              Design should make us better. Design should draw out positive emotions from our users. These have been some of my guides over the years
             </p>
+            <Button href="#contact" className="mt-6 md:mt-[1.40625rem]">
+              Book a Call
+            </Button>
 
-            <h2 className="mt-4 font-helvetica text-[2rem] leading-[1.05] tracking-[-0.055em] text-white md:max-w-[38rem] md:text-[3rem]">
-              Over the years I have helped
-              <br />
-              brands go from 0 - 1
-            </h2>
+            <div className="relative mt-10 aspect-600/800 w-full md:absolute md:top-[7.375rem] md:right-20 md:mt-0 md:w-150">
+              <RippleDistortion src={photo} className="absolute inset-0" />
+              <img src={photoOverlay} alt="" className="pointer-events-none absolute inset-0 size-full select-none" />
+            </div>
+          </section>
 
-            <p className="relative z-10 mt-6 max-w-[25rem] font-helvetica text-[1rem] leading-[1.2] tracking-[-0.04em] text-[#777777] md:absolute md:top-[10.25rem] md:left-[7.5rem] md:mt-0">
-              My experience has usually revolved around assisting startups
-              define their visual language and establish a cohesive identity
-              that is impossible to ignore
+          <section className="px-6 py-10 md:px-20 md:pt-22 md:pb-40">
+            <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
+              <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
+              <span className="pt-0.5">THE DESIGNER</span>
             </p>
+            <p className="isolate mt-5 font-helvetica text-[1.75rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:text-[3rem] md:leading-[3.125rem]">
+              While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
+              <span className="whitespace-nowrap text-white">
+                <Icon src={brushIcon} className={wide} /> Product Design,
+              </span>{" "}
+              <span className="whitespace-nowrap text-white">
+                <Icon src={hexagonIcon} className={wide} /> Design Systems,
+              </span>{" "}
+              <span className="whitespace-nowrap text-white">
+                <Icon src={megaphoneIcon} className="-left-[4.16667rem] w-[18.90625rem] md:-left-20 md:w-[22.6875rem]" /> Pitch Decks,
+              </span>{" "}
+              <span className="whitespace-nowrap text-white">
+                <Icon src={pendulumIcon} className={wide} /> Motion for Interfaces
+              </span>
+            </p>
+            <Button href="#resume" className="mt-8 bg-[#262626]! md:mt-[2.59375rem]">
+              My Resume
+            </Button>
+          </section>
 
-            <img
-              src={experienceIllustration}
-              alt=""
-              className="pointer-events-none relative mx-auto mt-8 w-[12.75rem] select-none md:absolute md:top-[10.25rem] md:left-0 md:mx-0 md:mt-0"
-            />
-          </div>
+          <section className="flex flex-col gap-12 px-6 pb-10 md:flex-row md:gap-0 md:px-20 md:pb-[4.3125rem]">
+            <div className="relative md:w-170">
+              <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
+                <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
+                <span className="pt-0.5">MY EXPERIENCE</span>
+              </p>
+              <h2 className="mt-4 font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-[1.5625rem] md:text-[3rem]">
+                Over the years I have helped
+                <br />
+                brands go from 0 - 1
+              </h2>
+              <p className="mt-4 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-[27.5rem] md:text-[1.25rem]">
+                My experience has usually revolved around assisting startups define their visual language and establish a cohesive identity that is
+                impossible to ignore
+              </p>
+              <img
+                src={experienceIllustration}
+                alt=""
+                className="pointer-events-none mt-8 w-[12.75rem] select-none md:absolute md:top-40 md:left-0 md:mt-0"
+              />
+            </div>
 
-          <ol className="mt-2 grid gap-5 md:mt-0 md:gap-[2.125rem] md:pt-[2.125rem]">
-            {experiences.map((experience) => (
-              <li
-                key={experience.name}
-                className="relative"
-              >
-                <div className="flex items-center justify-between gap-3">
-                  <div className="flex min-w-0 items-center gap-3 md:gap-[1.25rem]">
-                    <img
-                      src={experience.icon}
-                      alt=""
-                      className="size-10 shrink-0 md:size-[3.625rem]"
-                    />
-                    <h3 className="font-helvetica text-[1.5rem] font-medium leading-none tracking-[-0.055em] text-white md:text-[2.875rem]">
-                      {experience.name}
-                    </h3>
+            <ol className="flex flex-col gap-[1.40625rem] md:flex-1 md:pt-[2.125rem]">
+              {experiences.map((experience) => (
+                <li key={experience.name}>
+                  <div className="flex h-10 items-center font-helvetica tracking-[-0.04em]">
+                    <img src={experience.icon} alt="" className="size-10" />
+                    <h3 className="ml-4 text-[1.5rem] font-medium leading-none text-white md:text-[2rem]">{experience.name}</h3>
+                    <p className="ml-auto text-[0.875rem] font-normal leading-none text-[#7d7d7d] italic md:text-[1rem]">{experience.dates}</p>
                   </div>
-                  <p className="shrink-0 whitespace-nowrap font-helvetica text-[0.75rem] italic leading-none tracking-[-0.04em] text-[#777777] md:text-[1.375rem]">
-                    {experience.dates}
-                  </p>
-                </div>
+                  <div className="relative mt-4 pt-[0.15625rem] pl-14 font-helvetica tracking-[-0.04em] text-[#7d7d7d]">
+                    <div className="absolute inset-y-0 left-2 flex w-6 flex-col items-center">
+                      <span className="size-6 shrink-0 rounded-full bg-[#1f1f1f] shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                      <span className="-my-px w-1 flex-1 bg-[#1f1f1f]" />
+                      <span className="size-6 shrink-0 rounded-full bg-[#1f1f1f] shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                    </div>
+                    <p className="text-[1.125rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
+                    <p className="mt-[1.7125rem] text-[0.875rem] font-normal leading-[1.2] md:w-[31.75rem] md:text-[1rem]">{experience.description}</p>
+                  </div>
+                </li>
+              ))}
+            </ol>
+          </section>
 
-                <div className="relative ml-[3.5rem] mt-4 h-[6.5625rem] md:mt-[1.5rem] md:h-[9.375rem]">
-                  <img
-                    src={experienceUnion}
-                    alt=""
-                    className="pointer-events-none absolute top-0 -left-12 h-full w-6 select-none md:w-[2.25rem]"
-                  />
-                  <p className="absolute top-0 left-0 flex h-6 items-center font-helvetica text-[1.25rem] leading-[1.2] tracking-[-0.04em] text-[#777777] md:h-[2.25rem] 2xl:text-[1.75rem]">
-                    {experience.role}
-                  </p>
-                  <p className="absolute right-0 bottom-0 left-0 font-helvetica text-[1rem] leading-[1.15] tracking-[-0.04em] text-[#777777] 2xl:text-[1.5rem]">
-                    {experience.description}
-                  </p>
-                </div>
-              </li>
-            ))}
-          </ol>
+          <Footer />
         </div>
-      </section>
+      </div>
     </main>
   );
 };

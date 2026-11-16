@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       {loading && <Loader onComplete={() => setLoading(false)} />}
-      {isAboutPage ? <About /> : <Home loaded={!loading} />}
+      {isAboutPage ? <About loaded={!loading} /> : <Home loaded={!loading} />}
     </>
   );
 }
