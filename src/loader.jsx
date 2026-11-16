@@ -34,7 +34,7 @@ export function Loader({ onComplete }) {
 
             <Reveal
               id="quem"
-              className="top-1/2 mt-[-12.75rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[6rem] md:h-29.25"
+              className="top-1/2 -mt-51 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[6rem] md:h-29.25"
             >
               QUEM
             </Reveal>
@@ -44,13 +44,13 @@ export function Loader({ onComplete }) {
 
             <Reveal
               id="name"
-              className="top-1/2 mt-[-6.0625rem] inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-0.103125rem] md:right-auto md:font-medium md:left-20 md:text-left md:text-[3rem] md:h-[3.1625rem]"
+              className="top-1/2 -mt-24.25 inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-0.103125rem] md:right-auto md:font-medium md:left-20 md:text-left md:text-[3rem] md:h-[3.1625rem]"
             >
               Chinaza Icheke
             </Reveal>
             <Reveal
               id="como"
-              className="top-1/2 mt-[-2.1875rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-3.4625rem] md:text-[6rem] md:h-[7.4625rem]"
+              className="top-1/2 -mt-8.75 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-3.4625rem] md:text-[6rem] md:h-[7.4625rem]"
             >
               COMO
             </Reveal>

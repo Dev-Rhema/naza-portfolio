@@ -16,7 +16,7 @@ export function Reel() {
         <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14" />
         <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14" />
         <img src={corner} alt="" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-14" />
-        <div className="absolute inset-x-[1.0625rem] top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-14 md:top-13 md:bottom-14.25 md:rounded-xl">
+        <div className="absolute inset-x-4.25 top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-14 md:top-13 md:bottom-14.25 md:rounded-xl">
           <button
             type="button"
             aria-label="Play reel"

@@ -6,7 +6,7 @@ import nazaSitting from "../assets/images/footerImgs/NazaSitting.png";
 
 export function Footer() {
   return (
-    <footer className="relative h-[58.625rem] overflow-hidden px-6 pt-[2rem] md:h-181.75 md:px-20 md:pt-[2.53125rem]">
+    <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-181.75 md:px-20 md:pt-[2.53125rem]">
       <img
         src={reflection}
         alt=""
@@ -20,12 +20,12 @@ export function Footer() {
       <img
         src={glassMobile}
         alt=""
-        className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] w-[26.375rem] max-w-none opacity-45 select-none md:hidden"
+        className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] w-105.5 max-w-none opacity-45 select-none md:hidden"
       />
       <img
         src={nazaSitting}
         alt=""
-        className="pointer-events-none absolute top-[36rem] left-9 w-[20.75rem] max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
+        className="pointer-events-none absolute top-144 left-9 w-83 max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
       />
 
       <div className="relative">
@@ -56,10 +56,10 @@ export function Footer() {
           </a>
         </div>
 
-        <div className="mt-[2.425rem] flex font-helvetica leading-none tracking-[-0.04em] md:absolute md:-top-[0.28125rem] md:right-0 md:mt-0">
+        <div className="mt-[2.425rem] flex font-helvetica leading-none tracking-[-0.04em] md:absolute md:top-[-0.28125rem] md:right-0 md:mt-0">
           <div className="w-34">
             <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Works</p>
-            <ul className="mt-[1.1375rem] flex flex-col gap-[1.0625rem] text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
+            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
               <li>
                 <a href="#">Taostats</a>
               </li>
@@ -76,7 +76,7 @@ export function Footer() {
           </div>
           <div className="md:w-22">
             <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Me</p>
-            <ul className="mt-[1.1375rem] flex flex-col gap-[1.0625rem] text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
+            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
               <li>
                 <a href="/about">About Me</a>
               </li>
@@ -91,7 +91,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="absolute inset-x-6 bottom-[2.25rem] flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
+      <div className="absolute inset-x-6 bottom-9 flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
         <div className="flex gap-6 md:gap-0">
           <div>
             <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
@@ -111,7 +111,7 @@ export function Footer() {
           </div>
         </div>
         <div className="flex gap-6 md:contents">
-          <div className="w-[5.0625rem] whitespace-nowrap md:mr-auto md:ml-[2.09375rem] md:w-auto">
+          <div className="w-20.25 whitespace-nowrap md:mr-auto md:ml-[2.09375rem] md:w-auto">
             <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
               Illustrations by
             </p>

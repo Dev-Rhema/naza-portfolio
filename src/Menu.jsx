@@ -46,23 +46,23 @@ const MenuContent = ({ band }) => (
         <p className="overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:pl-10">
           <span className="block menu-label">WORKS</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-[3.5rem] text-white md:leading-13">
+        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {works.map((item) => (
             <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
-              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] [transform:scaleY(0)]" />
+              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
               <a href="#" className="relative block pl-6 menu-item md:pl-10">
                 {item}
               </a>
             </li>
           ))}
         </ul>
-        <p className="mt-[1.25rem] overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10">
+        <p className="mt-5 overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10">
           <span className="block menu-label">ME</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-[3.5rem] text-white md:leading-13">
+        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {me.map((item) => (
             <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
-              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] [transform:scaleY(0)]" />
+              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
               <a href={item === "About Me" ? "/about" : "#"} className="relative block pl-6 menu-item md:pl-10">
                 {item}
               </a>
@@ -71,8 +71,8 @@ const MenuContent = ({ band }) => (
         </ul>
       </nav>
 
-      <div className="h-[2.625rem] shrink-0 overflow-hidden menu-bar md:h-14">
-        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-[0.3125rem] font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
+      <div className="h-10.5 shrink-0 overflow-hidden menu-bar md:h-14">
+        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
           <a href="#">Twitter/X</a>
           <a href="#" className="text-center">
             LinkedIn

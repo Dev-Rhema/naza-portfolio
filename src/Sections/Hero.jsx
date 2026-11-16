@@ -36,7 +36,7 @@ export function Hero() {
         <img
           src={nft}
           alt=""
-          className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-none md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
+          className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
         />
         <div className="relative z-10 w-full min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
           <img
@@ -56,12 +56,12 @@ export function Hero() {
         </p>
       </div>
 
-      <div className="relative z-10 mt-[0.9375rem] aspect-1100/737 w-[46.25rem] max-w-none shrink-0 self-center will-change-transform md:mt-6.5 md:w-[85.9375%] arch">
+      <div className="relative z-10 mt-3.75 aspect-1100/737 w-185 max-w-none shrink-0 self-center will-change-transform md:mt-6.5 md:w-[85.9375%] arch">
         <img src={arch} alt="" className="pointer-events-none size-full select-none" />
-        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-[16rem] bg-linear-to-b from-transparent to-[#030303] to-100% md:h-86" />
+        <div className="pointer-events-none absolute inset-x-0 bottom-0 h-64 bg-linear-to-b from-transparent to-[#030303] to-100% md:h-86" />
       </div>
 
-      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-[16rem] bg-linear-to-b from-transparent to-[#030303] md:h-86" />
+      <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-64 bg-linear-to-b from-transparent to-[#030303] md:h-86" />
 
       <p className="absolute bottom-9.75 left-20 z-20 hidden font-helvetica md:block text-[1.5rem] font-normal leading-[1.8rem] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
         <span className="block">
@@ -92,7 +92,7 @@ export function Hero() {
         </span>
       </p>
 
-      <p className="absolute right-6 bottom-[4.75rem] left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-[1.625rem] tracking-[-0.04em] text-[#7d7d7d] md:hidden">
+      <p className="absolute right-6 bottom-19 left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-6.5 tracking-[-0.04em] text-[#7d7d7d] md:hidden">
         Creating to inspire has always been my drive.
         <br />
         This has guided my works at{" "}
