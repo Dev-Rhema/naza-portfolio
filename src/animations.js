@@ -19,7 +19,7 @@ CustomEase.create("menuHover", "0.94,0,0.13,1");
 
 export const columnCount = () => (innerWidth < 768 ? 4 : 12);
 
-const columnDelay = (i, count) => (count === 12 ? i * 0.065 + (i >= 10 ? 0.065 : 0) : i * 0.26);
+const columnDelay = (i, count) => (count === 12 ? i * 0.065 + (i >= 10 ? 0.065 : 0) : i * 0.1);
 
 export function createLoaderTimeline(scope, { onComplete } = {}) {
   const q = gsap.utils.selector(scope);
