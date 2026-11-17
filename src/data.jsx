@@ -4,11 +4,23 @@ import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.sv
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
 import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg";
+import footiumBanner1280 from "./assets/images/CaseStudyImages/footium/footiumBanner-1280.jpg";
+import footiumBanner1920 from "./assets/images/CaseStudyImages/footium/footiumBanner-1920.jpg";
 import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg";
+import footiumField640 from "./assets/images/CaseStudyImages/footium/footiumField-640.jpg";
+import footiumField1024 from "./assets/images/CaseStudyImages/footium/footiumField-1024.jpg";
 import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg";
+import footiumFormation640 from "./assets/images/CaseStudyImages/footium/footiumFormation-640.jpg";
+import footiumFormation1024 from "./assets/images/CaseStudyImages/footium/footiumFormation-1024.jpg";
 import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg";
+import footiumRecording960 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-960.jpg";
+import footiumRecording1440 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-1440.jpg";
 import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg";
+import taostatsCover640 from "./assets/images/CaseStudyImages/TaoStat-640.jpg";
+import taostatsCover800 from "./assets/images/CaseStudyImages/TaoStat-800.jpg";
 import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg";
+import vidaioCover640 from "./assets/images/CaseStudyImages/vidaio-640.jpg";
+import vidaioCover800 from "./assets/images/CaseStudyImages/vidaio-800.jpg";
 
 export const works = [
   { name: "Taostats", href: "/works/taostats", footer: true },
@@ -86,7 +98,7 @@ export const caseStudies = {
   footium: {
     name: "Footium",
     tagline: "The future of football management games",
-    banner: footiumBanner,
+    banner: `${footiumBanner1280} 1280w, ${footiumBanner1920} 1920w, ${footiumBanner} 2560w`,
     overview: [
       "Footium is a novel idea, still one of my favourite blockchain projects till date.",
       "It comes with a simple idea; what if we could take the awesomeness of Football Manager and bring it to the millions of football lovers who are web3 native, while also taking into consideration those that have no experience of web3?",
@@ -99,11 +111,14 @@ export const caseStudies = {
       { label: "No of Players", value: "600+" },
       { label: "Rewards Distributed", value: "$1.5M" },
     ],
-    images: [footiumField, footiumFormation],
+    images: [
+      `${footiumField640} 640w, ${footiumField1024} 1024w, ${footiumField} 1232w`,
+      `${footiumFormation640} 640w, ${footiumFormation1024} 1024w, ${footiumFormation} 1232w`,
+    ],
     problem: [
       "Everyone loves football manager, that is the key to its success. How can we take the best parts of fantasy football, simplify it and ensure it is easily accessible to those who are native to web3 and those who are not",
     ],
-    recording: footiumRecording,
+    recording: `${footiumRecording960} 960w, ${footiumRecording1440} 1440w, ${footiumRecording} 2560w`,
     impact: [
       "My focus at Footium was on the Tactics page which is where most of our players will spend their time. My essential idea for this page was the use of iconography and motion to ensure clarity.",
       "Together with the engineering team, marketing teams and senior designer, I was able to come up with a base for the tactics page which evolved over the years. It has served its purpose in being an easily accessible means for players to have an overview of where their players are in terms of fitness, growth and readiness for training.",
@@ -121,11 +136,11 @@ export const caseStudies = {
   taostats: {
     name: "Taostats",
     tagline: "Bringing the potential of opensource intelligence to everyone",
-    cover: taostatsCover,
+    cover: `${taostatsCover640} 640w, ${taostatsCover800} 800w, ${taostatsCover} 1232w`,
   },
   vidaio: {
     name: "Vidaio",
     tagline: "Designing the future of video processing powered by Bittensor",
-    cover: vidaioCover,
+    cover: `${vidaioCover640} 640w, ${vidaioCover800} 800w, ${vidaioCover} 1232w`,
   },
 };

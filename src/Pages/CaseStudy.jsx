@@ -42,7 +42,7 @@ export const CaseStudy = ({ study, loaded }) => {
               <span className="text-white">{study.name}:</span> {study.tagline}
             </h1>
 
-            <img src={study.banner} alt="" className="mt-6 md:mt-10 aspect-196/129 md:aspect-1280/572 w-full object-cover" />
+            <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="mt-6 md:mt-10 aspect-196/129 md:aspect-1280/572 w-full object-cover" />
 
             <div className="mt-9.5 grid gap-8 md:mt-9.25 md:grid-cols-2 md:gap-x-20">
               <Text title="Overview" paragraphs={study.overview} />
@@ -61,7 +61,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             <div className="mt-8 grid gap-10 md:mt-7.25 md:grid-cols-2 md:gap-12">
               {study.images.map((image) => (
-                <img key={image} src={image} alt="" loading="lazy" className="aspect-square w-full object-cover md:aspect-616/480" />
+                <img key={image} srcSet={image} sizes="(min-width: 768px) 43vw, 114vw" alt="" loading="lazy" className="aspect-square w-full object-cover md:aspect-616/480" />
               ))}
             </div>
 
@@ -69,7 +69,7 @@ export const CaseStudy = ({ study, loaded }) => {
               <Text title="The Problem" paragraphs={study.problem} />
             </div>
 
-            <img src={study.recording} alt="" loading="lazy" className="mt-8.75 md:mt-8.25 aspect-392/259 md:aspect-1280/690 w-full object-cover" />
+            <img srcSet={study.recording} sizes="(min-width: 768px) 88vw, 109vw" alt="" loading="lazy" className="mt-8.75 md:mt-8.25 aspect-392/259 md:aspect-1280/690 w-full object-cover" />
 
             <div className="mt-9.5 grid gap-8 md:mt-9 md:grid-cols-2 md:gap-x-20">
               <Text title="My Impact" paragraphs={study.impact} />
@@ -80,7 +80,7 @@ export const CaseStudy = ({ study, loaded }) => {
             <div className="mt-4.25 grid gap-4.5 md:mt-8 md:grid-cols-2 md:gap-12">
               {study.more.map((slug) => (
                 <a key={slug} href={`/works/${slug}`}>
-                  <img src={caseStudies[slug].cover} alt="" loading="lazy" className="aspect-98/65 w-full object-cover md:aspect-616/480" />
+                  <img srcSet={caseStudies[slug].cover} sizes="(min-width: 768px) 43vw, 89vw" alt="" loading="lazy" className="aspect-98/65 w-full object-cover md:aspect-616/480" />
                   <p className="mt-5.5 text-[1rem] leading-[1.2] text-[#7d7d7d] md:mt-9.5">{caseStudies[slug].name}</p>
                   <h3 className="mt-1.75 text-[1.25rem] leading-6 md:mt-1.25 md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white">{caseStudies[slug].tagline}</h3>
                 </a>
