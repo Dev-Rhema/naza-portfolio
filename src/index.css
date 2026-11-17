@@ -2,7 +2,7 @@
 
 @font-face {
   font-family: "Kalnia";
-  src: url("./assets/fonts/kalnia-variable.woff2") format("woff2-variations");
+  src: url("/fonts/kalnia-variable.woff2") format("woff2-variations");
   font-weight: 100 700;
   font-stretch: 100% 125%;
   font-style: normal;
@@ -11,7 +11,7 @@
 
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("./assets/fonts/HelveticaNeueRoman.otf") format("opentype");
+  src: url("/fonts/helvetica-neue-400.woff2") format("woff2");
   font-weight: 400;
   font-style: normal;
   font-display: block;
@@ -19,7 +19,7 @@
 
 @font-face {
   font-family: "Helvetica Neue";
-  src: url("./assets/fonts/HelveticaNeue.otf") format("opentype");
+  src: url("/fonts/helvetica-neue-500.woff2") format("woff2");
   font-weight: 500;
   font-style: normal;
   font-display: block;

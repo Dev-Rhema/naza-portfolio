@@ -1,5 +1,6 @@
 import { useGSAP } from "@gsap/react";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Noise from "../noise";
 import { Hero } from "../Sections/Hero";
 import { About } from "../Sections/About";
@@ -9,6 +10,7 @@ import { Footer } from "../Sections/Footer";
 export const Home = ({ loaded }) => {
   useGSAP(() => {
     ScrollSmoother.create({ smooth: 1.5 });
+    ScrollTrigger.refresh();
   });
 
   return (
@@ -25,3 +27,5 @@ export const Home = ({ loaded }) => {
     </main>
   );
 };
+
+export default Home;

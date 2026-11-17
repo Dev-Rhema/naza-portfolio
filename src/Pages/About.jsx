@@ -6,23 +6,23 @@ import Noise from "../noise";
 import RippleDistortion from "../RippleDistortion";
 import { Footer } from "../Sections/Footer";
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import heroSketch from "../assets/images/aboutPageImgs/aboutHeroSketch.png";
-import photo from "../assets/images/aboutPageImgs/fineBoyNaza.png";
+import heroSketch from "../assets/images/aboutPageImgs/aboutHeroSketch.webp";
+import photo from "../assets/images/aboutPageImgs/fineBoyNaza.jpg";
 import captionTop from "../assets/images/aboutPageImgs/photoCaptionTop.svg";
 import captionBottom from "../assets/images/aboutPageImgs/photoCaptionBottom.svg";
 import barcodeTop from "../assets/images/aboutPageImgs/photoBarcodeTop.svg";
 import barcodeBottom from "../assets/images/aboutPageImgs/photoBarcodeBottom.svg";
-import hatIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hat.png";
-import brushIcon from "../assets/images/aboutPageImgs/aboutPageIcons/brush.png";
-import hexagonIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hexagon.png";
-import megaphoneIcon from "../assets/images/aboutPageImgs/aboutPageIcons/megaphone.png";
-import pendulumIcon from "../assets/images/aboutPageImgs/aboutPageIcons/pendulum.png";
-import experienceIllustration from "../assets/images/aboutPageImgs/experienceIllustration.png";
+import hatIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hat.webp";
+import brushIcon from "../assets/images/aboutPageImgs/aboutPageIcons/brush.webp";
+import hexagonIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hexagon.webp";
+import megaphoneIcon from "../assets/images/aboutPageImgs/aboutPageIcons/megaphone.webp";
+import pendulumIcon from "../assets/images/aboutPageImgs/aboutPageIcons/pendulum.webp";
+import experienceIllustration from "../assets/images/aboutPageImgs/experienceIllustration.webp";
 import { experiences } from "../data";
 
 const Icon = ({ src, className }) => (
   <span className="relative -my-1 inline-block size-8 align-middle md:mr-0.5 md:ml-1.25 md:size-12">
-    <img src={src} alt="" className={`pointer-events-none absolute top-[-0.33333rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
+    <img src={src} alt="" loading="lazy" className={`pointer-events-none absolute top-[-0.33333rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
   </span>
 );
 
@@ -117,6 +117,7 @@ export const About = ({ loaded }) => {
               <img
                 src={experienceIllustration}
                 alt=""
+                loading="lazy"
                 className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block"
               />
             </div>
@@ -125,7 +126,7 @@ export const About = ({ loaded }) => {
               {experiences.map((experience) => (
                 <li key={experience.name}>
                   <div className="flex h-8 items-center font-helvetica tracking-[-0.04em] md:h-10">
-                    <img src={experience.icon} alt="" className="size-8 md:size-10" />
+                    <img src={experience.icon} alt="" loading="lazy" className="size-8 md:size-10" />
                     <h3 className="ml-2 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:text-[2rem]">{experience.name}</h3>
                     <p className="ml-auto text-[1rem] font-normal leading-none text-[#7d7d7d] italic">{experience.dates}</p>
                   </div>

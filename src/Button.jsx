@@ -37,7 +37,7 @@ export const Button = ({ href, className = "", children }) => {
             <span
               key={i}
               data-char={char}
-              className="char relative will-change-transform after:absolute after:top-full after:left-0 after:content-[attr(data-char)]"
+              className="char relative after:absolute after:top-full after:left-0 after:content-[attr(data-char)]"
             >
               {char}
             </span>

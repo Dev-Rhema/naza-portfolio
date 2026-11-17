@@ -177,8 +177,11 @@ export const RippleDistortion = ({ src, className = "" }) => {
     });
 
     let disposed = false;
+    let dirty = true;
+    let wasActive = false;
     image.onload = () => {
       if (disposed) return;
+      dirty = true;
       imageTexture.image = image;
       compositeUniforms.uTextureSize.value = [image.naturalWidth || 1, image.naturalHeight || 1];
       setLoaded(true);
@@ -197,6 +200,7 @@ export const RippleDistortion = ({ src, className = "" }) => {
       renderer.setSize(width, height);
       compositeUniforms.uResolution.value = [width, height];
       displacementTarget.setSize(Math.max(2, Math.round(width * 0.7)), Math.max(2, Math.round(height * 0.7)));
+      dirty = true;
     };
     const resizeObserver = new ResizeObserver(() => {
       resizePending = true;
@@ -266,6 +270,7 @@ export const RippleDistortion = ({ src, className = "" }) => {
       previousTime = now;
       const growth = reduceMotion ? 0 : 1 - Math.exp(-delta * 1.09);
       const decay = reduceMotion ? 1 : Math.exp((-delta * LIFE_CONSTANT) / FADE);
+      let active = false;
 
       for (let i = 0; i < MAX_WAVES; i += 1) {
         const wave = waves[i];
@@ -288,7 +293,12 @@ export const RippleDistortion = ({ src, className = "" }) => {
         scales[i * 2] = (halfSize / width) * 2;
         scales[i * 2 + 1] = (halfSize / height) * 2;
         opacities[i] = wave.opacity;
+        active = true;
       }
+
+      if (!active && !wasActive && !dirty) return;
+      wasActive = active;
+      dirty = false;
 
       geometry.attributes.iOffset.needsUpdate = true;
       geometry.attributes.iScale.needsUpdate = true;

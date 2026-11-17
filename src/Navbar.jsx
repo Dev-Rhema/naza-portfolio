@@ -1,11 +1,24 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import musicIcon from "./assets/images/musicIcon.svg";
 import Button from "./Button";
 import Menu from "./Menu";
 import Hamburger from "./Hamburger";
+import painting from "./assets/images/menuImgs/menuPainting.webp";
+import crest from "./assets/images/menuImgs/menuCrest.webp";
+import corner from "./assets/images/corner.webp";
+import background from "./assets/images/menuImgs/menuBg.webp";
 
 export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      [painting, crest, corner, background].forEach((src) => {
+        new Image().src = src;
+      });
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <header className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-6 pt-8 md:px-20 md:pt-10">

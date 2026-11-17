@@ -1,8 +1,8 @@
 import Button from "../Button";
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import aboutHand from "../assets/images/aboutIcons/aboutHand.png";
-import aboutTorch from "../assets/images/aboutIcons/aboutTorch.png";
-import aboutUser from "../assets/images/aboutIcons/aboutUser.png";
+import aboutHand from "../assets/images/aboutIcons/aboutHand.webp";
+import aboutTorch from "../assets/images/aboutIcons/aboutTorch.webp";
+import aboutUser from "../assets/images/aboutIcons/aboutUser.webp";
 
 export function About() {
   return (
@@ -17,15 +17,15 @@ export function About() {
       <h2 className="isolate mt-[1.03125rem] font-helvetica text-[2rem] font-normal md:mt-6 md:text-[3rem] leading-[1.2] tracking-[-0.04em] text-white">
         Design is an avenue to create memories{" "}
         <span className="relative mr-px ml-0.5 inline-block size-10 align-middle md:mr-[0.28125rem] md:ml-1.75 md:size-12">
-          <img src={aboutHand} alt="" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
+          <img src={aboutHand} alt="" loading="lazy" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
         </span>{" "}
         and for 7 years I have always searched{" "}
         <span className="relative mr-px ml-0.5 inline-block size-10 align-middle md:mr-[0.28125rem] md:ml-1.75 md:size-12">
-          <img src={aboutTorch} alt="" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
+          <img src={aboutTorch} alt="" loading="lazy" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
         </span>{" "}
         for ways to create not just interfaces but wholesome experiences for users{" "}
         <span className="relative mr-px ml-0.5 inline-block size-10 align-middle md:mr-[0.28125rem] md:ml-1.75 md:size-12">
-          <img src={aboutUser} alt="" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
+          <img src={aboutUser} alt="" loading="lazy" className="pointer-events-none absolute top-[-0.41667rem] left-[-12.23958rem] -z-10 w-[26.97917rem] max-w-none select-none md:-top-2 md:-left-58.75 md:w-129.5" />
         </span>
       </h2>
 

@@ -1,6 +1,6 @@
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import painting from "../assets/images/reelPainting.png";
-import corner from "../assets/images/corner.png";
+import painting from "../assets/images/reelPainting.webp";
+import corner from "../assets/images/corner.webp";
 
 export function Reel() {
   return (
@@ -11,11 +11,11 @@ export function Reel() {
       </p>
 
       <div className="relative mt-4 aspect-392/335 md:mt-8 md:aspect-1280/725">
-        <img src={painting} alt="" className="pointer-events-none absolute inset-0 size-full object-cover select-none" />
-        <img src={corner} alt="" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14" />
-        <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14" />
-        <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14" />
-        <img src={corner} alt="" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-14" />
+        <img src={painting} alt="" loading="lazy" className="pointer-events-none absolute inset-0 size-full object-cover select-none" />
+        <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14" />
+        <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14" />
+        <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14" />
+        <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-14" />
         <div className="absolute inset-x-4.25 top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-14 md:top-13 md:bottom-14.25 md:rounded-xl">
           <button
             type="button"

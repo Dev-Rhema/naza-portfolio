@@ -1,9 +1,10 @@
-import { useState } from "react";
+import { lazy, Suspense, useState } from "react";
 import Loader from "./loader";
-import { Home } from "./Pages/Home";
-import { About } from "./Pages/About";
-import { CaseStudy } from "./Pages/CaseStudy";
 import { caseStudies } from "./data";
+
+const Home = lazy(() => import("./Pages/Home"));
+const About = lazy(() => import("./Pages/About"));
+const CaseStudy = lazy(() => import("./Pages/CaseStudy"));
 
 function App() {
   const [loading, setLoading] = useState(true);
@@ -13,13 +14,15 @@ function App() {
   return (
     <>
       {loading && <Loader onComplete={() => setLoading(false)} />}
-      {path === "/about" ? (
-        <About loaded={!loading} />
-      ) : study?.overview ? (
-        <CaseStudy study={study} loaded={!loading} />
-      ) : (
-        <Home loaded={!loading} />
-      )}
+      <Suspense>
+        {path === "/about" ? (
+          <About loaded={!loading} />
+        ) : study?.overview ? (
+          <CaseStudy study={study} loaded={!loading} />
+        ) : (
+          <Home loaded={!loading} />
+        )}
+      </Suspense>
     </>
   );
 }

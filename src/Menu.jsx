@@ -4,10 +4,10 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { columnCount, createMenuTimeline, createMenuClose } from "./animations";
 import Hamburger from "./Hamburger";
-import painting from "./assets/images/menuImgs/menuPainting.png";
-import crest from "./assets/images/menuImgs/menuCrest.png";
-import corner from "./assets/images/corner.png";
-import background from "./assets/images/menuImgs/menuBg.png";
+import painting from "./assets/images/menuImgs/menuPainting.webp";
+import crest from "./assets/images/menuImgs/menuCrest.webp";
+import corner from "./assets/images/corner.webp";
+import background from "./assets/images/menuImgs/menuBg.webp";
 import { works, me, socials } from "./data";
 
 gsap.registerPlugin(useGSAP);

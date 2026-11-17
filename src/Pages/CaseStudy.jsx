@@ -61,7 +61,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             <div className="mt-10 grid gap-4 md:mt-7.25 md:grid-cols-2 md:gap-12">
               {study.images.map((image) => (
-                <img key={image} src={image} alt="" className="aspect-616/480 w-full object-cover" />
+                <img key={image} src={image} alt="" loading="lazy" className="aspect-616/480 w-full object-cover" />
               ))}
             </div>
 
@@ -69,7 +69,7 @@ export const CaseStudy = ({ study, loaded }) => {
               <Text title="The Problem" paragraphs={study.problem} />
             </div>
 
-            <img src={study.recording} alt="" className="mt-10 md:mt-8.25 aspect-1280/690 w-full object-cover" />
+            <img src={study.recording} alt="" loading="lazy" className="mt-10 md:mt-8.25 aspect-1280/690 w-full object-cover" />
 
             <div className="mt-10 grid gap-10 md:mt-9 md:grid-cols-2 md:gap-x-20">
               <Text title="My Impact" paragraphs={study.impact} />
@@ -80,7 +80,7 @@ export const CaseStudy = ({ study, loaded }) => {
             <div className="mt-6 grid gap-10 md:mt-8 md:grid-cols-2 md:gap-12">
               {study.more.map((slug) => (
                 <a key={slug} href={`/works/${slug}`}>
-                  <img src={caseStudies[slug].cover} alt="" className="aspect-616/480 w-full object-cover" />
+                  <img src={caseStudies[slug].cover} alt="" loading="lazy" className="aspect-616/480 w-full object-cover" />
                   <p className="mt-5 text-[0.875rem] leading-[1.2] text-[#7d7d7d] md:mt-9.5 md:text-[1rem]">{caseStudies[slug].name}</p>
                   <h3 className="mt-1.25 text-[1.5rem] leading-[1.2] md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white">{caseStudies[slug].tagline}</h3>
                 </a>
