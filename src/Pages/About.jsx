@@ -178,9 +178,9 @@ export const About = ({ loaded }) => {
                   </div>
                   <div className="relative mt-[0.84375rem] pl-10 font-helvetica tracking-[-0.04em] text-[#7d7d7d] md:mt-4 md:pt-[0.15625rem] md:pl-14">
                     <div className="absolute inset-y-0 left-1.75 flex w-4.5 flex-col items-center md:left-2 md:w-6">
-                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-dot" />
                       <span className="-my-px w-0.75 flex-1 bg-[#1f1f1f] md:w-1" />
-                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-[inset_0_-3px_2px_rgba(0,0,0,0.25),inset_0_2px_2px_rgba(179,179,179,0.25)]" />
+                      <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-dot" />
                     </div>
                     <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
                     <p className="mt-1.5 pr-5 text-[0.875rem] font-normal leading-[1.2] md:mt-[1.7125rem] md:pr-0 md:w-127 md:text-[1rem]">{experience.description}</p>

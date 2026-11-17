@@ -39,7 +39,7 @@ export function Footer() {
           <a
             href="#"
             aria-label="X"
-            className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
+            className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
           >
             <svg viewBox="0 0 24 24" className="size-4.25 fill-white">
               <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -48,7 +48,7 @@ export function Footer() {
           <a
             href="#"
             aria-label="LinkedIn"
-            className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-[inset_0_4px_4px_rgba(255,255,255,0.11),inset_0_-4px_1px_rgba(0,0,0,0.13)]"
+            className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
           >
             <svg viewBox="0 0 24 24" className="size-4.25 fill-white">
               <path d="M5.5 7.5H1v15h4.5zM3.25 1A2.6 2.6 0 0 0 .6 3.6a2.6 2.6 0 0 0 2.65 2.6A2.6 2.6 0 0 0 5.9 3.6 2.6 2.6 0 0 0 3.25 1M23.4 13.9c0-4.1-2.2-6.75-5.7-6.75a5 5 0 0 0-4.45 2.4V7.5H8.9v15h4.5v-7.9c0-2.1.9-3.6 2.85-3.6 1.75 0 2.65 1.25 2.65 3.6v7.9h4.5z" />
