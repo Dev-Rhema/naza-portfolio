@@ -8,11 +8,9 @@ import painting from "./assets/images/menuImgs/menuPainting.png";
 import crest from "./assets/images/menuImgs/menuCrest.png";
 import corner from "./assets/images/corner.png";
 import background from "./assets/images/menuImgs/menuBg.png";
+import { works, me, socials } from "./data";
 
 gsap.registerPlugin(useGSAP);
-
-const works = ["Taostats", "Footium", "Vidaio", "Hippius", "Ebuka", "Attention Factory"];
-const me = ["About Me", "My Games", "My Reads"];
 
 const MenuContent = ({ band }) => (
   <>
@@ -48,10 +46,10 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {works.map((item) => (
-            <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
+            <li key={item.name} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href="#" className="relative block pl-6 menu-item md:pl-10">
-                {item}
+              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
+                {item.name}
               </a>
             </li>
           ))}
@@ -61,10 +59,10 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {me.map((item) => (
-            <li key={item} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
+            <li key={item.name} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href={item === "About Me" ? "/about" : "#"} className="relative block pl-6 menu-item md:pl-10">
-                {item}
+              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
+                {item.name}
               </a>
             </li>
           ))}
@@ -73,13 +71,11 @@ const MenuContent = ({ band }) => (
 
       <div className="h-10.5 shrink-0 overflow-hidden menu-bar md:h-14">
         <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
-          <a href="#">Twitter/X</a>
-          <a href="#" className="text-center">
-            LinkedIn
-          </a>
-          <a href="#" className="text-right">
-            Email
-          </a>
+          {socials.map((social) => (
+            <a key={social.name} href={social.href} className="even:text-center last:text-right">
+              {social.name}
+            </a>
+          ))}
         </div>
       </div>
     </div>

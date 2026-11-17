@@ -18,54 +18,7 @@ import hexagonIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hexagon.p
 import megaphoneIcon from "../assets/images/aboutPageImgs/aboutPageIcons/megaphone.png";
 import pendulumIcon from "../assets/images/aboutPageImgs/aboutPageIcons/pendulum.png";
 import experienceIllustration from "../assets/images/aboutPageImgs/experienceIllustration.png";
-import taoIcon from "../assets/images/aboutPageImgs/aboutPageIcons/tao.svg";
-import vidaioIcon from "../assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg";
-import hippiusIcon from "../assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
-import premblyIcon from "../assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
-import footiumIcon from "../assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-
-const experiences = [
-  {
-    name: "taostats",
-    icon: taoIcon,
-    dates: "Feb 2025 - Aug 2026",
-    role: "Product Designer",
-    description: (
-      <>
-        Designed the landing page for the largest documentary of Bittensor, <span className="font-medium text-white">The Incentive Layer</span> which
-        gathered over 61k views. Shedding more light on the importance of an open source intelligence layer
-      </>
-    ),
-  },
-  {
-    name: "Vidaio",
-    icon: vidaioIcon,
-    dates: "May 2025 - Aug 2026",
-    role: "Product Designer",
-    description: "Designed the initial application, website, marketing materials and pitch decks for the product",
-  },
-  {
-    name: "Hippius",
-    icon: hippiusIcon,
-    dates: "May 2025 - Aug 2026",
-    role: "Product Designer",
-    description: "Designed the initial web application, desktop application, websites, marketing materials and pitch decks for the product",
-  },
-  {
-    name: "Prembly",
-    icon: premblyIcon,
-    dates: "Dec 2023 - Jan 2025",
-    role: "Product Designer",
-    description: "Led the design for various products and created a standardized design system that governed the visual language for the company",
-  },
-  {
-    name: "Footium",
-    icon: footiumIcon,
-    dates: "Feb 2022 - Feb 2023",
-    role: "UI/UX Designer",
-    description: "Designed the tactics page of the game, MVP website and pitchdecks for the company",
-  },
-];
+import { experiences } from "../data";
 
 const Icon = ({ src, className }) => (
   <span className="relative -my-1 inline-block size-8 align-middle md:mr-0.5 md:ml-1.25 md:size-12">

@@ -4,7 +4,7 @@ import Button from "./Button";
 import Menu from "./Menu";
 import Hamburger from "./Hamburger";
 
-export const Navbar = () => {
+export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
 
   return (
@@ -14,17 +14,21 @@ export const Navbar = () => {
       </a>
 
       <div className="flex h-10 items-center md:h-12">
-        <p className="hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block">
-          MUSIC <span className="text-white">ON</span>
-        </p>
-        <button type="button" aria-label="Toggle music" className="size-10 rounded-full md:ml-6 md:size-12">
-          <img src={musicIcon} alt="" className="size-10 md:size-12" />
-        </button>
-        <div className="hidden md:block">
-          <Button href="#contact" className="ml-5.5">
-            Let’s Chat
-          </Button>
-        </div>
+        {!minimal && (
+          <>
+            <p className="hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block">
+              MUSIC <span className="text-white">ON</span>
+            </p>
+            <button type="button" aria-label="Toggle music" className="size-10 rounded-full md:ml-6 md:size-12">
+              <img src={musicIcon} alt="" className="size-10 md:size-12" />
+            </button>
+            <div className="hidden md:block">
+              <Button href="#contact" className="ml-5.5">
+                Let’s Chat
+              </Button>
+            </div>
+          </>
+        )}
         <Hamburger onClick={() => setOpen(true)} className="ml-4" />
       </div>
       {open && <Menu onClose={() => setOpen(false)} />}
