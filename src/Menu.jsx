@@ -46,7 +46,7 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {works.map((item) => (
-            <li key={item.name} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
+            <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
               <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
                 {item.name}
@@ -59,7 +59,7 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {me.map((item) => (
-            <li key={item.name} onMouseEnter={(e) => band(e, 1)} onMouseLeave={(e) => band(e, 0)} className="relative overflow-hidden">
+            <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
               <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
                 {item.name}
@@ -98,6 +98,7 @@ export const Menu = ({ onClose }) => {
   );
 
   const band = contextSafe((e, scaleY) => {
+    if (e.pointerType !== "mouse") return;
     gsap.to(e.currentTarget.firstChild, { scaleY, duration: 0.9, ease: "menuHover", overwrite: true });
   });
 
