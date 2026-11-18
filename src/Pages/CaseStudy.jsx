@@ -43,7 +43,7 @@ export const CaseStudy = ({ study, loaded }) => {
             </h1>
 
             <div className="relative mt-6 md:mt-10 tablet:mt-[3.515625rem]">
-              <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="aspect-196/129 w-full object-cover md:aspect-1280/572" />
+              <img srcSet={study.banner} sizes="88vw" alt="" className="aspect-1280/572 w-full" />
               <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2">
                 <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 md:justify-start md:pl-4 md:text-[1.125rem]">
                   <span className="pt-1">Visit Website</span>
@@ -71,7 +71,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             <div className="mt-8 grid gap-10 md:mt-7.25 md:grid-cols-2 md:gap-12 tablet:mt-[3.515625rem]">
               {study.images.map((image) => (
-                <img key={image} srcSet={image} sizes="(min-width: 768px) 43vw, 114vw" alt="" loading="lazy" className="aspect-square w-full object-cover md:aspect-616/480" />
+                <img key={image} srcSet={image} sizes="(min-width: 768px) 43vw, 89vw" alt="" loading="lazy" className="aspect-616/480 w-full" />
               ))}
             </div>
 
@@ -80,7 +80,7 @@ export const CaseStudy = ({ study, loaded }) => {
             </div>
 
             <div className="relative mt-8.75 md:mt-8.25 tablet:mt-[3.515625rem]">
-              <img srcSet={study.recording} sizes="(min-width: 768px) 88vw, 109vw" alt="" loading="lazy" className="aspect-392/259 w-full object-cover md:aspect-1280/690" />
+              <img srcSet={study.recording} sizes="88vw" alt="" loading="lazy" className="aspect-1280/690 w-full" />
               {study.placeholder && (
                 <img
                   srcSet={study.placeholder}
@@ -101,7 +101,7 @@ export const CaseStudy = ({ study, loaded }) => {
             <div className="mt-4.25 grid gap-4.5 md:mt-8 md:grid-cols-2 md:gap-12">
               {study.more.map((slug) => (
                 <a key={slug} href={`/works/${slug}`}>
-                  <img srcSet={caseStudies[slug].cover} sizes="(min-width: 768px) 43vw, 89vw" alt="" loading="lazy" className="aspect-98/65 w-full object-cover md:aspect-616/480" />
+                  <img srcSet={caseStudies[slug].cover} sizes="(min-width: 768px) 43vw, 89vw" alt="" loading="lazy" className="aspect-616/480 w-full" />
                   <p className="mt-5.5 text-[1rem] leading-[1.2] text-[#7d7d7d] md:mt-9.5">{caseStudies[slug].name}</p>
                   <h3 className="mt-1.75 text-[1.25rem] leading-6 md:mt-1.25 md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white">{caseStudies[slug].tagline}</h3>
                 </a>
