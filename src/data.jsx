@@ -140,7 +140,7 @@ export const caseStudies = {
     title: (
       <>
         Bringing the power of opensource intelligence
-        <br className="max-md:hidden" /> to everyone through <span className="text-white">The Incentive Layer</span> documentary
+        <br className="max-md:hidden" /> to everyone through <span className="md:text-white">The Incentive Layer</span> documentary
       </>
     ),
     banner: taoBanner,

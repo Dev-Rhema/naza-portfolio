@@ -44,10 +44,10 @@ export const CaseStudy = ({ study, loaded }) => {
 
             <div className="relative mt-6 md:mt-10 tablet:mt-[3.515625rem]">
               <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="aspect-196/129 w-full object-cover md:aspect-1280/572" />
-              <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-8 left-8 rounded-full p-2 shadow-glass backdrop-blur-sm">
-                <span className="flex h-11 w-38 items-center rounded-full bg-[#1f1f1f] pl-4 text-[1.125rem] leading-none tracking-[-0.01em] text-white shadow-button">
+              <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2">
+                <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 md:justify-start md:pl-4 md:text-[1.125rem]">
                   <span className="pt-1">Visit Website</span>
-                  <svg viewBox="0 0 10 16" className="ml-2.5 h-4 w-2.5 fill-none stroke-white stroke-[1.5]">
+                  <svg viewBox="0 0 10 16" className="ml-2.5 hidden h-4 w-2.5 fill-none stroke-white stroke-[1.5] md:block">
                     <path d="M1.5 1.5l7 6.5-7 6.5" />
                   </svg>
                 </span>

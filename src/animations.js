@@ -38,8 +38,9 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
     .from(q(".deus"), { yPercent: 107.64, ...text }, 0.2)
     .from(q(".name"), { yPercent: 236.11, ...text }, 0.3)
     .from(q(".role"), { yPercent: 279.17, ...text }, 0.38)
-    .from(q(".decor"), { scaleY: 0, ...columns }, 2.39)
-    .to(q(".slice"), { height: 0, ...columns }, 2.455);
+    .addLabel("columns", 2.39)
+    .from(q(".decor"), { scaleY: 0, ...columns }, "columns")
+    .to(q(".slice"), { height: 0, ...columns }, "columns+=0.065");
 }
 
 export function createMenuTimeline(scope) {
@@ -53,7 +54,7 @@ export function createMenuTimeline(scope) {
     .timeline()
     .from(q(".menu-decor"), { scaleY: 0, ...columns }, 0)
     .fromTo(q(".menu-slice"), { height: "0%" }, { height: "100%", ...columns }, 0.065)
-    .addLabel("content", columnCount() === 12 ? 1.29 : 0.81)
+    .addLabel("content", columnCount() === 12 ? 0.99 : 0.51)
     .from(q(".menu-corner"), { opacity: 0, duration: 1.075, ease: "menuCorners" }, "content")
     .fromTo(q(".menu-painting"), { height: "0%" }, { height: "100%", duration: 1.03, ease: "menuBanner" }, "content+=0.015")
     .fromTo(q(".menu-bar"), { width: "0%" }, { width: "100%", duration: 0.96, ease: "menuReveal" }, "content+=0.425")

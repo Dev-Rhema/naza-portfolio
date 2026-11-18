@@ -48,7 +48,7 @@ const MenuContent = ({ band }) => (
           {works.map((item) => (
             <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
+              <a href={item.href} onClick={() => sessionStorage.setItem("menu", item.href)} className="relative block pl-6 menu-item md:pl-10">
                 {item.name}
               </a>
             </li>
@@ -61,7 +61,7 @@ const MenuContent = ({ band }) => (
           {me.map((item) => (
             <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
               <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
+              <a href={item.href} onClick={() => sessionStorage.setItem("menu", item.href)} className="relative block pl-6 menu-item md:pl-10">
                 {item.name}
               </a>
             </li>
