@@ -3,7 +3,7 @@ import vidaioIcon from "./assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg"
 import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg";
+import footiumBannerFull from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg";
 import footiumBanner1280 from "./assets/images/CaseStudyImages/footium/footiumBanner-1280.jpg";
 import footiumBanner1920 from "./assets/images/CaseStudyImages/footium/footiumBanner-1920.jpg";
 import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg";
@@ -12,7 +12,7 @@ import footiumField1024 from "./assets/images/CaseStudyImages/footium/footiumFie
 import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg";
 import footiumFormation640 from "./assets/images/CaseStudyImages/footium/footiumFormation-640.jpg";
 import footiumFormation1024 from "./assets/images/CaseStudyImages/footium/footiumFormation-1024.jpg";
-import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg";
+import footiumRecordingFull from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg";
 import footiumRecording960 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-960.jpg";
 import footiumRecording1440 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-1440.jpg";
 import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg";
@@ -21,6 +21,12 @@ import taostatsCover800 from "./assets/images/CaseStudyImages/TaoStat-800.jpg";
 import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg";
 import vidaioCover640 from "./assets/images/CaseStudyImages/vidaio-640.jpg";
 import vidaioCover800 from "./assets/images/CaseStudyImages/vidaio-800.jpg";
+import hippiusCover from "./assets/images/CaseStudyImages/hippius.jpg";
+import hippiusCover640 from "./assets/images/CaseStudyImages/hippius-640.jpg";
+import hippiusCover800 from "./assets/images/CaseStudyImages/hippius-800.jpg";
+import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg";
+import ebukaCover640 from "./assets/images/CaseStudyImages/ebuka-640.jpg";
+import ebukaCover800 from "./assets/images/CaseStudyImages/ebuka-800.jpg";
 
 export const works = [
   { name: "Taostats", href: "/works/taostats", footer: true },
@@ -94,11 +100,26 @@ export const experiences = [
   },
 ];
 
+const footiumBanner = `${footiumBanner1280} 1280w, ${footiumBanner1920} 1920w, ${footiumBannerFull} 2560w`;
+const footiumImages = [
+  `${footiumField640} 640w, ${footiumField1024} 1024w, ${footiumField} 1232w`,
+  `${footiumFormation640} 640w, ${footiumFormation1024} 1024w, ${footiumFormation} 1232w`,
+];
+const footiumRecording = `${footiumRecording960} 960w, ${footiumRecording1440} 1440w, ${footiumRecordingFull} 2560w`;
+const bold = "font-medium tracking-[-0.02em] text-white";
+
 export const caseStudies = {
   footium: {
     name: "Footium",
     tagline: "The future of football management games",
-    banner: `${footiumBanner1280} 1280w, ${footiumBanner1920} 1920w, ${footiumBanner} 2560w`,
+    title: (
+      <>
+        The future of football
+        <br className="max-md:hidden" /> management games
+      </>
+    ),
+    banner: footiumBanner,
+    website: "#",
     overview: [
       "Footium is a novel idea, still one of my favourite blockchain projects till date.",
       "It comes with a simple idea; what if we could take the awesomeness of Football Manager and bring it to the millions of football lovers who are web3 native, while also taking into consideration those that have no experience of web3?",
@@ -111,14 +132,11 @@ export const caseStudies = {
       { label: "No of Players", value: "600+" },
       { label: "Rewards Distributed", value: "$1.5M" },
     ],
-    images: [
-      `${footiumField640} 640w, ${footiumField1024} 1024w, ${footiumField} 1232w`,
-      `${footiumFormation640} 640w, ${footiumFormation1024} 1024w, ${footiumFormation} 1232w`,
-    ],
+    images: footiumImages,
     problem: [
       "Everyone loves football manager, that is the key to its success. How can we take the best parts of fantasy football, simplify it and ensure it is easily accessible to those who are native to web3 and those who are not",
     ],
-    recording: `${footiumRecording960} 960w, ${footiumRecording1440} 1440w, ${footiumRecording} 2560w`,
+    recording: footiumRecording,
     impact: [
       "My focus at Footium was on the Tactics page which is where most of our players will spend their time. My essential idea for this page was the use of iconography and motion to ensure clarity.",
       "Together with the engineering team, marketing teams and senior designer, I was able to come up with a base for the tactics page which evolved over the years. It has served its purpose in being an easily accessible means for players to have an overview of where their players are in terms of fitness, growth and readiness for training.",
@@ -126,9 +144,8 @@ export const caseStudies = {
     outcome: [
       "My time at Footium saw the game ready for launch. Now in its 13th season, I am proud of the work I did with the team as I always play Footium",
       <>
-        Currently at over <span className="font-medium tracking-[-0.02em] text-white">4,000 users</span> with <span className="font-medium tracking-[-0.02em] text-white">600+ club owners</span>,
-        Footium has been able to distribute over <span className="font-medium tracking-[-0.02em] text-white">$1.5M in rewards</span> with a{" "}
-        <span className="font-medium tracking-[-0.02em] text-white">transfer volume of $4M+</span>
+        Currently at over <span className={bold}>4,000 users</span> with <span className={bold}>600+ club owners</span>, Footium has been able to
+        distribute over <span className={bold}>$1.5M in rewards</span> with a <span className={bold}>transfer volume of $4M+</span>
       </>,
     ],
     more: ["taostats", "vidaio"],
@@ -137,10 +154,56 @@ export const caseStudies = {
     name: "Taostats",
     tagline: "Bringing the potential of opensource intelligence to everyone",
     cover: `${taostatsCover640} 640w, ${taostatsCover800} 800w, ${taostatsCover} 1232w`,
+    title: (
+      <>
+        Bringing the power of opensource intelligence
+        <br className="max-md:hidden" /> to everyone through <span className="text-white">The Incentive Layer</span> documentary
+      </>
+    ),
+    banner: footiumBanner,
+    website: "#",
+    overview: [
+      "The era of opensource has brought about the best of innovative technologies known to man. With the emergence of AI, the main players have always been the large corporations with expensive price tags and closed off development",
+      "Thence came Bittensor, an outlier in the Web3 space that rewards creators for building technologies on it. Its main purpose is the onboarding of millions into the use of AI without the bottleneck costs",
+      "The new installation of the documentary required a website that will show off not just the importance of Bittensor but make visitors be curious enough to want to watch it.",
+    ],
+    metrics: [
+      { label: "Industry", value: "AI, Blockchain" },
+      { label: "Year", value: "2025" },
+      { label: "Number of Views", value: "61K" },
+      { label: "Number of Likes", value: "2.1K" },
+    ],
+    images: footiumImages,
+    problem: [
+      "The need was clear, we wanted to communicate the freedom that comes with building with Bittensor, we wanted to show not just tell by bringing current builders in the ecosystem to speak about their journey so far and how much they love what they do",
+      "To do this we needed to complete a website that hosted the video and communicated at a purview what the network was a trailblazer in decentralized compute",
+    ],
+    recording: footiumRecording,
+    impact: [
+      "With the little time given for engineering and development we were able to deliver a comprehensive website with little to no bugs that allowed for optimal viewing experience on all devices.",
+      "I was able to achieve this with the amazing team by asking questions, understanding the problem and utilizing my design thinking tool kit which allowed for quick reiterations and scrapping ideas that do not work or features that do not achieve the main goal of helping communicate value.",
+    ],
+    outcome: [
+      <>
+        The documentary gathered over <span className={bold}>61,000 viewers</span> on Youtube with over <span className={bold}>2,000+ likes</span>, with glowing
+        reviews from the Bittensor community. The Incentive Layer was a project I was incredibly proud of
+      </>,
+    ],
+    more: ["hippius", "ebuka"],
   },
   vidaio: {
     name: "Vidaio",
     tagline: "Designing the future of video processing powered by Bittensor",
     cover: `${vidaioCover640} 640w, ${vidaioCover800} 800w, ${vidaioCover} 1232w`,
+  },
+  hippius: {
+    name: "Hippius",
+    tagline: "Designing for the future of affordable cloud storage built on the blockchain",
+    cover: `${hippiusCover640} 640w, ${hippiusCover800} 800w, ${hippiusCover} 1232w`,
+  },
+  ebuka: {
+    name: "Chidube Ebuka",
+    tagline: "Creating an online presence for a digital marketer par excellence",
+    cover: `${ebukaCover640} 640w, ${ebukaCover800} 800w, ${ebukaCover} 1232w`,
   },
 };

@@ -38,11 +38,21 @@ export const CaseStudy = ({ study, loaded }) => {
               Back
             </a>
 
-            <h1 className="mt-10 text-[1.5rem] leading-[1.1] tracking-[-0.04em] text-[#353535] md:mt-10.25 md:w-150 md:text-[3rem]">
-              <span className="text-white">{study.name}:</span> {study.tagline}
+            <h1 className="mt-10 text-[1.5rem] leading-[1.1] tracking-[-0.04em] text-[#353535] md:mt-10.25 md:text-[3rem]">
+              <span className="text-white">{study.name}:</span> {study.title}
             </h1>
 
-            <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="mt-6 md:mt-10 aspect-196/129 md:aspect-1280/572 w-full object-cover" />
+            <div className="relative mt-6 md:mt-10">
+              <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="aspect-196/129 w-full object-cover md:aspect-1280/572" />
+              <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-8 left-8 rounded-full p-2 shadow-glass backdrop-blur-sm">
+                <span className="flex h-11 w-38 items-center rounded-full bg-[#1f1f1f] pl-4 text-[1.125rem] leading-none tracking-[-0.01em] text-white shadow-button">
+                  <span className="pt-1">Visit Website</span>
+                  <svg viewBox="0 0 10 16" className="ml-2.5 h-4 w-2.5 fill-none stroke-white stroke-[1.5]">
+                    <path d="M1.5 1.5l7 6.5-7 6.5" />
+                  </svg>
+                </span>
+              </a>
+            </div>
 
             <div className="mt-9.5 grid gap-8 md:mt-9.25 md:grid-cols-2 md:gap-x-20">
               <Text title="Overview" paragraphs={study.overview} />
