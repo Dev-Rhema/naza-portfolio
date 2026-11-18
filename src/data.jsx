@@ -3,30 +3,19 @@ import vidaioIcon from "./assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg"
 import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-import footiumBannerFull from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg";
-import footiumBanner1280 from "./assets/images/CaseStudyImages/footium/footiumBanner-1280.jpg";
-import footiumBanner1920 from "./assets/images/CaseStudyImages/footium/footiumBanner-1920.jpg";
-import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg";
-import footiumField640 from "./assets/images/CaseStudyImages/footium/footiumField-640.jpg";
-import footiumField1024 from "./assets/images/CaseStudyImages/footium/footiumField-1024.jpg";
-import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg";
-import footiumFormation640 from "./assets/images/CaseStudyImages/footium/footiumFormation-640.jpg";
-import footiumFormation1024 from "./assets/images/CaseStudyImages/footium/footiumFormation-1024.jpg";
-import footiumRecordingFull from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg";
-import footiumRecording960 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-960.jpg";
-import footiumRecording1440 from "./assets/images/CaseStudyImages/footium/footiumScreenRecording-1440.jpg";
-import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg";
-import taostatsCover640 from "./assets/images/CaseStudyImages/TaoStat-640.jpg";
-import taostatsCover800 from "./assets/images/CaseStudyImages/TaoStat-800.jpg";
-import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg";
-import vidaioCover640 from "./assets/images/CaseStudyImages/vidaio-640.jpg";
-import vidaioCover800 from "./assets/images/CaseStudyImages/vidaio-800.jpg";
-import hippiusCover from "./assets/images/CaseStudyImages/hippius.jpg";
-import hippiusCover640 from "./assets/images/CaseStudyImages/hippius-640.jpg";
-import hippiusCover800 from "./assets/images/CaseStudyImages/hippius-800.jpg";
-import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg";
-import ebukaCover640 from "./assets/images/CaseStudyImages/ebuka-640.jpg";
-import ebukaCover800 from "./assets/images/CaseStudyImages/ebuka-800.jpg";
+import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg?w=1280;1920;2560&as=srcset";
+import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&as=srcset";
+import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&as=srcset";
+import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&as=srcset";
+import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&as=srcset";
+import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&as=srcset";
+import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.jpg?w=1280;1920;2560&as=srcset";
+import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&as=srcset";
+import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&as=srcset";
+import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&as=srcset";
+import taoPlaceholder from "./assets/images/CaseStudyImages/Taostat/placeHolder.jpg?w=720;1120;2240&as=srcset";
+import hippiusCover from "./assets/images/CaseStudyImages/hippius.jpg?w=640;800;1232&as=srcset";
+import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg?w=640;800;1232&as=srcset";
 
 export const works = [
   { name: "Taostats", href: "/works/taostats", footer: true },
@@ -100,12 +89,6 @@ export const experiences = [
   },
 ];
 
-const footiumBanner = `${footiumBanner1280} 1280w, ${footiumBanner1920} 1920w, ${footiumBannerFull} 2560w`;
-const footiumImages = [
-  `${footiumField640} 640w, ${footiumField1024} 1024w, ${footiumField} 1232w`,
-  `${footiumFormation640} 640w, ${footiumFormation1024} 1024w, ${footiumFormation} 1232w`,
-];
-const footiumRecording = `${footiumRecording960} 960w, ${footiumRecording1440} 1440w, ${footiumRecordingFull} 2560w`;
 const bold = "font-medium tracking-[-0.02em] text-white";
 
 export const caseStudies = {
@@ -132,7 +115,7 @@ export const caseStudies = {
       { label: "No of Players", value: "600+" },
       { label: "Rewards Distributed", value: "$1.5M" },
     ],
-    images: footiumImages,
+    images: [footiumField, footiumFormation],
     problem: [
       "Everyone loves football manager, that is the key to its success. How can we take the best parts of fantasy football, simplify it and ensure it is easily accessible to those who are native to web3 and those who are not",
     ],
@@ -153,14 +136,14 @@ export const caseStudies = {
   taostats: {
     name: "Taostats",
     tagline: "Bringing the potential of opensource intelligence to everyone",
-    cover: `${taostatsCover640} 640w, ${taostatsCover800} 800w, ${taostatsCover} 1232w`,
+    cover: taostatsCover,
     title: (
       <>
         Bringing the power of opensource intelligence
         <br className="max-md:hidden" /> to everyone through <span className="text-white">The Incentive Layer</span> documentary
       </>
     ),
-    banner: footiumBanner,
+    banner: taoBanner,
     website: "#",
     overview: [
       "The era of opensource has brought about the best of innovative technologies known to man. With the emergence of AI, the main players have always been the large corporations with expensive price tags and closed off development",
@@ -173,12 +156,16 @@ export const caseStudies = {
       { label: "Number of Views", value: "61K" },
       { label: "Number of Likes", value: "2.1K" },
     ],
-    images: footiumImages,
+    images: [
+      taoOverviewL,
+      taoOverviewR,
+    ],
     problem: [
       "The need was clear, we wanted to communicate the freedom that comes with building with Bittensor, we wanted to show not just tell by bringing current builders in the ecosystem to speak about their journey so far and how much they love what they do",
       "To do this we needed to complete a website that hosted the video and communicated at a purview what the network was a trailblazer in decentralized compute",
     ],
-    recording: footiumRecording,
+    recording: taoVideoBg,
+    placeholder: taoPlaceholder,
     impact: [
       "With the little time given for engineering and development we were able to deliver a comprehensive website with little to no bugs that allowed for optimal viewing experience on all devices.",
       "I was able to achieve this with the amazing team by asking questions, understanding the problem and utilizing my design thinking tool kit which allowed for quick reiterations and scrapping ideas that do not work or features that do not achieve the main goal of helping communicate value.",
@@ -194,16 +181,16 @@ export const caseStudies = {
   vidaio: {
     name: "Vidaio",
     tagline: "Designing the future of video processing powered by Bittensor",
-    cover: `${vidaioCover640} 640w, ${vidaioCover800} 800w, ${vidaioCover} 1232w`,
+    cover: vidaioCover,
   },
   hippius: {
     name: "Hippius",
     tagline: "Designing for the future of affordable cloud storage built on the blockchain",
-    cover: `${hippiusCover640} 640w, ${hippiusCover800} 800w, ${hippiusCover} 1232w`,
+    cover: hippiusCover,
   },
   ebuka: {
     name: "Chidube Ebuka",
     tagline: "Creating an online presence for a digital marketer par excellence",
-    cover: `${ebukaCover640} 640w, ${ebukaCover800} 800w, ${ebukaCover} 1232w`,
+    cover: ebukaCover,
   },
 };

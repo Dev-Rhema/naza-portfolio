@@ -79,7 +79,18 @@ export const CaseStudy = ({ study, loaded }) => {
               <Text title="The Problem" paragraphs={study.problem} />
             </div>
 
-            <img srcSet={study.recording} sizes="(min-width: 768px) 88vw, 109vw" alt="" loading="lazy" className="mt-8.75 md:mt-8.25 aspect-392/259 md:aspect-1280/690 w-full object-cover" />
+            <div className="relative mt-8.75 md:mt-8.25">
+              <img srcSet={study.recording} sizes="(min-width: 768px) 88vw, 109vw" alt="" loading="lazy" className="aspect-392/259 w-full object-cover md:aspect-1280/690" />
+              {study.placeholder && (
+                <img
+                  srcSet={study.placeholder}
+                  sizes="78vw"
+                  alt=""
+                  loading="lazy"
+                  className="absolute top-1/2 left-1/2 aspect-1120/566 w-[87.5%] -translate-1/2 rounded-lg shadow-card"
+                />
+              )}
+            </div>
 
             <div className="mt-9.5 grid gap-8 md:mt-9 md:grid-cols-2 md:gap-x-20">
               <Text title="My Impact" paragraphs={study.impact} />
