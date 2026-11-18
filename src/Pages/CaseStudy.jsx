@@ -42,7 +42,7 @@ export const CaseStudy = ({ study, loaded }) => {
               <span className="text-white">{study.name}:</span> {study.title}
             </h1>
 
-            <div className="relative mt-6 md:mt-10">
+            <div className="relative mt-6 md:mt-10 tablet:mt-[3.515625rem]">
               <img srcSet={study.banner} sizes="(min-width: 768px) 88vw, 131vw" alt="" className="aspect-196/129 w-full object-cover md:aspect-1280/572" />
               <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-8 left-8 rounded-full p-2 shadow-glass backdrop-blur-sm">
                 <span className="flex h-11 w-38 items-center rounded-full bg-[#1f1f1f] pl-4 text-[1.125rem] leading-none tracking-[-0.01em] text-white shadow-button">
@@ -54,7 +54,7 @@ export const CaseStudy = ({ study, loaded }) => {
               </a>
             </div>
 
-            <div className="mt-9.5 grid gap-8 md:mt-9.25 md:grid-cols-2 md:gap-x-20">
+            <div className="mt-9.5 grid gap-8 md:mt-9.25 md:grid-cols-2 md:gap-x-20 tablet:mt-[3.515625rem]">
               <Text title="Overview" paragraphs={study.overview} />
               <div>
                 <h2 className="text-[1.125rem] leading-[1.2] text-white md:text-[1.5rem]">Key Metrics</h2>
@@ -69,17 +69,17 @@ export const CaseStudy = ({ study, loaded }) => {
               </div>
             </div>
 
-            <div className="mt-8 grid gap-10 md:mt-7.25 md:grid-cols-2 md:gap-12">
+            <div className="mt-8 grid gap-10 md:mt-7.25 md:grid-cols-2 md:gap-12 tablet:mt-[3.515625rem]">
               {study.images.map((image) => (
                 <img key={image} srcSet={image} sizes="(min-width: 768px) 43vw, 114vw" alt="" loading="lazy" className="aspect-square w-full object-cover md:aspect-616/480" />
               ))}
             </div>
 
-            <div className="mt-9.5 md:mt-9.25 md:w-150">
+            <div className="mt-9.5 md:mt-9.25 md:w-150 tablet:mt-[3.515625rem]">
               <Text title="The Problem" paragraphs={study.problem} />
             </div>
 
-            <div className="relative mt-8.75 md:mt-8.25">
+            <div className="relative mt-8.75 md:mt-8.25 tablet:mt-[3.515625rem]">
               <img srcSet={study.recording} sizes="(min-width: 768px) 88vw, 109vw" alt="" loading="lazy" className="aspect-392/259 w-full object-cover md:aspect-1280/690" />
               {study.placeholder && (
                 <img
@@ -92,12 +92,12 @@ export const CaseStudy = ({ study, loaded }) => {
               )}
             </div>
 
-            <div className="mt-9.5 grid gap-8 md:mt-9 md:grid-cols-2 md:gap-x-20">
+            <div className="mt-9.5 grid gap-8 md:mt-9 md:grid-cols-2 md:gap-x-20 tablet:mt-[3.515625rem]">
               <Text title="My Impact" paragraphs={study.impact} />
               <Text title="Outcome" paragraphs={study.outcome} />
             </div>
 
-            <h2 className="mt-8.25 text-[1.125rem] md:mt-17.75 md:text-[1.5rem] leading-[1.2] text-white">More Case Studies</h2>
+            <h2 className="mt-8.25 text-[1.125rem] md:mt-17.75 md:text-[1.5rem] tablet:mt-[3.515625rem] leading-[1.2] text-white">More Case Studies</h2>
             <div className="mt-4.25 grid gap-4.5 md:mt-8 md:grid-cols-2 md:gap-12">
               {study.more.map((slug) => (
                 <a key={slug} href={`/works/${slug}`}>
