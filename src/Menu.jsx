@@ -17,7 +17,7 @@ const MenuContent = ({ band }) => (
     <div className="relative hidden h-full w-[55.5556%] shrink-0 md:block">
       <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-painting">
         <div className="relative h-screen w-full">
-          <img src={painting} alt="" className="pointer-events-none size-full object-cover object-top select-none" />
+          <img src={painting} alt="" loading="lazy" className="pointer-events-none size-full object-cover object-top select-none" />
           <img src={corner} alt="" className="pointer-events-none absolute top-0 left-0 w-[6.03125rem] select-none menu-corner" />
           <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-[6.03125rem] -scale-x-100 select-none menu-corner" />
           <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-[6.03125rem] -scale-y-100 select-none menu-corner" />
@@ -27,6 +27,7 @@ const MenuContent = ({ band }) => (
       <img
         src={crest}
         alt=""
+        loading="lazy"
         className="pointer-events-none absolute top-1/2 left-1/2 -mt-53.25 -ml-37 w-74 max-w-none select-none menu-crest"
       />
       <div className="absolute bottom-18 left-10 font-helvetica leading-none">

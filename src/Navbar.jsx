@@ -12,12 +12,14 @@ export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      [painting, crest, corner, background].forEach((src) => {
+    const preload = () => {
+      (innerWidth < 768 ? [background] : [painting, crest, corner, background]).forEach((src) => {
         new Image().src = src;
       });
-    }, 4000);
-    return () => clearTimeout(timer);
+    };
+    if (document.readyState === "complete") preload();
+    else addEventListener("load", preload, { once: true });
+    return () => removeEventListener("load", preload);
   }, []);
 
   return (

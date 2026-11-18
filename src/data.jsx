@@ -4,12 +4,14 @@ import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.sv
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
 import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg?w=1280;1920;2560&as=srcset";
+import footiumMobileBanner from "./assets/images/CaseStudyImages/footium/footiumMobileBanner.jpg?w=784";
 import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&as=srcset";
 import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&as=srcset";
 import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&as=srcset";
 import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&as=srcset";
 import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&as=srcset";
 import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.jpg?w=1280;1920;2560&as=srcset";
+import taoMobileBanner from "./assets/images/CaseStudyImages/Taostat/taoMobileBanner.jpg?w=784";
 import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&as=srcset";
 import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&as=srcset";
 import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&as=srcset";
@@ -102,6 +104,7 @@ export const caseStudies = {
       </>
     ),
     banner: footiumBanner,
+    mobileBanner: footiumMobileBanner,
     website: "#",
     overview: [
       "Footium is a novel idea, still one of my favourite blockchain projects till date.",
@@ -144,6 +147,7 @@ export const caseStudies = {
       </>
     ),
     banner: taoBanner,
+    mobileBanner: taoMobileBanner,
     website: "#",
     overview: [
       "The era of opensource has brought about the best of innovative technologies known to man. With the emergence of AI, the main players have always been the large corporations with expensive price tags and closed off development",

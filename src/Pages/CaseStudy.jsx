@@ -43,7 +43,10 @@ export const CaseStudy = ({ study, loaded }) => {
             </h1>
 
             <div className="relative mt-6 md:mt-10 tablet:mt-[3.515625rem]">
-              <img srcSet={study.banner} sizes="88vw" alt="" className="aspect-1280/572 w-full" />
+              <picture>
+                <source media="(min-width: 768px)" srcSet={study.banner} sizes="88vw" />
+                <img src={study.mobileBanner} alt="" className="aspect-196/129 w-full md:aspect-1280/572" />
+              </picture>
               <a href={study.website} target="_blank" rel="noreferrer" className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2">
                 <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 md:justify-start md:pl-4 md:text-[1.125rem]">
                   <span className="pt-1">Visit Website</span>
