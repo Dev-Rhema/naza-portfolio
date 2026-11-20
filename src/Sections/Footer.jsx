@@ -1,7 +1,7 @@
 import Button from "../Button";
-import glass from "../assets/images/footerImgs/glass.webp";
-import glassMobile from "../assets/images/footerImgs/glassMobile.webp";
-import reflection from "../assets/images/footerImgs/reflection.webp";
+import glass from "../assets/images/footerImgs/glass.webp?w=1287;2574&format=webp&lossless=true&as=srcset";
+import glassMobile from "../assets/images/footerImgs/glassMobile.webp?w=750;1150&format=webp&lossless=true&as=srcset";
+import reflection from "../assets/images/footerImgs/reflection.webp?w=1440;2880&format=webp&lossless=true&as=srcset";
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.webp";
 import { works, me, socials } from "../data";
 
@@ -10,19 +10,25 @@ export function Footer() {
     <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-181.75 md:px-20 md:pt-[2.53125rem]">
       <img
         loading="lazy"
-        src={reflection}
+        srcSet={reflection}
+        sizes="(min-width: 1440px) 1440px, 100vw"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute top-75 left-1/2 -ml-180 hidden w-360 max-w-none select-none md:block"
       />
       <img
         loading="lazy"
-        src={glass}
+        srcSet={glass}
+        sizes="(min-width: 1440px) 1287px, 90vw"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 max-w-none opacity-45 select-none md:block"
       />
       <img
         loading="lazy"
-        src={glassMobile}
+        srcSet={glassMobile}
+        sizes="96vw"
+        decoding="async"
         alt=""
         className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] w-105.5 max-w-none opacity-45 select-none md:hidden"
       />
@@ -47,6 +53,8 @@ export function Footer() {
               <a
                 key={social.name}
                 href={social.href}
+                target="_blank"
+                rel="noreferrer"
                 aria-label={social.name}
                 className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
               >

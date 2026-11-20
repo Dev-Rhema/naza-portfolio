@@ -3,7 +3,7 @@ import musicIcon from "./assets/images/musicIcon.svg";
 import Button from "./Button";
 import Menu from "./Menu";
 import Hamburger from "./Hamburger";
-import painting from "./assets/images/menuImgs/menuPainting.webp";
+import painting from "./assets/images/menuImgs/menuPainting.webp?w=800;1600&format=webp&lossless=true&as=srcset";
 import crest from "./assets/images/menuImgs/menuCrest.webp";
 import corner from "./assets/images/corner.webp";
 import background from "./assets/images/menuImgs/menuBg.webp";
@@ -14,7 +14,7 @@ export const Navbar = ({ minimal = false }) => {
   useEffect(() => {
     const preload = () => {
       (innerWidth < 768 ? [background] : [painting, crest, corner, background]).forEach((src) => {
-        new Image().src = src;
+        Object.assign(new Image(), { sizes: "55vw", srcset: src });
       });
     };
     if (document.readyState === "complete") preload();

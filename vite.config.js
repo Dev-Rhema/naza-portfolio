@@ -9,7 +9,11 @@ export default defineConfig({
     react(),
     tailwindcss(),
     imagetools({
-      extendTransforms: (builtins) => [...builtins, (config) => config.w && ((state, image) => image.jpeg({ quality: 85, chromaSubsampling: "4:4:4" }))],
+      extendTransforms: (builtins) => [
+        ...builtins,
+        (config) => config.format === "avif" && ((state, image) => image.avif({ quality: 70, chromaSubsampling: "4:4:4" })),
+        (config) => config.format === "jpg" && ((state, image) => image.jpeg({ quality: 85, chromaSubsampling: "4:4:4" })),
+      ],
     }),
   ],
 });

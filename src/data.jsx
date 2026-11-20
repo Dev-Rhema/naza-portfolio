@@ -3,27 +3,41 @@ import vidaioIcon from "./assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg"
 import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg?w=1280;1920;2560&as=srcset";
-import footiumMobileBanner from "./assets/images/CaseStudyImages/footium/footiumMobileBanner.jpg?w=784";
-import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&as=srcset";
-import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&as=srcset";
-import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&as=srcset";
-import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&as=srcset";
-import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&as=srcset";
-import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.jpg?w=1280;1920;2560&as=srcset";
-import taoMobileBanner from "./assets/images/CaseStudyImages/Taostat/taoMobileBanner.jpg?w=784";
-import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&as=srcset";
-import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&as=srcset";
-import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&as=srcset";
-import taoPlaceholder from "./assets/images/CaseStudyImages/Taostat/placeHolder.jpg?w=720;1120;2240&as=srcset";
-import hippiusCover from "./assets/images/CaseStudyImages/hippius.jpg?w=640;800;1232&as=srcset";
-import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg?w=640;800;1232&as=srcset";
+import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg?w=1280;1920;2560&format=avif;jpg&as=picture";
+import footiumMobileBanner from "./assets/images/CaseStudyImages/footium/footiumMobileBanner.jpg?w=784&format=avif;jpg&as=picture";
+import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
+import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
+import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
+import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&format=avif;jpg&as=picture";
+import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&format=avif;jpg&as=picture";
+import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.jpg?w=1280;1920;2560&format=avif;jpg&as=picture";
+import taoMobileBanner from "./assets/images/CaseStudyImages/Taostat/taoMobileBanner.jpg?w=784&format=avif;jpg&as=picture";
+import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
+import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
+import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
+import taoPlaceholder from "./assets/images/CaseStudyImages/Taostat/placeHolder.jpg?w=720;1120;2240&format=avif;jpg&as=picture";
+import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg?w=640;800;1232&format=avif;jpg&as=picture";
+import vidaioOverviewL from "./assets/images/CaseStudyImages/vidaio/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import vidaioOverviewR from "./assets/images/CaseStudyImages/vidaio/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import vidaioProblemL from "./assets/images/CaseStudyImages/vidaio/problemL.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import vidaioProblemR from "./assets/images/CaseStudyImages/vidaio/problemR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import vidaioImpact from "./assets/images/CaseStudyImages/vidaio/impact.png?w=1280;1920;2560&format=avif;jpg&as=picture";
+import attentionFactoryCover from "./assets/images/CaseStudyImages/attentionFactory.png?w=640;800;1232&format=avif;jpg&as=picture";
+import afOverviewL from "./assets/images/CaseStudyImages/attentionFactory/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afOverviewR from "./assets/images/CaseStudyImages/attentionFactory/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afProblemL from "./assets/images/CaseStudyImages/attentionFactory/problemL.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afProblemR from "./assets/images/CaseStudyImages/attentionFactory/problemR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afImpact1 from "./assets/images/CaseStudyImages/attentionFactory/impact1.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afImpact2 from "./assets/images/CaseStudyImages/attentionFactory/impact2.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afImpactWide from "./assets/images/CaseStudyImages/attentionFactory/impactWide.png?w=1280;1920;2560&format=avif;jpg&as=picture";
+import ebukaOverviewL from "./assets/images/CaseStudyImages/ebuka/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import ebukaOverviewR from "./assets/images/CaseStudyImages/ebuka/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import ebukaImpact from "./assets/images/CaseStudyImages/ebuka/impact.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 
 export const works = [
   { name: "Taostats", href: "/works/taostats", footer: true },
   { name: "Footium", href: "/works/footium", footer: true },
   { name: "Vidaio", href: "/works/vidaio", footer: true },
-  { name: "Hippius", href: "/works/hippius" },
   { name: "Ebuka", href: "/works/ebuka", footer: true },
   { name: "Attention Factory", href: "/works/attention-factory" },
 ];
@@ -37,12 +51,12 @@ export const me = [
 export const socials = [
   {
     name: "Twitter/X",
-    href: "#",
+    href: "https://x.com/IchekeChinaza",
     icon: "M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z",
   },
   {
     name: "LinkedIn",
-    href: "#",
+    href: "https://www.linkedin.com/in/chinaza-i-329947a5/",
     icon: "M5.5 7.5H1v15h4.5zM3.25 1A2.6 2.6 0 0 0 .6 3.6a2.6 2.6 0 0 0 2.65 2.6A2.6 2.6 0 0 0 5.9 3.6 2.6 2.6 0 0 0 3.25 1M23.4 13.9c0-4.1-2.2-6.75-5.7-6.75a5 5 0 0 0-4.45 2.4V7.5H8.9v15h4.5v-7.9c0-2.1.9-3.6 2.85-3.6 1.75 0 2.65 1.25 2.65 3.6v7.9h4.5z",
   },
   { name: "Email", href: "#" },
@@ -105,7 +119,7 @@ export const caseStudies = {
     ),
     banner: footiumBanner,
     mobileBanner: footiumMobileBanner,
-    website: "#",
+    website: "https://footium.club/",
     overview: [
       "Footium is a novel idea, still one of my favourite blockchain projects till date.",
       "It comes with a simple idea; what if we could take the awesomeness of Football Manager and bring it to the millions of football lovers who are web3 native, while also taking into consideration those that have no experience of web3?",
@@ -127,6 +141,7 @@ export const caseStudies = {
       "My focus at Footium was on the Tactics page which is where most of our players will spend their time. My essential idea for this page was the use of iconography and motion to ensure clarity.",
       "Together with the engineering team, marketing teams and senior designer, I was able to come up with a base for the tactics page which evolved over the years. It has served its purpose in being an easily accessible means for players to have an overview of where their players are in terms of fitness, growth and readiness for training.",
     ],
+    outcomeTitle: "Outcome",
     outcome: [
       "My time at Footium saw the game ready for launch. Now in its 13th season, I am proud of the work I did with the team as I always play Footium",
       <>
@@ -135,6 +150,7 @@ export const caseStudies = {
       </>,
     ],
     more: ["taostats", "vidaio"],
+    moreSpacing: "md:mt-17.75",
   },
   taostats: {
     name: "Taostats",
@@ -148,7 +164,7 @@ export const caseStudies = {
     ),
     banner: taoBanner,
     mobileBanner: taoMobileBanner,
-    website: "#",
+    website: "https://www.theincentivelayer.com/",
     overview: [
       "The era of opensource has brought about the best of innovative technologies known to man. With the emergence of AI, the main players have always been the large corporations with expensive price tags and closed off development",
       "Thence came Bittensor, an outlier in the Web3 space that rewards creators for building technologies on it. Its main purpose is the onboarding of millions into the use of AI without the bottleneck costs",
@@ -180,21 +196,114 @@ export const caseStudies = {
         reviews from the Bittensor community. The Incentive Layer was a project I was incredibly proud of
       </>,
     ],
-    more: ["hippius", "ebuka"],
+    more: ["vidaio", "ebuka"],
+    moreSpacing: "md:mt-17.75",
   },
   vidaio: {
     name: "Vidaio",
     tagline: "Designing the future of video processing powered by Bittensor",
     cover: vidaioCover,
+    title: (
+      <>
+        Designing for the future of video processing
+        <br className="max-md:hidden" /> powered by Bittensor
+      </>
+    ),
+    banner: taoBanner,
+    mobileBanner: taoMobileBanner,
+    overview: [
+      "While most of the content processed on the internet is video. This brings about the need for the active processing of said content to be able to deliver them to areas with low cellular activities while maintaining the quality",
+      "Vidaio solves this problem. Video processing encompasses compression, upscaling, streaming and more.",
+      "My role at Vidaio was to ensure the simplification of all these services in such a way that users are not overwhelmed",
+    ],
+    metrics: [
+      { label: "Industry", value: "AI, Blockchain, Video" },
+      { label: "Year", value: "2025" },
+      { label: "Investment Secured", value: "$100K" },
+    ],
+    images: [vidaioOverviewL, vidaioOverviewR],
+    problem: [
+      "The current methods of processing videos are either too expensive or do not deliver the desired results. With Vidaio, the underlying method to processing videos involves the application of miners splitting videos into chunks where they compete for who produces the best result",
+      "Communicating this revolutionary piece of technology in a very simple manner that allowed non tech savvy people to easily navigate the product was the main problem and this was where I came in",
+    ],
+    problemImages: [vidaioProblemL, vidaioProblemR],
+    impact: [
+      "Asides establishing the visual language for the MVP, I was in charge of designing marketing materials, pitch decks and more for Vidaio.",
+      "From the web application to the website, and also several other products under Vidaio which included Sentinel, a video processing software for security companies, I was able to use design that communicated the efficiency of Vidaio to all users during my time at the company",
+    ],
+    outcome: [
+      "My design decisions were able to form a solid foundation that led to the easy addition of more features without overwhelming users",
+      "By far one of my favourite projects to work on was Vidaio as it gave me the ability to push my area of expertise and delve into other aspects of visual designs",
+    ],
+    impactImage: vidaioImpact,
+    newDesign: true,
+    more: ["attention-factory", "ebuka"],
+    moreSpacing: "md:mt-19",
   },
-  hippius: {
-    name: "Hippius",
-    tagline: "Designing for the future of affordable cloud storage built on the blockchain",
-    cover: hippiusCover,
+  "attention-factory": {
+    name: "Attention Factory",
+    tagline: "Designing for the future of AI education in Nigeria",
+    cover: attentionFactoryCover,
+    title: (
+      <>
+        Designing the next university
+        <br className="max-md:hidden" /> for AI education
+      </>
+    ),
+    banner: taoBanner,
+    mobileBanner: taoMobileBanner,
+    website: "https://www.attentionfactory.io/",
+    overview: [
+      "With the increase in AI it is important people learn about its proper use. This is where Attention Factory comes in; to arm its students with the knowledge of the tool and the skillset to go from consumers to producers of great works",
+    ],
+    metrics: [
+      { label: "Industry", value: "AI, Education" },
+      { label: "Year", value: "2026" },
+      { label: "Number of Students", value: "AI, Education" },
+      { label: "Revenue Generated", value: "2026" },
+    ],
+    images: [afOverviewL, afOverviewR],
+    problem: [
+      "We wanted to keep the university interface as simple as possible, ensuring what took up most of the students attention was the courses. It was also important to gamify the experience, providing an avenue to reward consistency with badges and certificates",
+    ],
+    problemImages: [afProblemL, afProblemR],
+    impact: [
+      "With Attention Factory I was able to lay the foundation for the visual language, design the website and also the main university for the product allowing them to go from idea to fully fledged product",
+    ],
+    impactImages: [afImpact1, afImpact2],
+    impactImage: afImpactWide,
+    newDesign: true,
+    more: ["taostats", "vidaio"],
+    moreSpacing: "md:mt-9.5",
   },
   ebuka: {
-    name: "Chidube Ebuka",
+    name: "Ebuka Chidube",
     tagline: "Creating an online presence for a digital marketer par excellence",
     cover: ebukaCover,
+    title: "Building a portfolio for a digital marketer aimed at conversion while showing off skillset",
+    banner: taoBanner,
+    mobileBanner: taoMobileBanner,
+    website: "https://ebuka.marketing",
+    overview: [
+      "As my brother, Ebuka has shown his skills in digital marketing for the longest time and for the first time in a while he needed to create his very own presence on the internet",
+      "We needed a way to communicate his skillset, his achievements and also his accomplishments in his 7 year career",
+    ],
+    metrics: [
+      { label: "Industry", value: "Marketing" },
+      { label: "Year", value: "2026" },
+      { label: "Number of Visitors", value: "AI, Education" },
+      { label: "Revenue Generated", value: "2026" },
+    ],
+    images: [ebukaOverviewL, ebukaOverviewR],
+    problem: ["There are not many digital marketing portfolios on the internet, and we therefore had to create inspired by his personality"],
+    recording: taoVideoBg,
+    placeholder: taoPlaceholder,
+    impact: [
+      "We took a different approach to creating his case studies, creating videos instead of text as marketers usually have to speak more than type many times. This was widely received with popular acclaim",
+    ],
+    impactImage: ebukaImpact,
+    newDesign: true,
+    more: ["taostats", "vidaio"],
+    moreSpacing: "md:mt-9.5",
   },
 };

@@ -1,5 +1,5 @@
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import painting from "../assets/images/reelPainting.webp?w=1280;1920;2560&format=jpg&as=srcset";
+import painting from "../assets/images/reelPainting.webp?w=1280;1920;2560&format=avif;jpg&as=picture";
 import corner from "../assets/images/corner.webp";
 
 export function Reel() {
@@ -11,7 +11,17 @@ export function Reel() {
       </p>
 
       <div className="relative mt-4 aspect-392/335 md:mt-8 md:aspect-1280/725">
-        <img srcSet={painting} sizes="(min-width: 768px) 88vw, 134vw" alt="" loading="lazy" className="pointer-events-none absolute inset-0 size-full object-cover select-none" />
+        <picture>
+          <source type="image/avif" srcSet={painting.sources.avif} sizes="(min-width: 768px) 88vw, 134vw" />
+          <img
+            srcSet={painting.sources.jpeg}
+            sizes="(min-width: 768px) 88vw, 134vw"
+            alt=""
+            loading="lazy"
+            decoding="async"
+            className="pointer-events-none absolute inset-0 size-full object-cover select-none"
+          />
+        </picture>
         <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14" />
         <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14" />
         <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14" />

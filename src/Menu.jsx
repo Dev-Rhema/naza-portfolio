@@ -4,7 +4,7 @@ import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { columnCount, createMenuTimeline, createMenuClose } from "./animations";
 import Hamburger from "./Hamburger";
-import painting from "./assets/images/menuImgs/menuPainting.webp";
+import painting from "./assets/images/menuImgs/menuPainting.webp?w=800;1600&format=webp&lossless=true&as=srcset";
 import crest from "./assets/images/menuImgs/menuCrest.webp";
 import corner from "./assets/images/corner.webp";
 import background from "./assets/images/menuImgs/menuBg.webp";
@@ -17,7 +17,7 @@ const MenuContent = ({ band }) => (
     <div className="relative hidden h-full w-[55.5556%] shrink-0 md:block">
       <div className="absolute inset-x-0 top-0 h-full overflow-hidden menu-painting">
         <div className="relative h-screen w-full">
-          <img src={painting} alt="" loading="lazy" className="pointer-events-none size-full object-cover object-top select-none" />
+          <img srcSet={painting} sizes="55vw" alt="" loading="lazy" className="pointer-events-none size-full object-cover object-top select-none" />
           <img src={corner} alt="" className="pointer-events-none absolute top-0 left-0 w-[6.03125rem] select-none menu-corner" />
           <img src={corner} alt="" className="pointer-events-none absolute top-0 right-0 w-[6.03125rem] -scale-x-100 select-none menu-corner" />
           <img src={corner} alt="" className="pointer-events-none absolute bottom-0 left-0 w-[6.03125rem] -scale-y-100 select-none menu-corner" />
@@ -73,7 +73,7 @@ const MenuContent = ({ band }) => (
       <div className="h-10.5 shrink-0 overflow-hidden menu-bar md:h-14">
         <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
           {socials.map((social) => (
-            <a key={social.name} href={social.href} className="even:text-center last:text-right">
+            <a key={social.name} href={social.href} target={social.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="even:text-center last:text-right">
               {social.name}
             </a>
           ))}

@@ -127,8 +127,8 @@ export const About = ({ loaded }) => {
                 <li key={experience.name}>
                   <div className="flex h-8 items-center font-helvetica tracking-[-0.04em] md:h-10">
                     <img src={experience.icon} alt="" loading="lazy" className="size-8 md:size-10" />
-                    <h3 className="ml-2 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:text-[2rem]">{experience.name}</h3>
-                    <p className="ml-auto text-[1rem] font-normal leading-none text-[#7d7d7d] italic">{experience.dates}</p>
+                    <h3 className="ml-2 pt-1.25 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:pt-0 md:text-[2rem]">{experience.name}</h3>
+                    <p className="ml-auto pt-1.5 text-[1rem] font-normal leading-none text-[#7d7d7d] italic md:pt-0">{experience.dates}</p>
                   </div>
                   <div className="relative mt-[0.84375rem] pl-10 font-helvetica tracking-[-0.04em] text-[#7d7d7d] md:mt-4 md:pt-[0.15625rem] md:pl-14">
                     <div className="absolute inset-y-0 left-1.75 flex w-4.5 flex-col items-center md:left-2 md:w-6">

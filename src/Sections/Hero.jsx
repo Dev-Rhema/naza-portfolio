@@ -3,7 +3,7 @@ import { useGSAP } from "@gsap/react";
 import arch from "../assets/images/HeaderImgs/Arch.svg";
 import chinaza from "../assets/images/HeaderImgs/CHINAZA.svg";
 import icheke from "../assets/images/HeaderImgs/ICHEKE.svg";
-import nft from "../assets/images/HeaderImgs/nft.webp";
+import nft from "../assets/images/HeaderImgs/nft.webp?w=440;866&format=webp&lossless=true&as=srcset";
 import tao from "../assets/images/HeaderImgs/tao.svg";
 import footium from "../assets/images/HeaderImgs/footium.svg";
 import vidaio from "../assets/images/HeaderImgs/vidaio.svg";
@@ -34,8 +34,10 @@ export function Hero() {
           />
         </div>
         <img
-          src={nft}
+          srcSet={nft}
+          sizes="(min-width: 768px) 15vw, 33vw"
           alt=""
+          fetchPriority="high"
           className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
         />
         <div className="relative z-10 w-full min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
