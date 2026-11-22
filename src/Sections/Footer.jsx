@@ -40,7 +40,7 @@ export function Footer() {
         {windows.map(({ src, name }) => (
           <div key={name} onPointerEnter={(e) => glow(e, true)} onPointerLeave={(e) => glow(e, false)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
             <img src={src} alt={name} loading="lazy" decoding="async" className="w-full opacity-45" />
-            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-10.5 items-center rounded-full bg-[#1f1f1f] px-5 font-helvetica text-[0.875rem] leading-none whitespace-nowrap text-white opacity-0 shadow-button">
+            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0 shadow-button">
               {name}
             </span>
           </div>
