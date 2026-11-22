@@ -14,12 +14,10 @@ function Reveal({ id, className, children }) {
   );
 }
 
-export function Loader({ onComplete }) {
+export function Loader({ onComplete, quick }) {
   const root = useRef(null);
-  const quick = sessionStorage.getItem("menu") === location.pathname;
 
   useGSAP(() => {
-    sessionStorage.removeItem("menu");
     const timeline = createLoaderTimeline(root.current, { onComplete });
     if (quick) timeline.seek("columns");
   });

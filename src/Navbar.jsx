@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import musicIcon from "./assets/images/musicIcon.svg";
 import Button from "./Button";
 import Menu from "./Menu";
@@ -8,8 +10,30 @@ import crest from "./assets/images/menuImgs/menuCrest.webp";
 import corner from "./assets/images/corner.webp";
 import background from "./assets/images/menuImgs/menuBg.webp";
 
+let audio;
+
 export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
+  const [playing, setPlaying] = useState(() => Boolean(audio && !audio.paused));
+  const { contextSafe } = useGSAP();
+
+  const toggleSound = () => {
+    if (!audio) {
+      audio = new Audio("/nazaSound.mp3#t=37");
+      audio.addEventListener("ended", () => {
+        audio.currentTime = 37;
+        audio.play();
+      });
+    }
+    if (playing) audio.pause();
+    else audio.play();
+    setPlaying(!playing);
+  };
+
+  const hint = contextSafe((e, show) => {
+    if (e.pointerType !== "mouse") return;
+    gsap.to(e.currentTarget.lastChild, { autoAlpha: show ? 1 : 0, duration: 0.3, ease: "power2.out", overwrite: true });
+  });
 
   useEffect(() => {
     const preload = () => {
@@ -30,11 +54,22 @@ export const Navbar = ({ minimal = false }) => {
 
       <div className="flex h-10 items-center md:h-12">
         {!minimal && (
-          <p className="hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block">
-            MUSIC <span className="text-white">ON</span>
-          </p>
+          <button
+            type="button"
+            onClick={toggleSound}
+            onPointerEnter={(e) => hint(e, true)}
+            onPointerLeave={(e) => hint(e, false)}
+            className="relative hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block"
+          >
+            SOUND
+            <span
+              className="invisible absolute bottom-full left-1/2 mb-1 flex h-6 -translate-x-1/2 items-center rounded-full bg-[#1f1f1f] px-1.75 tracking-wider text-white opacity-0 shadow-button"
+            >
+              {playing ? "ON" : "OFF"}
+            </span>
+          </button>
         )}
-        <button type="button" aria-label="Toggle music" className={`size-10 rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}>
+        <button type="button" aria-label="Toggle sound" aria-pressed={playing} onClick={toggleSound} className={`size-10 rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}>
           <img src={musicIcon} alt="" className="size-10 md:size-12" />
         </button>
         {!minimal && (
