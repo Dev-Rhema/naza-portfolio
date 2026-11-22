@@ -20,18 +20,17 @@ export const Navbar = ({ minimal = false }) => {
 
   const toggleSound = () => {
     if (!audio) {
-      audio = new Audio("/nazaSound.mp3#t=37");
-      audio.addEventListener("ended", () => {
-        audio.currentTime = 37;
-        audio.play();
-      });
+      audio = new Audio("/nazaSound.mp3");
+      audio.loop = true;
       const context = new AudioContext();
       analyser = context.createAnalyser();
       analyser.fftSize = 64;
       analyser.smoothingTimeConstant = 0.5;
       analyser.maxDecibels = -20;
       context.createMediaElementSource(audio).connect(analyser);
-      analyser.connect(context.destination);
+      const volume = context.createGain();
+      volume.gain.value = 0.5;
+      analyser.connect(volume).connect(context.destination);
     }
     analyser.context.resume();
     if (playing) audio.pause();
@@ -71,7 +70,7 @@ export const Navbar = ({ minimal = false }) => {
             className="relative hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block"
           >
             SOUND
-            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6 -translate-x-1/2 items-center rounded-full bg-[#1f1f1f] px-1.75 tracking-wider text-white opacity-0 shadow-button">
+            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6.5 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-[#1f1f1f] tracking-wider text-white opacity-0 shadow-button">
               {playing ? "ON" : "OFF"}
             </span>
           </button>
