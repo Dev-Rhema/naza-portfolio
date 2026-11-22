@@ -1,9 +1,18 @@
 import Button from "../Button";
-import glass from "../assets/images/footerImgs/glass.webp?w=1287;2574&format=webp&lossless=true&as=srcset";
-import glassMobile from "../assets/images/footerImgs/glassMobile.webp?w=750;1150&format=webp&lossless=true&as=srcset";
+import saint1 from "../assets/images/footerImgs/saint1.png?format=webp&lossless=true";
+import saint2 from "../assets/images/footerImgs/saint2.png?format=webp&lossless=true";
+import saint3 from "../assets/images/footerImgs/saint3.png?format=webp&lossless=true";
+import cross from "../assets/images/footerImgs/cross.png?format=webp&lossless=true";
+import saint4 from "../assets/images/footerImgs/saint4.png?format=webp&lossless=true";
+import saint5 from "../assets/images/footerImgs/saint5.png?format=webp&lossless=true";
+import saint6 from "../assets/images/footerImgs/saint6.png?format=webp&lossless=true";
 import reflection from "../assets/images/footerImgs/reflection.webp?w=1440;2880&format=webp&lossless=true&as=srcset";
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.webp";
 import { works, me, socials } from "../data";
+
+const saints = [saint1, saint2, saint3, saint4, saint5, saint6];
+const left = Math.floor(Math.random() * saints.length);
+const right = (left + 1 + Math.floor(Math.random() * (saints.length - 1))) % saints.length;
 
 export function Footer() {
   return (
@@ -16,22 +25,16 @@ export function Footer() {
         alt=""
         className="pointer-events-none absolute top-75 left-1/2 -ml-180 hidden w-360 max-w-none select-none md:block"
       />
-      <img
-        loading="lazy"
-        srcSet={glass}
-        sizes="(min-width: 1440px) 1287px, 90vw"
-        decoding="async"
-        alt=""
-        className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 max-w-none opacity-45 select-none md:block"
-      />
-      <img
-        loading="lazy"
-        srcSet={glassMobile}
-        sizes="96vw"
-        decoding="async"
-        alt=""
-        className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] w-105.5 max-w-none opacity-45 select-none md:hidden"
-      />
+      <div className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 opacity-45 select-none md:flex">
+        {[saint1, saint2, saint3, cross, saint4, saint5, saint6].map((src) => (
+          <img key={src} src={src} alt="" loading="lazy" decoding="async" className={src === cross ? "w-53.25" : "w-40.75"} />
+        ))}
+      </div>
+      <div className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] flex h-[19.27rem] w-105.5 items-end gap-[0.734rem] overflow-hidden pl-[0.367rem] opacity-45 select-none md:hidden">
+        <img src={saints[left]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
+        <img src={cross} alt="" loading="lazy" decoding="async" className="w-[9.769rem] shrink-0" />
+        <img src={saints[right]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
+      </div>
       <img
         loading="lazy"
         src={nazaSitting}
