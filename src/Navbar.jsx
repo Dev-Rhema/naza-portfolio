@@ -1,16 +1,17 @@
 import { useEffect, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
-import musicIcon from "./assets/images/musicIcon.svg";
 import Button from "./Button";
 import Menu from "./Menu";
 import Hamburger from "./Hamburger";
+import Visualizer from "./Visualizer";
 import painting from "./assets/images/menuImgs/menuPainting.webp?w=800;1600&format=webp&lossless=true&as=srcset";
 import crest from "./assets/images/menuImgs/menuCrest.webp";
 import corner from "./assets/images/corner.webp";
 import background from "./assets/images/menuImgs/menuBg.webp";
 
 let audio;
+let analyser;
 
 export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
@@ -24,7 +25,15 @@ export const Navbar = ({ minimal = false }) => {
         audio.currentTime = 37;
         audio.play();
       });
+      const context = new AudioContext();
+      analyser = context.createAnalyser();
+      analyser.fftSize = 64;
+      analyser.smoothingTimeConstant = 0.5;
+      analyser.maxDecibels = -20;
+      context.createMediaElementSource(audio).connect(analyser);
+      analyser.connect(context.destination);
     }
+    analyser.context.resume();
     if (playing) audio.pause();
     else audio.play();
     setPlaying(!playing);
@@ -62,15 +71,19 @@ export const Navbar = ({ minimal = false }) => {
             className="relative hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block"
           >
             SOUND
-            <span
-              className="invisible absolute bottom-full left-1/2 mb-1 flex h-6 -translate-x-1/2 items-center rounded-full bg-[#1f1f1f] px-1.75 tracking-wider text-white opacity-0 shadow-button"
-            >
+            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6 -translate-x-1/2 items-center rounded-full bg-[#1f1f1f] px-1.75 tracking-wider text-white opacity-0 shadow-button">
               {playing ? "ON" : "OFF"}
             </span>
           </button>
         )}
-        <button type="button" aria-label="Toggle sound" aria-pressed={playing} onClick={toggleSound} className={`size-10 rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}>
-          <img src={musicIcon} alt="" className="size-10 md:size-12" />
+        <button
+          type="button"
+          aria-label="Toggle sound"
+          aria-pressed={playing}
+          onClick={toggleSound}
+          className={`size-10 overflow-hidden rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}
+        >
+          <Visualizer analyser={analyser} playing={playing} />
         </button>
         {!minimal && (
           <div className="hidden md:block">
