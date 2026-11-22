@@ -29,12 +29,12 @@ export const Navbar = ({ minimal = false }) => {
       analyser.maxDecibels = -20;
       context.createMediaElementSource(audio).connect(analyser);
       const volume = context.createGain();
-      volume.gain.value = 0.5;
+      volume.gain.value = 0.77;
       analyser.connect(volume).connect(context.destination);
     }
     analyser.context.resume();
     if (playing) audio.pause();
-    else audio.play();
+    else audio.play().catch(() => setPlaying(false));
     setPlaying(!playing);
   };
 
@@ -67,7 +67,7 @@ export const Navbar = ({ minimal = false }) => {
             onClick={toggleSound}
             onPointerEnter={(e) => hint(e, true)}
             onPointerLeave={(e) => hint(e, false)}
-            className="relative hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block"
+            className="relative font-mono text-[1rem] leading-none tracking-widest text-[#666666]"
           >
             SOUND
             <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6.5 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0 shadow-button">
@@ -80,7 +80,7 @@ export const Navbar = ({ minimal = false }) => {
           aria-label="Toggle sound"
           aria-pressed={playing}
           onClick={toggleSound}
-          className={`size-10 overflow-hidden rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}
+          className={`ml-4 size-10 overflow-hidden rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}
         >
           <Visualizer analyser={analyser} playing={playing} />
         </button>
