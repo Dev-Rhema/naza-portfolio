@@ -70,7 +70,7 @@ export const Navbar = ({ minimal = false }) => {
             className="relative hidden font-mono text-[1rem] leading-none tracking-widest text-[#666666] md:block"
           >
             SOUND
-            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6.5 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-[#1f1f1f] tracking-wider text-white opacity-0 shadow-button">
+            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6.5 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0 shadow-button">
               {playing ? "ON" : "OFF"}
             </span>
           </button>
