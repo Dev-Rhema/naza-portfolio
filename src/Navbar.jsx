@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Button from "./Button";
@@ -16,7 +16,20 @@ let analyser;
 export const Navbar = ({ minimal = false }) => {
   const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(() => Boolean(audio && !audio.paused));
+  const roll = useRef(null);
+  const first = useRef(true);
   const { contextSafe } = useGSAP();
+
+  useGSAP(
+    () => {
+      if (first.current || !roll.current) {
+        first.current = false;
+        return;
+      }
+      gsap.fromTo(roll.current, { y: "-3.25rem" }, { y: 0, duration: 1.2, ease: "soundRoll", overwrite: true });
+    },
+    { dependencies: [playing] },
+  );
 
   const toggleSound = () => {
     if (!audio) {
@@ -29,7 +42,7 @@ export const Navbar = ({ minimal = false }) => {
       analyser.maxDecibels = -20;
       context.createMediaElementSource(audio).connect(analyser);
       const volume = context.createGain();
-      volume.gain.value = 0.77;
+      volume.gain.value = 0.5;
       analyser.connect(volume).connect(context.destination);
     }
     analyser.context.resume();
@@ -70,8 +83,11 @@ export const Navbar = ({ minimal = false }) => {
             className="relative font-mono text-[1rem] leading-none tracking-widest text-[#666666]"
           >
             SOUND
-            <span className="invisible absolute bottom-full left-1/2 mb-1 flex h-6.5 w-12 -translate-x-1/2 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0 shadow-button">
-              {playing ? "ON" : "OFF"}
+            <span className="invisible absolute bottom-full left-1/2 mb-1 h-6.5 w-12 -translate-x-1/2 overflow-hidden rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0 shadow-button">
+              <span ref={roll} className="flex flex-col gap-6.5">
+                <span className="flex h-6.5 items-center justify-center">{playing ? "ON" : "OFF"}</span>
+                <span className="flex h-6.5 items-center justify-center">{playing ? "OFF" : "ON"}</span>
+              </span>
             </span>
           </button>
         )}

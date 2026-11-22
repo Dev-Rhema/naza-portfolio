@@ -16,6 +16,7 @@ CustomEase.create("menuLabels", "0.76,0,0.24,1");
 CustomEase.create("menuItems", "0.55,0.01,0.24,1");
 CustomEase.create("menuBanner", "0.85,0,0.08,1");
 CustomEase.create("menuHover", "0.94,0,0.13,1");
+CustomEase.create("soundRoll", "1,0,0.24,1");
 
 export const columnCount = () => (innerWidth < 768 ? 4 : 12);
 
