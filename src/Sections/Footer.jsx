@@ -8,7 +8,6 @@ import cross from "../assets/images/footerImgs/cross.png?format=webp&lossless=tr
 import saint4 from "../assets/images/footerImgs/saint4.png?format=webp&lossless=true";
 import saint5 from "../assets/images/footerImgs/saint5.png?format=webp&lossless=true";
 import saint6 from "../assets/images/footerImgs/saint6.png?format=webp&lossless=true";
-import reflection from "../assets/images/footerImgs/reflection.webp?w=1440;2880&format=webp&lossless=true&as=srcset";
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.webp";
 import { works, me, socials } from "../data";
 
@@ -29,23 +28,15 @@ export function Footer() {
   const { contextSafe } = useGSAP();
 
   const glow = contextSafe((e, on) => {
-    if (e.pointerType !== "mouse") return;
+    if (e.pointerType !== "mouse" || !matchMedia("(hover: hover) and (min-width: 768px)").matches) return;
     const [image, label] = e.currentTarget.children;
     gsap.to(image, { opacity: on ? 1 : 0.45, duration: 0.4, ease: "power2.out", overwrite: true });
     gsap.to(label, { autoAlpha: on ? 1 : 0, duration: 0.3, ease: "power2.out", overwrite: true });
   });
 
   return (
-    <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-181.75 md:px-20 md:pt-[2.53125rem]">
-      <img
-        loading="lazy"
-        srcSet={reflection}
-        sizes="(min-width: 1440px) 1440px, 100vw"
-        decoding="async"
-        alt=""
-        className="pointer-events-none absolute top-75 left-1/2 -ml-180 hidden w-360 max-w-none select-none md:block"
-      />
-      <div className="absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
+    <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
+      <div className="absolute top-42 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
         {windows.map(({ src, name }) => (
           <div key={name} onPointerEnter={(e) => glow(e, true)} onPointerLeave={(e) => glow(e, false)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
             <img src={src} alt={name} loading="lazy" decoding="async" className="w-full opacity-45" />
@@ -64,7 +55,7 @@ export function Footer() {
         loading="lazy"
         src={nazaSitting}
         alt=""
-        className="pointer-events-none absolute top-144 left-9 w-83 max-w-none select-none md:top-[21.09375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
+        className="pointer-events-none absolute top-144 left-9 w-83 max-w-none select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
       />
 
       <div className="relative">
