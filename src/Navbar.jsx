@@ -26,7 +26,7 @@ export const Navbar = ({ minimal = false }) => {
         first.current = false;
         return;
       }
-      gsap.fromTo(roll.current, { y: "-3.25rem" }, { y: 0, duration: 1.2, ease: "soundRoll", overwrite: true });
+      gsap.fromTo(roll.current, { y: "-3.25rem" }, { y: 0, duration: 0.7, ease: "soundRoll", overwrite: true });
     },
     { dependencies: [playing] },
   );
