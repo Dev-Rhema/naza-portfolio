@@ -1,3 +1,5 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
 import Button from "../Button";
 import saint1 from "../assets/images/footerImgs/saint1.png?format=webp&lossless=true";
 import saint2 from "../assets/images/footerImgs/saint2.png?format=webp&lossless=true";
@@ -10,11 +12,29 @@ import reflection from "../assets/images/footerImgs/reflection.webp?w=1440;2880&
 import nazaSitting from "../assets/images/footerImgs/NazaSitting.webp";
 import { works, me, socials } from "../data";
 
+const windows = [
+  { src: saint1, name: "Saint Andrew" },
+  { src: saint2, name: "Saint Anthony" },
+  { src: saint3, name: "Saint Michael" },
+  { src: cross, name: "Son of The Father" },
+  { src: saint4, name: "Saint Rita" },
+  { src: saint5, name: "Saint John Paul II" },
+  { src: saint6, name: "Saint Agatha" },
+];
 const saints = [saint1, saint2, saint3, saint4, saint5, saint6];
 const left = Math.floor(Math.random() * saints.length);
 const right = (left + 1 + Math.floor(Math.random() * (saints.length - 1))) % saints.length;
 
 export function Footer() {
+  const { contextSafe } = useGSAP();
+
+  const glow = contextSafe((e, on) => {
+    if (e.pointerType !== "mouse") return;
+    const [image, label] = e.currentTarget.children;
+    gsap.to(image, { opacity: on ? 1 : 0.45, duration: 0.4, ease: "power2.out", overwrite: true });
+    gsap.to(label, { autoAlpha: on ? 1 : 0, duration: 0.3, ease: "power2.out", overwrite: true });
+  });
+
   return (
     <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-181.75 md:px-20 md:pt-[2.53125rem]">
       <img
@@ -25,9 +45,14 @@ export function Footer() {
         alt=""
         className="pointer-events-none absolute top-75 left-1/2 -ml-180 hidden w-360 max-w-none select-none md:block"
       />
-      <div className="pointer-events-none absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 opacity-45 select-none md:flex">
-        {[saint1, saint2, saint3, cross, saint4, saint5, saint6].map((src) => (
-          <img key={src} src={src} alt="" loading="lazy" decoding="async" className={src === cross ? "w-53.25" : "w-40.75"} />
+      <div className="absolute top-33 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
+        {windows.map(({ src, name }) => (
+          <div key={name} onPointerEnter={(e) => glow(e, true)} onPointerLeave={(e) => glow(e, false)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
+            <img src={src} alt={name} loading="lazy" decoding="async" className="w-full opacity-45" />
+            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-10.5 items-center rounded-full bg-[#1f1f1f] px-5 font-helvetica text-[1.125rem] leading-none whitespace-nowrap text-white opacity-0 shadow-button">
+              {name}
+            </span>
+          </div>
         ))}
       </div>
       <div className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] flex h-[19.27rem] w-105.5 items-end gap-[0.734rem] overflow-hidden pl-[0.367rem] opacity-45 select-none md:hidden">

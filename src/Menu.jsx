@@ -71,7 +71,7 @@ const MenuContent = ({ band }) => (
       </nav>
 
       <div className="h-10.5 shrink-0 overflow-hidden menu-bar md:h-14">
-        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:px-10">
+        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:flex md:justify-between md:px-8.75">
           {socials.map((social) => (
             <a key={social.name} href={social.href} target={social.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="even:text-center last:text-right">
               {social.name}
