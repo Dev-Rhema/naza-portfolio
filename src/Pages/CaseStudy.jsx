@@ -40,7 +40,7 @@ export const CaseStudy = ({ study, loaded }) => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <section className={`relative px-6 pt-28 pb-6.5 font-helvetica font-normal tracking-tighter md:px-20 md:pt-31.5 ${study.newDesign ? "md:pb-7.25" : "md:pb-7.75"}`}>
-            <Navbar minimal />
+            <Navbar minimal loaded={loaded} />
 
             <a href="/" className="flex w-fit items-center gap-2 text-[0.875rem] leading-none md:text-[1.25rem] text-[#7d7d7d]">
               <span className="flex size-6 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button">

@@ -18,7 +18,7 @@ export const Home = ({ loaded }) => {
       <Noise visible={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <Hero />
+          <Hero loaded={loaded} />
           <About />
           <Reel />
           <Footer />

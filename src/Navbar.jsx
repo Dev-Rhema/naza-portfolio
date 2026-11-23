@@ -13,12 +13,27 @@ import background from "./assets/images/menuImgs/menuBg.webp";
 let audio;
 let analyser;
 
-export const Navbar = ({ minimal = false }) => {
+export const Navbar = ({ minimal = false, loaded }) => {
   const [open, setOpen] = useState(false);
   const [playing, setPlaying] = useState(() => Boolean(audio && !audio.paused));
   const roll = useRef(null);
   const first = useRef(true);
+  const header = useRef(null);
   const { contextSafe } = useGSAP();
+
+  useGSAP(
+    () => {
+      if (!loaded) {
+        gsap.set(".wipe", { clipPath: "inset(0% 0% 100% 0%)" });
+        return;
+      }
+      gsap
+        .timeline()
+        .fromTo(".wipe", { clipPath: "inset(0% 0% 100% 0%)" }, { clipPath: "inset(0% 0% 0% 0%)", duration: 1, ease: "soundRoll", clearProps: "clipPath" }, 0)
+        .fromTo(".wipe-band", { clipPath: "inset(0% 0% 0% 0%)" }, { clipPath: "inset(100% 0% 0% 0%)", duration: 0.9, ease: "soundRoll" }, 0.1);
+    },
+    { scope: header, dependencies: [loaded] },
+  );
 
   useGSAP(
     () => {
@@ -68,9 +83,10 @@ export const Navbar = ({ minimal = false }) => {
   }, []);
 
   return (
-    <header className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-6 pt-8 md:px-20 md:pt-10">
-      <a href="/" aria-label="Home">
+    <header ref={header} className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-6 pt-8 md:px-20 md:pt-10">
+      <a href="/" aria-label="Home" className="relative wipe">
         <img src="/nazaLogo.png" alt="Naza" className="size-10 md:size-12" />
+        <span className="pointer-events-none absolute inset-0 rounded-[27%] bg-[#e85626] wipe-band" />
       </a>
 
       <div className="flex h-10 items-center md:h-12">
@@ -96,18 +112,22 @@ export const Navbar = ({ minimal = false }) => {
           aria-label="Toggle sound"
           aria-pressed={playing}
           onClick={toggleSound}
-          className={`ml-4 size-10 overflow-hidden rounded-full md:ml-6 md:size-12 ${minimal ? "md:hidden" : ""}`}
+          className={`relative ml-4 size-10 overflow-hidden rounded-full md:ml-6 md:size-12 wipe ${minimal ? "md:hidden" : ""}`}
         >
           <Visualizer analyser={analyser} playing={playing} />
+          <span className="pointer-events-none absolute inset-0 bg-[#e85626] wipe-band" />
         </button>
         {!minimal && (
-          <div className="hidden md:block">
+          <div className="hidden md:block wipe">
             <Button href="#contact" className="ml-5.5">
               Let’s Chat
             </Button>
           </div>
         )}
-        <Hamburger onClick={() => setOpen(true)} className="ml-4" />
+        <div className="relative ml-4 flex wipe">
+          <Hamburger onClick={() => setOpen(true)} />
+          <span className="pointer-events-none absolute inset-0 rounded-full bg-[#e85626] wipe-band" />
+        </div>
       </div>
       {open && <Menu onClose={() => setOpen(false)} />}
     </header>

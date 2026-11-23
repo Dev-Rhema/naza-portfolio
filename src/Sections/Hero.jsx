@@ -11,7 +11,7 @@ import { createHeroScroll } from "../animations";
 import Navbar from "../Navbar";
 import Button from "../Button";
 
-export function Hero() {
+export function Hero({ loaded }) {
   const section = useRef(null);
 
   useGSAP(() => {
@@ -23,7 +23,7 @@ export function Hero() {
       ref={section}
       className="relative flex h-screen flex-col overflow-hidden px-6 pt-28 pb-5.5 md:px-20 md:pt-32 md:pb-6.5"
     >
-      <Navbar />
+      <Navbar loaded={loaded} />
 
       <div className="flex shrink-0 flex-wrap items-start gap-y-4 md:flex-nowrap md:gap-[2.1775rem]">
         <div className="relative z-10 w-full min-w-0 overflow-hidden md:w-auto md:flex-579">

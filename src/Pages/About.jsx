@@ -41,7 +41,7 @@ export const About = ({ loaded }) => {
       <div id="smooth-wrapper">
         <div id="smooth-content">
           <section className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-29.5 md:pb-9.25">
-            <Navbar />
+            <Navbar loaded={loaded} />
 
             <div className="relative aspect-392/406 w-full md:absolute md:top-29.5 md:right-20 md:aspect-600/800 md:w-150">
               <RippleDistortion src={photo} className="absolute inset-0" />

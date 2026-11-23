@@ -1,3 +1,4 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import Button from "../Button";
@@ -23,12 +24,16 @@ const windows = [
   { src: saint5, name: "Saint John Paul II" },
   { src: saint6, name: "Saint Agatha" },
 ];
-const saints = [saint1, saint2, saint3, saint4, saint5, saint6];
+const saints = windows.filter((saint) => saint.src !== cross);
 const left = Math.floor(Math.random() * saints.length);
 const right = (left + 1 + Math.floor(Math.random() * (saints.length - 1))) % saints.length;
 
+const mobileWindows = [saints[left], windows[3], saints[right]];
+
 export function Footer() {
+  const active = useRef(null);
   const { contextSafe } = useGSAP(() => {
+    gsap.set(".card", { y: "0.375rem" });
     gsap.set([".sway", ".head"], { transformOrigin: "95.38% 78.31%" });
     gsap
       .timeline({ repeat: -1, repeatRefresh: true })
@@ -37,34 +42,48 @@ export function Footer() {
     gsap.to(".sway", { rotation: -1.2, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
   });
 
-  const reveal = contextSafe((e, card, on) => {
-    if (e.pointerType !== "mouse") return;
-    gsap.to(card, { autoAlpha: on ? 1 : 0, y: on ? 0 : "0.375rem", duration: 0.3, ease: "power2.out", overwrite: true });
+  const show = contextSafe((key) => {
+    gsap.to("[data-show]", { autoAlpha: (i, el) => (el.dataset.show === key ? 1 : 0), duration: 0.3, ease: "power2.out", overwrite: true });
+    gsap.to(".card", { y: (i, el) => (el.dataset.show === key ? 0 : "0.375rem"), duration: 0.3, ease: "power2.out" });
+    gsap.to("[data-glow]", { opacity: (i, el) => (el.dataset.glow === key ? 1 : 0.45), duration: 0.4, ease: "power2.out", overwrite: true });
   });
 
-  const glow = contextSafe((e, on) => {
-    if (e.pointerType !== "mouse" || !matchMedia("(hover: hover) and (min-width: 768px)").matches) return;
-    const [image, label] = e.currentTarget.children;
-    gsap.to(image, { opacity: on ? 1 : 0.45, duration: 0.4, ease: "power2.out", overwrite: true });
-    gsap.to(label, { autoAlpha: on ? 1 : 0, duration: 0.3, ease: "power2.out", overwrite: true });
-  });
+  const pick = (key) => {
+    active.current = key;
+    show(key);
+  };
+
+  const hover = (e, key) => {
+    if (e.pointerType === "mouse") pick(key);
+  };
+
+  const tap = (e, key) => {
+    if (e.pointerType === "mouse") return;
+    e.stopPropagation();
+    pick(active.current === key ? null : key);
+  };
 
   return (
-    <footer className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
+    <footer onPointerUp={(e) => e.pointerType !== "mouse" && active.current && pick(null)} className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
       <div className="absolute top-42 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
         {windows.map(({ src, name }) => (
-          <div key={name} onPointerEnter={(e) => glow(e, true)} onPointerLeave={(e) => glow(e, false)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
-            <img src={src} alt={name} loading="lazy" decoding="async" className="w-full opacity-45" />
-            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
+          <div key={name} onPointerEnter={(e) => hover(e, name)} onPointerLeave={(e) => hover(e, null)} onPointerUp={(e) => tap(e, name)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
+            <img src={src} alt={name} data-glow={name} loading="lazy" decoding="async" className="w-full opacity-45" />
+            <span data-show={name} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
               {name}
             </span>
           </div>
         ))}
       </div>
-      <div className="pointer-events-none absolute top-[23.85625rem] left-[0.3rem] flex h-[19.27rem] w-105.5 items-end gap-[0.734rem] overflow-hidden pl-[0.367rem] opacity-45 select-none md:hidden">
-        <img src={saints[left]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
-        <img src={cross} alt="" loading="lazy" decoding="async" className="w-[9.769rem] shrink-0" />
-        <img src={saints[right]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
+      <div className="absolute top-[23.85625rem] left-[0.3rem] flex h-[19.27rem] w-105.5 items-end gap-[0.734rem] overflow-x-clip pl-[0.367rem] select-none md:hidden">
+        {mobileWindows.map(({ src, name }) => (
+          <div key={name} onPointerUp={(e) => tap(e, `mobile ${name}`)} className={`relative shrink-0 ${src === cross ? "w-[9.769rem]" : "w-[7.477rem]"}`}>
+            <img src={src} alt={name} data-glow={`mobile ${name}`} loading="lazy" decoding="async" className="w-full opacity-45" />
+            <span data-show={`mobile ${name}`} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
+              {name}
+            </span>
+          </div>
+        ))}
       </div>
       <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
         <div className="absolute inset-0 mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)]">
@@ -74,23 +93,25 @@ export function Footer() {
           <img loading="lazy" src={body} alt="" className="absolute top-[5%] left-[0.219%] w-[99.79%] max-w-none" />
         </div>
         <div
-          onPointerEnter={(e) => reveal(e, ".music-card", true)}
-          onPointerLeave={(e) => reveal(e, ".music-card", false)}
-          className="pointer-events-auto absolute top-0 left-[66.41%] hidden h-[32.3%] w-[19.756%] md:block"
+          onPointerEnter={(e) => hover(e, "music")}
+          onPointerLeave={(e) => hover(e, null)}
+          onPointerUp={(e) => tap(e, "music")}
+          className="pointer-events-auto absolute top-0 left-[66.41%] h-[32.3%] w-[19.756%]"
         />
         <div
-          onPointerEnter={(e) => reveal(e, ".book-card", true)}
-          onPointerLeave={(e) => reveal(e, ".book-card", false)}
-          className="pointer-events-auto absolute top-[27.7%] left-[36.3%] hidden h-[22.6%] w-[18.4%] md:block"
+          onPointerEnter={(e) => hover(e, "book")}
+          onPointerLeave={(e) => hover(e, null)}
+          onPointerUp={(e) => tap(e, "book")}
+          className="pointer-events-auto absolute top-[27.7%] left-[36.3%] h-[22.6%] w-[18.4%]"
         />
-        <div className="invisible absolute bottom-[110.3%] left-[69.8%] flex w-max -translate-x-1/2 translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 music-card">
+        <div data-show="music" className="invisible absolute bottom-[110.3%] left-[69.8%] flex w-max -translate-x-1/2 translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 card">
           <img src={musicCover} alt="" className="size-10 rounded-lg" />
           <div>
             <p className="text-[0.875rem] text-white">Fork In The Road</p>
             <p className="mt-2 text-[0.75rem] text-[#7d7d7d]">NOISEMAKER</p>
           </div>
         </div>
-        <div className="invisible absolute right-[45.3%] bottom-[69.5%] flex w-max translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 book-card">
+        <div data-show="book" className="invisible absolute right-[45.3%] bottom-[69.5%] flex w-max translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 card">
           <img src={bookCover} alt="" className="size-10 rounded-lg" />
           <div>
             <p className="text-[0.875rem] text-white">Assassin’s Apprentice</p>
