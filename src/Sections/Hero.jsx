@@ -40,7 +40,7 @@ export function Hero() {
           fetchPriority="high"
           className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
         />
-        <div className="relative z-10 w-full min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
+        <div className="relative z-10 w-[84.11%] min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
           <img
             src={icheke}
             alt="Icheke"
