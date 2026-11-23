@@ -8,7 +8,8 @@ import cross from "../assets/images/footerImgs/cross.png?format=webp&lossless=tr
 import saint4 from "../assets/images/footerImgs/saint4.png?format=webp&lossless=true";
 import saint5 from "../assets/images/footerImgs/saint5.png?format=webp&lossless=true";
 import saint6 from "../assets/images/footerImgs/saint6.png?format=webp&lossless=true";
-import nazaSitting from "../assets/images/footerImgs/NazaSitting.webp";
+import body from "../assets/images/footerImgs/body.svg";
+import head from "../assets/images/footerImgs/head.svg";
 import { works, me, socials } from "../data";
 
 const windows = [
@@ -25,7 +26,14 @@ const left = Math.floor(Math.random() * saints.length);
 const right = (left + 1 + Math.floor(Math.random() * (saints.length - 1))) % saints.length;
 
 export function Footer() {
-  const { contextSafe } = useGSAP();
+  const { contextSafe } = useGSAP(() => {
+    gsap.set([".sway", ".head"], { transformOrigin: "95.38% 78.31%" });
+    gsap
+      .timeline({ repeat: -1, repeatRefresh: true })
+      .to(".head", { rotation: () => gsap.utils.random(-4, -2.2), duration: () => gsap.utils.random(0.3, 0.38), ease: "sine.inOut" })
+      .to(".head", { rotation: () => gsap.utils.random(-0.4, 0.3), duration: () => gsap.utils.random(0.38, 0.46), ease: "sine.inOut" });
+    gsap.to(".sway", { rotation: -1.2, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
+  });
 
   const glow = contextSafe((e, on) => {
     if (e.pointerType !== "mouse" || !matchMedia("(hover: hover) and (min-width: 768px)").matches) return;
@@ -51,12 +59,12 @@ export function Footer() {
         <img src={cross} alt="" loading="lazy" decoding="async" className="w-[9.769rem] shrink-0" />
         <img src={saints[right]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
       </div>
-      <img
-        loading="lazy"
-        src={nazaSitting}
-        alt=""
-        className="pointer-events-none absolute top-144 left-9 w-83 max-w-none select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25"
-      />
+      <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)] md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
+        <div className="absolute top-0 left-[66.41%] w-[19.756%] will-change-transform sway">
+          <img loading="lazy" src={head} alt="" className="w-full will-change-transform head" />
+        </div>
+        <img loading="lazy" src={body} alt="" className="absolute top-[5%] left-[0.219%] w-[99.79%] max-w-none" />
+      </div>
 
       <div className="relative">
         <h2 className="font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white">
