@@ -10,6 +10,8 @@ import saint5 from "../assets/images/footerImgs/saint5.png?format=webp&lossless=
 import saint6 from "../assets/images/footerImgs/saint6.png?format=webp&lossless=true";
 import body from "../assets/images/footerImgs/body.svg";
 import head from "../assets/images/footerImgs/head.svg";
+import bookCover from "../assets/images/footerImgs/bookCover.jpg?w=80&format=webp";
+import musicCover from "../assets/images/footerImgs/musicCover.jpg?w=80&format=webp";
 import { works, me, socials } from "../data";
 
 const windows = [
@@ -35,6 +37,11 @@ export function Footer() {
     gsap.to(".sway", { rotation: -1.2, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
   });
 
+  const reveal = contextSafe((e, card, on) => {
+    if (e.pointerType !== "mouse") return;
+    gsap.to(card, { autoAlpha: on ? 1 : 0, y: on ? 0 : "0.375rem", duration: 0.3, ease: "power2.out", overwrite: true });
+  });
+
   const glow = contextSafe((e, on) => {
     if (e.pointerType !== "mouse" || !matchMedia("(hover: hover) and (min-width: 768px)").matches) return;
     const [image, label] = e.currentTarget.children;
@@ -48,7 +55,7 @@ export function Footer() {
         {windows.map(({ src, name }) => (
           <div key={name} onPointerEnter={(e) => glow(e, true)} onPointerLeave={(e) => glow(e, false)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
             <img src={src} alt={name} loading="lazy" decoding="async" className="w-full opacity-45" />
-            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0 shadow-button">
+            <span className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
               {name}
             </span>
           </div>
@@ -59,11 +66,37 @@ export function Footer() {
         <img src={cross} alt="" loading="lazy" decoding="async" className="w-[9.769rem] shrink-0" />
         <img src={saints[right]} alt="" loading="lazy" decoding="async" className="w-[7.477rem] shrink-0" />
       </div>
-      <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)] md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
-        <div className="absolute top-0 left-[66.41%] w-[19.756%] will-change-transform sway">
-          <img loading="lazy" src={head} alt="" className="w-full will-change-transform head" />
+      <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
+        <div className="absolute inset-0 mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)]">
+          <div className="absolute top-0 left-[66.41%] w-[19.756%] will-change-transform sway">
+            <img loading="lazy" src={head} alt="" className="w-full will-change-transform head" />
+          </div>
+          <img loading="lazy" src={body} alt="" className="absolute top-[5%] left-[0.219%] w-[99.79%] max-w-none" />
         </div>
-        <img loading="lazy" src={body} alt="" className="absolute top-[5%] left-[0.219%] w-[99.79%] max-w-none" />
+        <div
+          onPointerEnter={(e) => reveal(e, ".music-card", true)}
+          onPointerLeave={(e) => reveal(e, ".music-card", false)}
+          className="pointer-events-auto absolute top-0 left-[66.41%] hidden h-[32.3%] w-[19.756%] md:block"
+        />
+        <div
+          onPointerEnter={(e) => reveal(e, ".book-card", true)}
+          onPointerLeave={(e) => reveal(e, ".book-card", false)}
+          className="pointer-events-auto absolute top-[27.7%] left-[36.3%] hidden h-[22.6%] w-[18.4%] md:block"
+        />
+        <div className="invisible absolute bottom-[110.3%] left-[69.8%] flex w-max -translate-x-1/2 translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 music-card">
+          <img src={musicCover} alt="" className="size-10 rounded-lg" />
+          <div>
+            <p className="text-[0.875rem] text-white">Fork In The Road</p>
+            <p className="mt-2 text-[0.75rem] text-[#7d7d7d]">NOISEMAKER</p>
+          </div>
+        </div>
+        <div className="invisible absolute right-[45.3%] bottom-[69.5%] flex w-max translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 book-card">
+          <img src={bookCover} alt="" className="size-10 rounded-lg" />
+          <div>
+            <p className="text-[0.875rem] text-white">Assassin’s Apprentice</p>
+            <p className="mt-2 text-[0.75rem] text-[#7d7d7d]">Robin Hobb</p>
+          </div>
+        </div>
       </div>
 
       <div className="relative">
