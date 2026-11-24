@@ -85,7 +85,8 @@ export function createWipe(scope) {
     .timeline()
     .fromTo(q(".wipe-window"), { yPercent: -112.5 }, { yPercent: 0, ...wipe }, 0)
     .fromTo(q(".wipe-inner"), { yPercent: 112.5 }, { yPercent: 0, ...wipe }, 0)
-    .fromTo(q(".wipe-band"), { yPercent: -100 }, { yPercent: 800, ...wipe }, 0);
+    .fromTo(q(".wipe-band"), { yPercent: -100, autoAlpha: 1 }, { yPercent: 800, ...wipe }, 0)
+    .to(q(".wipe-band"), { autoAlpha: 0, duration: 0, delay: (i, el) => +el.closest(".wipe").dataset.delay + 1.2 }, 0);
 }
 
 export function createHeroScroll(section) {
