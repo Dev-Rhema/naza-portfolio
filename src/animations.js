@@ -77,6 +77,17 @@ export function createMenuClose(scope) {
     .to(q(".menu-close-decor"), { scaleY: 0, ...columns }, 0.065);
 }
 
+export function createWipe(scope) {
+  const q = gsap.utils.selector(scope);
+  const wipe = { duration: 1.2, ease: "soundRoll", delay: (i, el) => +el.closest(".wipe").dataset.delay };
+
+  return gsap
+    .timeline()
+    .fromTo(q(".wipe-window"), { yPercent: -112.5 }, { yPercent: 0, ...wipe }, 0)
+    .fromTo(q(".wipe-inner"), { yPercent: 112.5 }, { yPercent: 0, ...wipe }, 0)
+    .fromTo(q(".wipe-band"), { yPercent: -100 }, { yPercent: 800, ...wipe }, 0);
+}
+
 export function createHeroScroll(section) {
   const arch = section.querySelector(".arch");
   const nft = section.querySelector(".nft");

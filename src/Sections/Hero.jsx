@@ -7,16 +7,26 @@ import nft from "../assets/images/HeaderImgs/nft.webp?w=440;866&format=webp&loss
 import tao from "../assets/images/HeaderImgs/tao.svg";
 import footium from "../assets/images/HeaderImgs/footium.svg";
 import vidaio from "../assets/images/HeaderImgs/vidaio.svg";
-import { createHeroScroll } from "../animations";
+import { createHeroScroll, createWipe } from "../animations";
 import Navbar from "../Navbar";
 import Button from "../Button";
+import Wipe from "../Wipe";
 
 export function Hero({ loaded }) {
   const section = useRef(null);
+  const name = useRef(null);
 
   useGSAP(() => {
     createHeroScroll(section.current);
   });
+
+  useGSAP(
+    () => {
+      const wipe = createWipe(name.current);
+      if (!loaded) wipe.pause();
+    },
+    { dependencies: [loaded] },
+  );
 
   return (
     <section
@@ -25,28 +35,27 @@ export function Hero({ loaded }) {
     >
       <Navbar loaded={loaded} />
 
-      <div className="flex shrink-0 flex-wrap items-start gap-y-4 md:flex-nowrap md:gap-[2.1775rem]">
-        <div className="relative z-10 w-full min-w-0 overflow-hidden md:w-auto md:flex-579">
+      <div ref={name} className="flex shrink-0 flex-wrap items-start gap-y-4 md:flex-nowrap md:gap-[2.1775rem]">
+        <Wipe className="relative z-10 w-full min-w-0 md:w-auto md:flex-579">
           <img
             src={chinaza}
             alt="Chinaza"
             className="aspect-579/180 w-full will-change-transform slide"
           />
-        </div>
-        <img
-          srcSet={nft}
-          sizes="(min-width: 768px) 15vw, 33vw"
-          alt=""
-          fetchPriority="high"
-          className="absolute top-0 left-0 z-0 aspect-145/180 w-[17.16%] min-w-0 will-change-transform md:static md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
-        />
-        <div className="relative z-10 w-[84.11%] min-w-0 overflow-y-clip md:w-auto md:flex-487 md:overflow-hidden">
+        </Wipe>
+        <Wipe
+          delay={0.11}
+          className="absolute top-0 left-0 z-0 w-[17.16%] min-w-0 will-change-transform md:relative md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
+        >
+          <img srcSet={nft} sizes="(min-width: 768px) 15vw, 33vw" alt="" fetchPriority="high" className="aspect-145/180 w-full" />
+        </Wipe>
+        <Wipe delay={0.18} className="relative z-10 w-[84.11%] min-w-0 md:w-auto md:flex-487">
           <img
             src={icheke}
             alt="Icheke"
             className="aspect-487/180 w-full max-w-none will-change-transform md:w-full slide"
           />
-        </div>
+        </Wipe>
       </div>
 
       <div className="mt-8 hidden shrink-0 items-baseline justify-between md:flex overflow-hidden font-helvetica text-[1.5rem] leading-none tracking-[-0.04em]">
