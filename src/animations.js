@@ -22,7 +22,7 @@ export const columnCount = () => (innerWidth < 768 ? 4 : 12);
 
 const columnDelay = (i, count) => (count === 12 ? i * 0.065 + (i >= 10 ? 0.065 : 0) : i * 0.1);
 
-export function createLoaderTimeline(scope, { onComplete } = {}) {
+export function createLoaderTimeline(scope, { onComplete, onReveal } = {}) {
   const q = gsap.utils.selector(scope);
   const text = { duration: 2, ease: "loaderText" };
   const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i, _, all) => columnDelay(i, all.length) };
@@ -41,7 +41,8 @@ export function createLoaderTimeline(scope, { onComplete } = {}) {
     .from(q(".role"), { yPercent: 279.17, ...text }, 0.38)
     .addLabel("columns", 2.39)
     .from(q(".decor"), { scaleY: 0, ...columns }, "columns")
-    .to(q(".slice"), { height: 0, ...columns }, "columns+=0.065");
+    .to(q(".slice"), { height: 0, ...columns }, "columns+=0.065")
+    .call(() => onReveal?.(), null, ">-0.36");
 }
 
 export function createMenuTimeline(scope) {

@@ -14,11 +14,11 @@ function Reveal({ id, className, children }) {
   );
 }
 
-export function Loader({ onComplete, quick }) {
+export function Loader({ onComplete, onReveal, quick }) {
   const root = useRef(null);
 
   useGSAP(() => {
-    const timeline = createLoaderTimeline(root.current, { onComplete });
+    const timeline = createLoaderTimeline(root.current, { onComplete, onReveal });
     if (quick) timeline.seek("columns");
   });
 

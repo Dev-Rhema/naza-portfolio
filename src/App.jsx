@@ -11,6 +11,7 @@ const toTop = () => scrollTo(0, 0);
 
 function App() {
   const [loading, setLoading] = useState("full");
+  const [revealed, setRevealed] = useState(false);
   const [path, setPath] = useState(location.pathname);
   const [visit, setVisit] = useState(0);
   const page = path.replace(/\/$/, "");
@@ -23,6 +24,7 @@ function App() {
       ScrollTrigger.addEventListener("refresh", toTop);
       setPath(location.pathname);
       setLoading("quick");
+      setRevealed(false);
       setVisit((v) => v + 1);
     };
     const click = (e) => {
@@ -45,6 +47,7 @@ function App() {
       {loading && (
         <Loader
           quick={loading === "quick"}
+          onReveal={() => setRevealed(true)}
           onComplete={() => {
             ScrollTrigger.removeEventListener("refresh", toTop);
             setLoading(false);
@@ -52,7 +55,7 @@ function App() {
         />
       )}
       <Suspense key={visit}>
-        {page === "/about" ? <About loaded={!loading} /> : study?.overview ? <CaseStudy study={study} loaded={!loading} /> : <Home loaded={!loading} />}
+        {page === "/about" ? <About loaded={revealed} /> : study?.overview ? <CaseStudy study={study} loaded={revealed} /> : <Home loaded={revealed} />}
       </Suspense>
     </>
   );
