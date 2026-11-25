@@ -4,6 +4,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
 
 gsap.registerPlugin(CustomEase, ScrollTrigger, ScrollSmoother);
+ScrollTrigger.config({ ignoreMobileResize: true });
 
 CustomEase.create("loaderText", "0.85,0,0.15,1");
 CustomEase.create("loaderFade", "0.5,0,0.03,1");
@@ -82,6 +83,10 @@ export function createMenuClose(scope) {
     .to(q(".menu-close-decor"), { scaleY: 0, ...columns }, 0.065);
 }
 
+export function createSmoother() {
+  if (ScrollTrigger.isTouch !== 1) ScrollSmoother.create({ smooth: 1.5 });
+}
+
 export function createWipe(wipes) {
   const q = (part) => wipes.map((el) => el.querySelector(part));
   const delay = (i, el) => +el.closest(".wipe").dataset.delay;
@@ -118,7 +123,7 @@ export function createHeroScroll(section) {
   const nftScale = () => (arch.offsetWidth * 0.198) / nft.offsetWidth;
 
   const timeline = gsap
-    .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })
+    .timeline({ scrollTrigger: { trigger: section, start: "top top", end: mobile ? "+=75%" : "+=100%", pin: true, anticipatePin: 1, scrub: true, invalidateOnRefresh: true } })
     .to(arch, { y: () => archTop() - arch.offsetTop, ease: "none" })
     .to(section.querySelectorAll(".slide"), { yPercent: 100, y: 2, ease: "none" }, 0);
 
@@ -132,6 +137,6 @@ export function createHeroScroll(section) {
   }
 
   return timeline
-    .set(nft, { x: nftCenterX }, 0.25)
-    .to(nft, { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.5, ease: "wipe" }, 0.25);
+    .to(nft, { y: nftCenterY, scale: nftScale, duration: 0.5, ease: "wipe" }, 0.5)
+    .set(nft, { x: nftCenterX }, 0.62);
 }

@@ -1,7 +1,7 @@
 import { useGSAP } from "@gsap/react";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Navbar from "../Navbar";
 import Noise from "../noise";
+import { createSmoother } from "../animations";
 import { Footer } from "../Sections/Footer";
 import { caseStudies } from "../data";
 
@@ -31,7 +31,7 @@ const Text = ({ title, paragraphs }) => (
 
 export const CaseStudy = ({ study, loaded }) => {
   useGSAP(() => {
-    ScrollSmoother.create({ smooth: 1.5 });
+    createSmoother();
   });
 
   return (

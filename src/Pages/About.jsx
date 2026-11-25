@@ -1,8 +1,8 @@
 import { useGSAP } from "@gsap/react";
-import { ScrollSmoother } from "gsap/ScrollSmoother";
 import Button from "../Button";
 import Navbar from "../Navbar";
 import Noise from "../noise";
+import { createSmoother } from "../animations";
 import RippleDistortion from "../RippleDistortion";
 import { Footer } from "../Sections/Footer";
 import sectionIcon from "../assets/images/sectionIcon.svg";
@@ -32,7 +32,7 @@ const megaphone = "left-[-3.33333rem] w-60.5 md:-left-20 md:w-90.75";
 
 export const About = ({ loaded }) => {
   useGSAP(() => {
-    ScrollSmoother.create({ smooth: 1.5 });
+    createSmoother();
   });
 
   return (
