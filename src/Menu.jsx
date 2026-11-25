@@ -12,6 +12,18 @@ import { works, me, socials } from "./data";
 
 gsap.registerPlugin(useGSAP);
 
+const Item = ({ item, band }) => {
+  const active = item.href === location.pathname.replace(/\/$/, "");
+  return (
+    <li onPointerEnter={active ? undefined : (e) => band(e, 1)} onPointerLeave={active ? undefined : (e) => band(e, 0)} className="relative overflow-hidden">
+      <span className={`absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] ${active ? "" : "transform-[scaleY(0)]"}`} />
+      <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
+        {item.name}
+      </a>
+    </li>
+  );
+};
+
 const MenuContent = ({ band }) => (
   <>
     <div className="relative hidden h-full w-[55.5556%] shrink-0 md:block">
@@ -47,12 +59,7 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {works.map((item) => (
-            <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
-              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
-                {item.name}
-              </a>
-            </li>
+            <Item key={item.name} item={item} band={band} />
           ))}
         </ul>
         <p className="mt-5 overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10">
@@ -60,12 +67,7 @@ const MenuContent = ({ band }) => (
         </p>
         <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
           {me.map((item) => (
-            <li key={item.name} onPointerEnter={(e) => band(e, 1)} onPointerLeave={(e) => band(e, 0)} className="relative overflow-hidden">
-              <span className="absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] transform-[scaleY(0)]" />
-              <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
-                {item.name}
-              </a>
-            </li>
+            <Item key={item.name} item={item} band={band} />
           ))}
         </ul>
       </nav>
