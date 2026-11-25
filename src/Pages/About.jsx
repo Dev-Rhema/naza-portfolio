@@ -1,8 +1,13 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { SplitText } from "gsap/SplitText";
 import Button from "../Button";
 import Navbar from "../Navbar";
 import Noise from "../noise";
-import { createSmoother } from "../animations";
+import { createSmoother, createWipe, wipeLines } from "../animations";
+import Wipe from "../Wipe";
 import RippleDistortion from "../RippleDistortion";
 import { Footer } from "../Sections/Footer";
 import sectionIcon from "../assets/images/sectionIcon.svg";
@@ -31,55 +36,126 @@ const wide = "left-[-9.79167rem] w-[21.58333rem] md:-left-58.75 md:w-129.5";
 const megaphone = "left-[-3.33333rem] w-60.5 md:-left-20 md:w-90.75";
 
 export const About = ({ loaded }) => {
+  const hero = useRef(null);
+  const designer = useRef(null);
+
   useGSAP(() => {
     createSmoother();
   });
+
+  useGSAP(
+    () => {
+      const reveal = createWipe(gsap.utils.toArray(".wipe:not(header *)", hero.current)).fromTo(
+        "[data-fade]",
+        { opacity: 0.001 },
+        { opacity: 1, duration: (i, el) => (+el.dataset.fade ? 0.96 : 1.2), ease: "archFade", delay: (i, el) => +el.dataset.fade, clearProps: "opacity" },
+        0,
+      );
+      if (!loaded) reveal.pause();
+    },
+    { scope: hero, dependencies: [loaded] },
+  );
+
+  useGSAP(
+    () => {
+      let wipe;
+      SplitText.create(".designer-copy", {
+        type: "lines",
+        autoSplit: true,
+        onSplit: (split) => {
+          wipeLines(split.lines);
+          wipe = createWipe(gsap.utils.toArray(".wipe", designer.current)).pause();
+          return wipe;
+        },
+      });
+      ScrollTrigger.create({ trigger: designer.current, start: "top 80%", once: true, onEnter: () => wipe.play() });
+    },
+    { scope: designer },
+  );
 
   return (
     <main className="overflow-x-clip">
       <Noise visible={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <section className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-29.5 md:pb-9.25">
+          <section ref={hero} className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-29.5 md:pb-9.25">
             <Navbar loaded={loaded} />
 
-            <div className="relative aspect-392/406 w-full md:absolute md:top-29.5 md:right-20 md:aspect-600/800 md:w-150">
-              <RippleDistortion src={photo} className="absolute inset-0" />
-              <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5" />
-              <img src={barcodeTop} alt="" className="pointer-events-none absolute top-2 right-1.75 h-12.5 w-40.25 select-none md:top-4 md:right-4 md:h-25 md:w-61.5" />
-              <img src={barcodeBottom} alt="" className="pointer-events-none absolute bottom-2 left-2 h-12.75 w-44 select-none md:bottom-4 md:left-4 md:h-25 md:w-67" />
-              <img src={captionBottom} alt="" className="pointer-events-none absolute right-2.5 bottom-1.75 w-26 select-none md:right-4.5 md:bottom-7 md:w-33.5" />
+            <Wipe className="relative w-full md:absolute md:top-29.5 md:right-20 md:w-150">
+              <div className="relative aspect-392/406 w-full md:aspect-600/800">
+                <RippleDistortion src={photo} className="absolute inset-0" />
+                <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5" />
+                <img src={barcodeTop} alt="" className="pointer-events-none absolute top-2 right-1.75 h-12.5 w-40.25 select-none md:top-4 md:right-4 md:h-25 md:w-61.5" />
+                <img src={barcodeBottom} alt="" className="pointer-events-none absolute bottom-2 left-2 h-12.75 w-44 select-none md:bottom-4 md:left-4 md:h-25 md:w-67" />
+                <img src={captionBottom} alt="" className="pointer-events-none absolute right-2.5 bottom-1.75 w-26 select-none md:right-4.5 md:bottom-7 md:w-33.5" />
+              </div>
+            </Wipe>
+
+            <div className="pointer-events-none hidden w-160 select-none md:flex">
+              <div data-fade={0} className="w-1/2 overflow-hidden">
+                <img src={heroSketch} alt="" className="w-160 max-w-none" />
+              </div>
+              <div data-fade={0.38} className="w-1/2 overflow-hidden">
+                <img src={heroSketch} alt="" className="-ml-80 w-160 max-w-none" />
+              </div>
             </div>
 
-            <img src={heroSketch} alt="" className="pointer-events-none hidden w-160 select-none md:block" />
-
             <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
-              Product Designer creating <br className="hidden md:block" />
-              interfaces that challenge <br className="hidden md:block" />
-              the norm
+              <div className="hidden md:block">
+                <Wipe delay={0.05} className="relative w-fit">
+                  <span>Product Designer creating</span>
+                </Wipe>
+                <Wipe delay={0.09} className="relative w-fit">
+                  <span>interfaces that challenge</span>
+                </Wipe>
+                <Wipe delay={0.15} className="relative w-fit">
+                  <span>the norm</span>
+                </Wipe>
+              </div>
+              <div className="md:hidden">
+                <Wipe delay={0.05} className="relative w-fit">
+                  <span>Product Designer</span>
+                </Wipe>
+                <Wipe delay={0.09} className="relative w-fit">
+                  <span>creating interfaces that</span>
+                </Wipe>
+                <Wipe delay={0.15} className="relative w-fit">
+                  <span>challenge the norm</span>
+                </Wipe>
+              </div>
             </h1>
-            <p className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 md:text-[1.5rem]">
-              Design should make us better. Design should draw out positive emotions from our users. These have been some of my guides over the years
-            </p>
-            <Button href="#contact" className="mt-[1.59375rem] md:mt-[1.40625rem]">
-              Book a Call
-            </Button>
+            <div className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 md:text-[1.5rem]">
+              <Wipe delay={0.06} className="relative w-fit">
+                <span>Design should make us better. Design should draw</span>
+              </Wipe>
+              <Wipe delay={0.11} className="relative w-fit">
+                <span>out positive emotions from our users. These have</span>
+              </Wipe>
+              <Wipe delay={0.15} className="relative w-fit">
+                <span>been some of my guides over the years</span>
+              </Wipe>
+            </div>
+            <Wipe delay={0.28} className="relative mt-[1.59375rem] w-fit rounded-full md:mt-[1.40625rem]">
+              <Button href="#contact">Book a Call</Button>
+            </Wipe>
 
           </section>
 
-          <section className="px-6 pt-10 pb-[5.03125rem] md:px-20 md:pt-22 md:pb-40">
-            <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
-              <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
-              <span className="pt-0.5">THE DESIGNER</span>
-            </p>
-            <p className="isolate mt-3.75 font-helvetica text-[2rem] font-normal leading-10 tracking-[-0.04em] text-[#4f4f4f] md:hidden">
+          <section ref={designer} className="px-6 pt-10 pb-[5.03125rem] md:px-20 md:pt-22 md:pb-40">
+            <Wipe className="relative w-fit">
+              <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
+                <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
+                <span className="pt-0.5">THE DESIGNER</span>
+              </p>
+            </Wipe>
+            <p className="isolate mt-3.75 font-helvetica text-[2rem] font-normal leading-10 tracking-[-0.04em] text-[#4f4f4f] md:hidden designer-copy">
               While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
               <span className="text-white">
                 Product Design <Icon src={brushIcon} className={wide} /> , Design Systems <Icon src={hexagonIcon} className={wide} /> , Pitch Decks{" "}
                 <Icon src={megaphoneIcon} className={megaphone} /> <span className="whitespace-nowrap">, and</span> Motion for Interfaces <Icon src={pendulumIcon} className={wide} />
               </span>
             </p>
-            <p className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-12.5">
+            <p className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-12.5 designer-copy">
               While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
               <span className="whitespace-nowrap text-white">
                 <Icon src={brushIcon} className={wide} /> Product Design,
@@ -94,9 +170,11 @@ export const About = ({ loaded }) => {
                 <Icon src={pendulumIcon} className={wide} /> Motion for Interfaces
               </span>
             </p>
-            <Button href="#resume" className="mt-7.25 bg-[#262626]! md:mt-[2.59375rem]">
-              My Resume
-            </Button>
+            <Wipe delay={0.3} className="relative mt-7.25 w-fit rounded-full md:mt-[2.59375rem]">
+              <Button href="#resume" className="bg-[#262626]!">
+                My Resume
+              </Button>
+            </Wipe>
           </section>
 
           <section className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25">

@@ -2,8 +2,9 @@ import gsap from "gsap";
 import { CustomEase } from "gsap/CustomEase";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from "gsap/ScrollSmoother";
+import { SplitText } from "gsap/SplitText";
 
-gsap.registerPlugin(CustomEase, ScrollTrigger, ScrollSmoother);
+gsap.registerPlugin(CustomEase, ScrollTrigger, ScrollSmoother, SplitText);
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 CustomEase.create("loaderText", "0.85,0,0.15,1");
@@ -106,6 +107,15 @@ export function createWipe(wipes) {
     .to(q(".wipe-band"), { autoAlpha: 0, duration: 0, delay: done }, 0)
     .to([...q(".wipe-window"), ...q(".wipe-inner")], { clearProps: "transform", duration: 0, delay: done }, 0)
     .to([...released, ...released.map((el) => el.querySelector(".wipe-window"))], { overflow: "visible", duration: 0, delay: done }, 0);
+}
+
+export function wipeLines(lines) {
+  lines.forEach((line) => {
+    line.dataset.delay = 0.05 + [...line.parentNode.children].indexOf(line) * 0.055;
+    line.dataset.release = true;
+    line.classList.add("wipe", "relative", "w-fit", "overflow-hidden");
+    line.innerHTML = `<div class="pointer-events-none invisible absolute inset-0 overflow-hidden wipe-band"><div class="size-full wipe-band-inner"><div class="size-full bg-[#e85626] wipe-band-fill"></div></div></div><div class="relative overflow-hidden wipe-window"><div class="flex wipe-inner"><span>${line.innerHTML}</span></div></div>`;
+  });
 }
 
 export function createHeroScroll(section) {
