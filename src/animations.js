@@ -106,10 +106,12 @@ export function createWipe(wipes) {
 export function createHeroScroll(section) {
   const arch = section.querySelector(".arch");
   const nft = section.querySelector(".nft");
+  const copy = section.querySelector(".hero-copy");
   const style = getComputedStyle(section);
   const mobile = innerWidth < 768;
+  const rem = () => parseFloat(getComputedStyle(document.documentElement).fontSize);
   const archTop = () =>
-    mobile ? parseFloat(style.paddingTop) : section.clientHeight - parseFloat(style.paddingBottom) - arch.offsetHeight;
+    mobile ? copy.offsetTop - arch.offsetHeight - 1.33 * rem() : section.clientHeight - parseFloat(style.paddingBottom) - arch.offsetHeight;
   const nftCenterX = () => arch.offsetLeft + arch.offsetWidth / 2 - nft.offsetLeft - nft.offsetWidth / 2;
   const nftCenterY = () =>
     archTop() + arch.offsetHeight * 0.768 - nft.offsetTop - nft.offsetHeight / 2;
@@ -118,7 +120,7 @@ export function createHeroScroll(section) {
   const timeline = gsap
     .timeline({ scrollTrigger: { trigger: section, start: "top top", end: "+=75%", pin: true, scrub: true, invalidateOnRefresh: true } })
     .to(arch, { y: () => archTop() - arch.offsetTop, ease: "none" })
-    .to(section.querySelectorAll(".slide"), { yPercent: 100, ease: "none" }, 0);
+    .to(section.querySelectorAll(".slide"), { yPercent: 100, y: 2, ease: "none" }, 0);
 
   if (mobile) {
     return timeline.fromTo(

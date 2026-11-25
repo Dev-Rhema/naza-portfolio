@@ -49,7 +49,7 @@ export function Hero({ loaded }) {
           />
         </Wipe>
         <Wipe
-          delay={0.11}
+          delay={innerWidth < 768 ? 1.6 : 0.11}
           className="absolute top-0 left-0 z-0 w-[17.16%] min-w-0 will-change-transform md:relative md:order-0 md:mt-0 md:w-auto md:flex-145 md:self-auto md:z-auto nft"
         >
           <img srcSet={nft} sizes="(min-width: 768px) 15vw, 33vw" alt="" fetchPriority="high" className="aspect-145/180 w-full" />
@@ -100,7 +100,7 @@ export function Hero({ loaded }) {
         </Wipe>
       </div>
 
-      <div className="absolute right-6 bottom-19 left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-6.5 tracking-[-0.04em] text-[#7d7d7d] md:hidden">
+      <div className="absolute right-6 bottom-19 left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-6.5 tracking-[-0.04em] text-[#7d7d7d] md:hidden hero-copy">
         <Wipe delay={0.32} className="relative w-fit">
           <span>Creating to inspire has always been my drive.</span>
         </Wipe>
