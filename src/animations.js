@@ -17,6 +17,10 @@ CustomEase.create("menuItems", "0.55,0.01,0.24,1");
 CustomEase.create("menuBanner", "0.85,0,0.08,1");
 CustomEase.create("menuHover", "0.94,0,0.13,1");
 CustomEase.create("soundRoll", "1,0,0.24,1");
+CustomEase.create("archFade", "0.5,0,0.3,1");
+CustomEase.create("wipe", "0.85,0,0.15,1");
+CustomEase.create("reelFade", "0.5,0,0.46,1");
+CustomEase.create("reelScale", "1,0,0.15,1");
 
 export const columnCount = () => (innerWidth < 768 ? 4 : 12);
 
@@ -42,7 +46,7 @@ export function createLoaderTimeline(scope, { onComplete, onReveal } = {}) {
     .addLabel("columns", 2.39)
     .from(q(".decor"), { scaleY: 0, ...columns }, "columns")
     .to(q(".slice"), { height: 0, ...columns }, "columns+=0.065")
-    .call(() => onReveal?.(), null, columnCount() === 12 ? ">-0.78" : ">-0.57");
+    .call(() => onReveal?.(), null, columnCount() === 12 ? ">-0.72" : ">-0.5");
 }
 
 export function createMenuTimeline(scope) {
@@ -78,17 +82,25 @@ export function createMenuClose(scope) {
     .to(q(".menu-close-decor"), { scaleY: 0, ...columns }, 0.065);
 }
 
-export function createWipe(scope) {
-  const q = gsap.utils.selector(scope);
-  const wipe = { duration: 1.2, ease: "soundRoll", delay: (i, el) => +el.closest(".wipe").dataset.delay };
+export function createWipe(wipes) {
+  const q = (part) => wipes.map((el) => el.querySelector(part));
+  const delay = (i, el) => +el.closest(".wipe").dataset.delay;
+  const content = { duration: 1.07, ease: "wipe", delay };
+  const orange = { duration: 1, ease: "wipe", delay };
+  const released = wipes.filter((el) => el.dataset.release);
+  const done = (i, el) => delay(i, el) + 1.07;
 
   return gsap
     .timeline()
-    .fromTo(q(".wipe-window"), { yPercent: -112.5 }, { yPercent: 0, ...wipe }, 0)
-    .fromTo(q(".wipe-inner"), { yPercent: 112.5 }, { yPercent: 0, ...wipe }, 0)
-    .fromTo(q(".wipe-band"), { yPercent: -100 }, { yPercent: 800, ...wipe }, 0)
-    .to(q(".wipe-band"), { autoAlpha: 1, duration: 0, delay: wipe.delay }, 0)
-    .to(q(".wipe-band"), { autoAlpha: 0, duration: 0, delay: (i, el) => wipe.delay(i, el) + 1.2 }, 0);
+    .fromTo(q(".wipe-window"), { yPercent: -100, y: -2 }, { yPercent: 0, y: 0, ...content }, 0)
+    .fromTo(q(".wipe-inner"), { yPercent: 100, y: 2 }, { yPercent: 0, y: 0, ...content }, 0)
+    .fromTo(q(".wipe-band"), { yPercent: 0, y: -2 }, { yPercent: 100, y: 0, ...content }, 0)
+    .fromTo(q(".wipe-band-inner"), { yPercent: 0, y: 2 }, { yPercent: -100, y: 0, ...content }, 0)
+    .fromTo(q(".wipe-band-fill"), { yPercent: -100, y: -2 }, { yPercent: 0, y: 0, ...orange }, 0)
+    .to(q(".wipe-band"), { autoAlpha: 1, duration: 0, delay }, 0)
+    .to(q(".wipe-band"), { autoAlpha: 0, duration: 0, delay: done }, 0)
+    .to([...q(".wipe-window"), ...q(".wipe-inner")], { clearProps: "transform", duration: 0, delay: done }, 0)
+    .to([...released, ...released.map((el) => el.querySelector(".wipe-window"))], { overflow: "visible", duration: 0, delay: done }, 0);
 }
 
 export function createHeroScroll(section) {

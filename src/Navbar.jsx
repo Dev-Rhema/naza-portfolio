@@ -25,7 +25,7 @@ export const Navbar = ({ minimal = false, loaded }) => {
 
   useGSAP(
     () => {
-      const wipe = createWipe(header.current);
+      const wipe = createWipe(gsap.utils.toArray(".wipe", header.current));
       if (!loaded) wipe.pause();
     },
     { scope: header, dependencies: [loaded] },
@@ -95,7 +95,7 @@ export const Navbar = ({ minimal = false, loaded }) => {
             onPointerLeave={(e) => hint(e, false)}
             className="relative font-mono text-[1rem] leading-none tracking-widest text-[#666666]"
           >
-            <Wipe delay={0.18} className="relative -my-0.5">
+            <Wipe delay={0.23} className="relative -my-0.5">
               <span className="py-0.5">SOUND</span>
             </Wipe>
             <span className="invisible absolute bottom-full left-1/2 mb-1 h-6.5 w-12 -translate-x-1/2 overflow-hidden rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0">
@@ -112,11 +112,11 @@ export const Navbar = ({ minimal = false, loaded }) => {
           </button>
         </Wipe>
         {!minimal && (
-          <Wipe delay={0.29} className="relative ml-5.5 hidden rounded-full md:block">
+          <Wipe delay={0.32} className="relative ml-5.5 hidden rounded-full md:block">
             <Button href="#contact">Let’s Chat</Button>
           </Wipe>
         )}
-        <Wipe delay={0.37} className="relative ml-4 rounded-full">
+        <Wipe delay={0.41} className="relative ml-4 rounded-full">
           <Hamburger onClick={() => setOpen(true)} />
         </Wipe>
       </div>
