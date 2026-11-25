@@ -42,7 +42,7 @@ export function createLoaderTimeline(scope, { onComplete, onReveal } = {}) {
     .addLabel("columns", 2.39)
     .from(q(".decor"), { scaleY: 0, ...columns }, "columns")
     .to(q(".slice"), { height: 0, ...columns }, "columns+=0.065")
-    .call(() => onReveal?.(), null, ">-0.36");
+    .call(() => onReveal?.(), null, columnCount() === 12 ? ">-0.78" : ">-0.57");
 }
 
 export function createMenuTimeline(scope) {
