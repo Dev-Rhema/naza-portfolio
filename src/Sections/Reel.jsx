@@ -31,24 +31,24 @@ export function Reel() {
         </p>
       </Wipe>
 
-      <Wipe delay={0.03} release className="relative mt-4 md:mt-8">
+      <Wipe delay={0.03} release className="relative mt-4 md:mx-auto md:mt-8 md:w-288">
         <div className="relative aspect-392/335 w-full md:aspect-1280/725">
           <picture>
-            <source type="image/avif" srcSet={painting.sources.avif} sizes="(min-width: 768px) 88vw, 134vw" />
+            <source type="image/avif" srcSet={painting.sources.avif} sizes="(min-width: 768px) 80vw, 134vw" />
             <img
               srcSet={painting.sources.jpeg}
-              sizes="(min-width: 768px) 88vw, 134vw"
+              sizes="(min-width: 768px) 80vw, 134vw"
               alt=""
               loading="lazy"
               decoding="async"
               className="pointer-events-none absolute inset-0 size-full object-cover select-none painting"
             />
           </picture>
-          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-14 painting" />
-          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-14 painting" />
-          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-14 painting" />
-          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-14 painting" />
-          <div className="absolute inset-x-4.25 top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-14 md:top-13 md:bottom-14.25 md:rounded-xl screen">
+          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 left-0 w-10 select-none md:w-[3.15rem] painting" />
+          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute top-0 right-0 w-10 -scale-x-100 select-none md:w-[3.15rem] painting" />
+          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute bottom-0 left-0 w-10 -scale-y-100 select-none md:w-[3.15rem] painting" />
+          <img src={corner} alt="" loading="lazy" className="pointer-events-none absolute right-0 bottom-0 w-10 rotate-180 select-none md:w-[3.15rem] painting" />
+          <div className="absolute inset-x-4.25 top-10 bottom-10 flex items-center justify-center rounded-2xl border border-white/25 bg-[#030303] md:inset-x-[3.15rem] md:top-[2.925rem] md:bottom-[3.20625rem] md:rounded-[0.675rem] screen">
             <button
               type="button"
               aria-label="Play reel"

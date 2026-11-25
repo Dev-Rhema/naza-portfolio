@@ -124,12 +124,12 @@ export function createHeroScroll(section) {
     return timeline.fromTo(
       nft,
       { x: nftCenterX, y: () => arch.offsetTop - nft.offsetTop },
-      { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.75, ease: "none" },
+      { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.75, ease: "wipe" },
       0,
     );
   }
 
   return timeline
-    .set(nft, { x: nftCenterX }, 0.5)
-    .to(nft, { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.25, ease: "none" }, 0.5);
+    .set(nft, { x: nftCenterX }, 0.25)
+    .to(nft, { x: nftCenterX, y: nftCenterY, scale: nftScale, duration: 0.5, ease: "wipe" }, 0.25);
 }

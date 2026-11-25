@@ -1,7 +1,10 @@
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../Button";
+import Wipe from "../Wipe";
+import { createWipe } from "../animations";
 import saint1 from "../assets/images/footerImgs/saint1.png?format=webp&lossless=true";
 import saint2 from "../assets/images/footerImgs/saint2.png?format=webp&lossless=true";
 import saint3 from "../assets/images/footerImgs/saint3.png?format=webp&lossless=true";
@@ -29,10 +32,27 @@ const left = Math.floor(Math.random() * saints.length);
 const right = (left + 1 + Math.floor(Math.random() * (saints.length - 1))) % saints.length;
 
 const mobileWindows = [saints[left], windows[3], saints[right]];
+const fades = [0, 0.06, 0.11, 0.17];
+
+const Credit = ({ label, name, right = false, className = "" }) => (
+  <div className={className}>
+    <Wipe delay={0.07} className={`relative w-max ${right ? "ml-auto" : ""}`}>
+      <p className="font-normal text-[#4f4f4f] md:text-[1rem]">{label}</p>
+    </Wipe>
+    <Wipe delay={0.07} className={`relative mt-3 w-max md:mt-[0.73125rem] ${right ? "ml-auto" : ""}`}>
+      <p className="font-medium text-white md:text-[1.125rem]">{name}</p>
+    </Wipe>
+  </div>
+);
 
 export function Footer() {
   const active = useRef(null);
+  const footer = useRef(null);
   const { contextSafe } = useGSAP(() => {
+    const reveal = createWipe(gsap.utils.toArray(".wipe", footer.current))
+      .fromTo("[data-fade]", { opacity: 0.001 }, { opacity: 1, duration: 0.9, ease: "archFade", delay: (i, el) => +el.dataset.fade, clearProps: "opacity" }, 0)
+      .pause();
+    ScrollTrigger.create({ trigger: footer.current, start: "top 80%", once: true, onEnter: () => reveal.play() });
     gsap.set(".card", { y: "0.375rem" });
     gsap.set([".sway", ".head"], { transformOrigin: "95.38% 78.31%" });
     gsap
@@ -40,7 +60,7 @@ export function Footer() {
       .to(".head", { rotation: () => gsap.utils.random(-4, -2.2), duration: () => gsap.utils.random(0.3, 0.38), ease: "sine.inOut" })
       .to(".head", { rotation: () => gsap.utils.random(-0.4, 0.3), duration: () => gsap.utils.random(0.38, 0.46), ease: "sine.inOut" });
     gsap.to(".sway", { rotation: -1.2, duration: 2.6, ease: "sine.inOut", yoyo: true, repeat: -1 });
-  });
+  }, { scope: footer });
 
   const show = contextSafe((key) => {
     gsap.to("[data-show]", { autoAlpha: (i, el) => (el.dataset.show === key ? 1 : 0), duration: 0.3, ease: "power2.out", overwrite: true });
@@ -64,10 +84,10 @@ export function Footer() {
   };
 
   return (
-    <footer onPointerUp={(e) => e.pointerType !== "mouse" && active.current && pick(null)} className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
+    <footer ref={footer} onPointerUp={(e) => e.pointerType !== "mouse" && active.current && pick(null)} className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
       <div className="absolute top-42 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
-        {windows.map(({ src, name }) => (
-          <div key={name} onPointerEnter={(e) => hover(e, name)} onPointerLeave={(e) => hover(e, null)} onPointerUp={(e) => tap(e, name)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
+        {windows.map(({ src, name }, i) => (
+          <div key={name} data-fade={fades[Math.abs(i - 3)]} onPointerEnter={(e) => hover(e, name)} onPointerLeave={(e) => hover(e, null)} onPointerUp={(e) => tap(e, name)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
             <img src={src} alt={name} data-glow={name} loading="lazy" decoding="async" className="w-full opacity-45" />
             <span data-show={name} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
               {name}
@@ -76,8 +96,8 @@ export function Footer() {
         ))}
       </div>
       <div className="absolute top-[23.85625rem] left-[0.3rem] flex h-[19.27rem] w-105.5 items-end gap-[0.734rem] overflow-x-clip pl-[0.367rem] select-none md:hidden">
-        {mobileWindows.map(({ src, name }) => (
-          <div key={name} onPointerUp={(e) => tap(e, `mobile ${name}`)} className={`relative shrink-0 ${src === cross ? "w-[9.769rem]" : "w-[7.477rem]"}`}>
+        {mobileWindows.map(({ src, name }, i) => (
+          <div key={name} data-fade={fades[Math.abs(i - 1)]} onPointerUp={(e) => tap(e, `mobile ${name}`)} className={`relative shrink-0 ${src === cross ? "w-[9.769rem]" : "w-[7.477rem]"}`}>
             <img src={src} alt={name} data-glow={`mobile ${name}`} loading="lazy" decoding="async" className="w-full opacity-45" />
             <span data-show={`mobile ${name}`} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
               {name}
@@ -86,7 +106,7 @@ export function Footer() {
         ))}
       </div>
       <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
-        <div className="absolute inset-0 mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)]">
+        <div data-fade={0.25} className="absolute inset-0 mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)]">
           <div className="absolute top-0 left-[66.41%] w-[19.756%] will-change-transform sway">
             <img loading="lazy" src={head} alt="" className="w-full will-change-transform head" />
           </div>
@@ -122,49 +142,63 @@ export function Footer() {
 
       <div className="relative">
         <h2 className="font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white">
-          Let us make something
-          <br />
-          that outlives us
+          <Wipe delay={0.07} className="relative w-fit">
+            <span>Let us make something</span>
+          </Wipe>
+          <Wipe delay={0.13} className="relative w-fit">
+            <span>that outlives us</span>
+          </Wipe>
         </h2>
         <div className="mt-[1.44375rem] flex items-center gap-4 md:mt-5.75">
-          <Button href="#contact">Book a Call</Button>
+          <Wipe delay={0.22} className="relative rounded-full">
+            <Button href="#contact">Book a Call</Button>
+          </Wipe>
           {socials
             .filter((social) => social.icon)
             .map((social) => (
-              <a
-                key={social.name}
-                href={social.href}
-                target="_blank"
-                rel="noreferrer"
-                aria-label={social.name}
-                className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
-              >
-                <svg viewBox="0 0 24 24" className="size-4.25 fill-white">
-                  <path d={social.icon} />
-                </svg>
-              </a>
+              <Wipe key={social.name} delay={0.28} className="relative rounded-full">
+                <a
+                  href={social.href}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={social.name}
+                  className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
+                >
+                  <svg viewBox="0 0 24 24" className="size-4.25 fill-white">
+                    <path d={social.icon} />
+                  </svg>
+                </a>
+              </Wipe>
             ))}
         </div>
 
         <div className="mt-[2.425rem] flex font-helvetica leading-none tracking-[-0.04em] md:absolute md:top-[-0.28125rem] md:right-0 md:mt-0">
           <div className="w-34">
-            <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Works</p>
+            <Wipe delay={0.07} className="relative w-fit">
+              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Works</p>
+            </Wipe>
             <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
               {works
                 .filter((work) => work.footer)
-                .map((work) => (
+                .map((work, i) => (
                   <li key={work.name} className="last:hidden md:last:block">
-                    <a href={work.href}>{work.name}</a>
+                    <Wipe delay={i === 0 ? 0.12 : 0.17} className="relative w-fit">
+                      <a href={work.href}>{work.name}</a>
+                    </Wipe>
                   </li>
                 ))}
             </ul>
           </div>
           <div className="md:w-22">
-            <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Me</p>
+            <Wipe delay={0.17} className="relative w-fit">
+              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Me</p>
+            </Wipe>
             <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
               {me.map((item) => (
                 <li key={item.name}>
-                  <a href={item.href}>{item.name}</a>
+                  <Wipe delay={0.17} className="relative w-fit">
+                    <a href={item.href}>{item.name}</a>
+                  </Wipe>
                 </li>
               ))}
             </ul>
@@ -174,40 +208,12 @@ export function Footer() {
 
       <div className="absolute inset-x-6 bottom-9 flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
         <div className="flex gap-6 md:gap-0">
-          <div>
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
-              Built by
-            </p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
-              Rhema
-            </p>
-          </div>
-          <div className="md:ml-[2.34375rem]">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
-              3D art by
-            </p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
-              Kewve
-            </p>
-          </div>
+          <Credit label="Built by" name="Rhema" />
+          <Credit label="3D art by" name="Kewve" className="md:ml-[2.34375rem]" />
         </div>
         <div className="flex gap-6 md:contents">
-          <div className="w-20.25 whitespace-nowrap md:mr-auto md:ml-[2.09375rem] md:w-auto">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
-              Illustrations by
-            </p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
-              Rhema, Omolade
-            </p>
-          </div>
-          <div className="text-right">
-            <p className="font-normal text-[#4f4f4f] md:text-[1rem]">
-              Stained Glass Illustrations From
-            </p>
-            <p className="mt-3 font-medium text-white md:mt-[0.73125rem] md:text-[1.125rem]">
-              Stained Glass Inc
-            </p>
-          </div>
+          <Credit label="Illustrations by" name="Rhema, Omolade" className="w-20.25 whitespace-nowrap md:mr-auto md:ml-[2.09375rem] md:w-auto" />
+          <Credit label="Stained Glass Illustrations From" name="Stained Glass Inc" right className="text-right" />
         </div>
       </div>
     </footer>
