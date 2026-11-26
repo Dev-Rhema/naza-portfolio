@@ -102,25 +102,25 @@ export const About = ({ loaded }) => {
 
             <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] 2xl:-mt-24 2xl:text-[7.5rem]">
               <div className="hidden md:block">
-                <Wipe delay={0.05} className="relative w-fit">
-                  <span>Product Designer creating</span>
+                <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">Product Designer creating</span>
                 </Wipe>
-                <Wipe delay={0.09} className="relative w-fit">
-                  <span>interfaces that challenge</span>
+                <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">interfaces that challenge</span>
                 </Wipe>
-                <Wipe delay={0.15} className="relative w-fit">
-                  <span>the norm</span>
+                <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">the norm</span>
                 </Wipe>
               </div>
               <div className="md:hidden">
-                <Wipe delay={0.05} className="relative w-fit">
-                  <span>Product Designer</span>
+                <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">Product Designer</span>
                 </Wipe>
-                <Wipe delay={0.09} className="relative w-fit">
-                  <span>creating interfaces that</span>
+                <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">creating interfaces that</span>
                 </Wipe>
-                <Wipe delay={0.15} className="relative w-fit">
-                  <span>challenge the norm</span>
+                <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
+                  <span className="pb-[0.2em]">challenge the norm</span>
                 </Wipe>
               </div>
             </h1>

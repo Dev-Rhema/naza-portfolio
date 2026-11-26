@@ -16,7 +16,7 @@ const Item = ({ item, band }) => {
   const active = item.href === location.pathname.replace(/\/$/, "");
   return (
     <li onPointerEnter={active ? undefined : (e) => band(e, 1)} onPointerLeave={active ? undefined : (e) => band(e, 0)} className="relative overflow-hidden">
-      <span className={`absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] ${active ? "" : "transform-[scaleY(0)]"}`} />
+      <span className={`absolute inset-x-0 inset-y-[0.11em] origin-bottom bg-[#e85626] ${active ? "menu-active" : "transform-[scaleY(0)]"}`} />
       <a href={item.href} className="relative block pl-6 menu-item md:pl-10">
         {item.name}
       </a>

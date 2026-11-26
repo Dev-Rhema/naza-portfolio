@@ -55,6 +55,8 @@ export function createMenuTimeline(scope) {
   const q = gsap.utils.selector(scope);
   const columns = { duration: 0.915, ease: "loaderDecor", stagger: (i, _, all) => columnDelay(all.length - 1 - i, all.length) };
   const text = { duration: 1, ease: "menuText" };
+  const item = (i) => (i + (i >= 5 ? 1 : 0)) * 0.05;
+  const active = q(".menu-item").findIndex((el) => el.previousSibling.classList.contains("menu-active"));
 
   gsap.set(q(".menu-slice-inner"), { xPercent: (i, _, all) => (-i * 100) / all.length });
 
@@ -67,7 +69,8 @@ export function createMenuTimeline(scope) {
     .fromTo(q(".menu-painting"), { height: "0%" }, { height: "100%", duration: 1.03, ease: "menuBanner" }, "content+=0.015")
     .fromTo(q(".menu-bar"), { width: "0%" }, { width: "100%", duration: 0.96, ease: "menuReveal" }, "content+=0.425")
     .from(q(".menu-label"), { y: "1.3333em", autoAlpha: 0, ...text, ease: "menuLabels", stagger: 0.3 }, "content+=0.41")
-    .from(q(".menu-item"), { y: "1.3333em", autoAlpha: 0, ...text, ease: "menuItems", stagger: (i) => (i + (i >= 5 ? 1 : 0)) * 0.05 }, "content+=0.41")
+    .from(q(".menu-item"), { y: "1.3333em", autoAlpha: 0, ...text, ease: "menuItems", stagger: item }, "content+=0.41")
+    .from(q(".menu-active"), { scaleY: 0, duration: 0.9, ease: "menuHover" }, `content+=${1.41 + item(active)}`)
     .from(q(".menu-caption"), { y: "2.875rem", ...text, stagger: 0.055 }, "content+=0.435")
     .from(q(".menu-crest"), { opacity: 0, duration: 1.06, ease: "menuCrest" }, "content+=0.61");
 }
