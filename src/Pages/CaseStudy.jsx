@@ -1,4 +1,6 @@
+import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Navbar from "../Navbar";
 import Noise from "../noise";
 import { createSmoother } from "../animations";
@@ -15,6 +17,42 @@ const Images = ({ images, className }) => (
     ))}
   </div>
 );
+
+const Recording = ({ background, className, children }) => (
+  <div className={`relative tablet:mt-[3.515625rem] ${className}`}>
+    <picture>
+      <source type="image/avif" srcSet={background.sources.avif} sizes="88vw" />
+      <img srcSet={background.sources.jpeg} sizes="88vw" alt="" loading="lazy" decoding="async" className="aspect-1280/690 w-full" />
+    </picture>
+    {children}
+  </div>
+);
+
+const Video = ({ src, poster }) => {
+  const video = useRef(null);
+
+  useGSAP(() => {
+    ScrollTrigger.create({
+      trigger: video.current,
+      start: "top bottom",
+      end: "bottom top",
+      onToggle: (self) => (self.isActive ? video.current.play().catch(() => {}) : video.current.pause()),
+    });
+  });
+
+  return (
+    <video
+      ref={video}
+      src={src}
+      poster={poster}
+      muted
+      loop
+      playsInline
+      preload="none"
+      className="absolute top-1/2 left-1/2 aspect-1120/566 w-[87.5%] -translate-1/2 rounded-lg object-cover shadow-card"
+    />
+  );
+};
 
 const Text = ({ title, paragraphs }) => (
   <div>
@@ -60,7 +98,7 @@ export const CaseStudy = ({ study, loaded }) => {
                 <source media="(min-width: 768px)" type="image/avif" srcSet={study.banner.sources.avif} sizes="88vw" />
                 <source media="(min-width: 768px)" srcSet={study.banner.sources.jpeg} sizes="88vw" />
                 <source type="image/avif" srcSet={study.mobileBanner.sources.avif} />
-                <img src={study.mobileBanner.img.src} alt="" fetchPriority="high" className="aspect-196/129 w-full md:aspect-1280/572" />
+                <img src={study.mobileBanner.img.src} alt="" fetchPriority="high" className={`aspect-196/129 w-full object-cover md:aspect-1280/572 ${study.bannerPosition ?? ""}`} />
               </picture>
               {study.website && (
                 <a
@@ -103,11 +141,7 @@ export const CaseStudy = ({ study, loaded }) => {
             {study.problemImages && <Images images={study.problemImages} className="mt-8.75 md:mt-8.25" />}
 
             {study.recording && (
-              <div className="relative mt-8.75 md:mt-8.25 tablet:mt-[3.515625rem]">
-                <picture>
-                  <source type="image/avif" srcSet={study.recording.sources.avif} sizes="88vw" />
-                  <img srcSet={study.recording.sources.jpeg} sizes="88vw" alt="" loading="lazy" decoding="async" className="aspect-1280/690 w-full" />
-                </picture>
+              <Recording background={study.recording} className="mt-8.75 md:mt-8.25">
                 {study.placeholder && (
                   <picture>
                     <source type="image/avif" srcSet={study.placeholder.sources.avif} sizes="78vw" />
@@ -121,7 +155,7 @@ export const CaseStudy = ({ study, loaded }) => {
                     />
                   </picture>
                 )}
-              </div>
+              </Recording>
             )}
 
             <div className={`mt-9.5 grid gap-8 md:mt-9 md:grid-cols-2 tablet:mt-[3.515625rem] ${study.newDesign ? "md:gap-x-12" : "md:gap-x-20"}`}>
@@ -129,7 +163,13 @@ export const CaseStudy = ({ study, loaded }) => {
               {study.outcome && <Text title={study.outcomeTitle} paragraphs={study.outcome} />}
             </div>
 
-            {study.impactImages && <Images images={study.impactImages} className="mt-8.75 md:mt-8.25" />}
+            {study.video && (
+              <Recording background={study.video.background} className="mt-8.75 md:mt-8.25">
+                <Video src={study.video.src} poster={study.video.poster} />
+              </Recording>
+            )}
+
+            {study.impactImages && <Images images={study.impactImages} className={`mt-8.75 ${study.video ? "md:mt-10" : "md:mt-8.25"}`} />}
 
             {study.impactImage && (
               <picture>

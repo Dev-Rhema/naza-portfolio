@@ -29,6 +29,9 @@ import afProblemL from "./assets/images/CaseStudyImages/attentionFactory/problem
 import afProblemR from "./assets/images/CaseStudyImages/attentionFactory/problemR.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import afImpact1 from "./assets/images/CaseStudyImages/attentionFactory/impact1.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import afImpact2 from "./assets/images/CaseStudyImages/attentionFactory/impact2.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import afBanner from "./assets/images/CaseStudyImages/attentionFactory/attentionBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
+import afVideo from "./assets/images/CaseStudyImages/attentionFactory/attentionFactory.mp4";
+import afPoster from "./assets/images/CaseStudyImages/attentionFactory/attentionFactoryPoster.jpg?w=1680&format=webp";
 import afImpactWide from "./assets/images/CaseStudyImages/attentionFactory/impactWide.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import ebukaOverviewL from "./assets/images/CaseStudyImages/ebuka/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import ebukaOverviewR from "./assets/images/CaseStudyImages/ebuka/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
@@ -250,8 +253,9 @@ export const caseStudies = {
         <br className="max-md:hidden" /> for AI education
       </>
     ),
-    banner: taoBanner,
-    mobileBanner: taoMobileBanner,
+    banner: afBanner,
+    mobileBanner: afBanner,
+    bannerPosition: "object-[24%_50%]",
     website: "https://www.attentionfactory.io/",
     overview: [
       "With the increase in AI it is important people learn about its proper use. This is where Attention Factory comes in; to arm its students with the knowledge of the tool and the skillset to go from consumers to producers of great works",
@@ -270,6 +274,7 @@ export const caseStudies = {
     impact: [
       "With Attention Factory I was able to lay the foundation for the visual language, design the website and also the main university for the product allowing them to go from idea to fully fledged product",
     ],
+    video: { src: afVideo, poster: afPoster, background: taoVideoBg },
     impactImages: [afImpact1, afImpact2],
     impactImage: afImpactWide,
     newDesign: true,
