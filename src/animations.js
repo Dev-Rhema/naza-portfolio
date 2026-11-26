@@ -114,7 +114,9 @@ export function createWipe(wipes) {
 
 export function wipeLines(lines) {
   lines.forEach((line) => {
-    line.dataset.delay = 0.05 + [...line.parentNode.children].indexOf(line) * 0.055;
+    const i = [...line.parentNode.children].indexOf(line);
+    const delays = line.parentNode.dataset.delays.split(",").map(Number);
+    line.dataset.delay = delays[i] ?? delays.at(-1) + (i - delays.length + 1) * 0.055;
     line.dataset.release = true;
     line.classList.add("wipe", "relative", "w-fit", "overflow-hidden");
     line.innerHTML = `<div class="pointer-events-none invisible absolute inset-0 overflow-hidden wipe-band"><div class="size-full wipe-band-inner"><div class="size-full bg-[#e85626] wipe-band-fill"></div></div></div><div class="relative overflow-hidden wipe-window"><div class="flex wipe-inner"><span>${line.innerHTML}</span></div></div>`;

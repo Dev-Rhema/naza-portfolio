@@ -35,9 +35,18 @@ const wide = "left-[-9.79167rem] w-[21.58333rem] md:-left-58.75 md:w-129.5";
 
 const megaphone = "left-[-3.33333rem] w-60.5 md:-left-20 md:w-90.75";
 
+const timings = [
+  { head: 0, role: 0, lines: "0.01,0.04,0.09" },
+  { head: 0.04, role: 0.04, lines: "0.09,0" },
+  { head: 0.09, role: 0.14, lines: "0.14,0.13" },
+  { head: 0.14, role: 0.18, lines: "0.21,0.25" },
+  { head: 0.19, role: 0.18, lines: "0.34,0.35" },
+];
+
 export const About = ({ loaded }) => {
   const hero = useRef(null);
   const designer = useRef(null);
+  const career = useRef(null);
 
   useGSAP(() => {
     createSmoother();
@@ -71,6 +80,38 @@ export const About = ({ loaded }) => {
       ScrollTrigger.create({ trigger: designer.current, start: "top 80%", once: true, onEnter: () => wipe.play() });
     },
     { scope: designer },
+  );
+
+  useGSAP(
+    () => {
+      let wipe;
+      SplitText.create(".experience-copy", {
+        type: "lines",
+        autoSplit: true,
+        onSplit: (split) => {
+          wipeLines(split.lines);
+          wipe = createWipe(gsap.utils.toArray(".wipe", career.current))
+            .fromTo(".timeline", { opacity: 0.001 }, { opacity: 1, duration: 1, ease: "reelFade", clearProps: "opacity" }, 0.04)
+            .fromTo(".illustration", { opacity: 0.001 }, { opacity: 1, duration: 0.84, ease: "archFade", clearProps: "opacity" }, 0.28)
+            .pause();
+          return wipe;
+        },
+      });
+      ScrollTrigger.create({ trigger: career.current, start: "top 80%", once: true, onEnter: () => wipe.play() });
+      if (innerWidth < 768) return;
+      const gap = () => 5.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const illustration = career.current.querySelector(".illustration");
+      ScrollTrigger.create({
+        trigger: career.current.firstElementChild,
+        start: () => `top ${gap()}px`,
+        endTrigger: career.current.lastElementChild,
+        end: () => `bottom ${gap() + illustration.offsetTop + illustration.offsetHeight}px`,
+        pin: true,
+        pinSpacing: false,
+        invalidateOnRefresh: true,
+      });
+    },
+    { scope: career },
   );
 
   return (
@@ -148,14 +189,14 @@ export const About = ({ loaded }) => {
                 <span className="pt-0.5">THE DESIGNER</span>
               </p>
             </Wipe>
-            <p className="isolate mt-3.75 font-helvetica text-[2rem] font-normal leading-10 tracking-[-0.04em] text-[#4f4f4f] md:hidden designer-copy">
+            <p className="isolate mt-3.75 font-helvetica text-[2rem] font-normal leading-10 tracking-[-0.04em] text-[#4f4f4f] md:hidden designer-copy" data-delays="0.05">
               While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
               <span className="text-white">
                 Product Design <Icon src={brushIcon} className={wide} /> , Design Systems <Icon src={hexagonIcon} className={wide} /> , Pitch Decks{" "}
                 <Icon src={megaphoneIcon} className={megaphone} /> <span className="whitespace-nowrap">, and</span> Motion for Interfaces <Icon src={pendulumIcon} className={wide} />
               </span>
             </p>
-            <p className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-12.5 designer-copy">
+            <p className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-12.5 designer-copy" data-delays="0.05">
               While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
               <span className="whitespace-nowrap text-white">
                 <Icon src={brushIcon} className={wide} /> Product Design,
@@ -177,18 +218,26 @@ export const About = ({ loaded }) => {
             </Wipe>
           </section>
 
-          <section className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25">
-            <div className="relative md:w-170">
-              <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
-                <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
-                <span className="pt-0.5">MY EXPERIENCE</span>
-              </p>
+          <section ref={career} className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25">
+            <div className="relative md:w-170 md:self-start">
+              <Wipe className="relative w-fit">
+                <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem]">
+                  <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
+                  <span className="pt-0.5">MY EXPERIENCE</span>
+                </p>
+              </Wipe>
               <h2 className="mt-[1.05rem] font-helvetica text-[1.75rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-6.25 md:text-[3rem]">
-                Over the years I have helped
-                <br />
-                brands go from 0 - 1
+                <Wipe delay={0.02} className="relative w-fit">
+                  <span>Over the years I have helped</span>
+                </Wipe>
+                <Wipe delay={0.14} className="relative w-fit">
+                  <span>brands go from 0 - 1</span>
+                </Wipe>
               </h2>
-              <p className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-110 md:text-[1.25rem]">
+              <p
+                data-delays="0.18,0.25,0.3"
+                className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-110 md:text-[1.25rem] experience-copy"
+              >
                 My experience has usually revolved around assisting startups define their visual language and establish a cohesive identity that is
                 impossible to ignore
               </p>
@@ -196,26 +245,35 @@ export const About = ({ loaded }) => {
                 src={experienceIllustration}
                 alt=""
                 loading="lazy"
-                className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block"
+                className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block illustration"
               />
             </div>
 
             <ol className="flex flex-col gap-5.25 md:flex-1 md:gap-[1.40625rem] md:pt-8.5">
-              {experiences.map((experience) => (
+              {experiences.map((experience, i) => (
                 <li key={experience.name}>
-                  <div className="flex h-8 items-center font-helvetica tracking-[-0.04em] md:h-10">
-                    <img src={experience.icon} alt="" loading="lazy" className="size-8 md:size-10" />
-                    <h3 className="ml-2 pt-1.25 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:pt-0 md:text-[2rem]">{experience.name}</h3>
-                    <p className="ml-auto pt-1.5 text-[1rem] font-normal leading-none text-[#7d7d7d] italic md:pt-0">{experience.dates}</p>
-                  </div>
+                  <Wipe delay={timings[i].head} className="relative">
+                    <div className="flex h-8 w-full items-center font-helvetica tracking-[-0.04em] md:h-10">
+                      <img src={experience.icon} alt="" loading="lazy" className="size-8 md:size-10" />
+                      <h3 className="ml-2 pt-1.25 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:pt-0 md:text-[2rem]">{experience.name}</h3>
+                      <p className="ml-auto pt-1.5 text-[1rem] font-normal leading-none text-[#7d7d7d] italic md:pt-0">{experience.dates}</p>
+                    </div>
+                  </Wipe>
                   <div className="relative mt-[0.84375rem] pl-10 font-helvetica tracking-[-0.04em] text-[#7d7d7d] md:mt-4 md:pt-[0.15625rem] md:pl-14">
-                    <div className="absolute inset-y-0 left-1.75 flex w-4.5 flex-col items-center md:left-2 md:w-6">
+                    <div className="absolute inset-y-0 left-1.75 flex w-4.5 flex-col items-center md:left-2 md:w-6 timeline">
                       <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-dot" />
                       <span className="-my-px w-0.75 flex-1 bg-[#1f1f1f] md:w-1" />
                       <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-dot" />
                     </div>
-                    <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
-                    <p className="mt-1.5 pr-5 text-[0.875rem] font-normal leading-[1.2] md:mt-[1.7125rem] md:pr-0 md:w-127 md:text-[1rem]">{experience.description}</p>
+                    <Wipe delay={timings[i].role} className="relative w-fit">
+                      <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem]">{experience.role}</p>
+                    </Wipe>
+                    <p
+                      data-delays={timings[i].lines}
+                      className="mt-1.5 pr-5 text-[0.875rem] font-normal leading-[1.2] md:mt-[1.7125rem] md:pr-0 md:w-127 md:text-[1rem] experience-copy"
+                    >
+                      {experience.description}
+                    </p>
                   </div>
                 </li>
               ))}
