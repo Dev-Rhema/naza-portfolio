@@ -54,7 +54,7 @@ export const Hamburger = ({ open = false, onClick, className = "" }) => {
       onPointerDown={(e) => press(e.currentTarget, true)}
       onPointerUp={(e) => press(e.currentTarget, false)}
       onPointerLeave={(e) => press(e.currentTarget, false)}
-      className={`relative size-10 cursor-pointer md:size-12 rounded-full bg-[#333333] shadow-button ${className}`}
+      className={`relative size-10 cursor-pointer md:size-12 rounded-full bg-[#333333] shadow-button 2xl:[zoom:1.25] ${className}`}
     >
       <span className="absolute top-1/2 left-1/2 -mt-1.75 -ml-2.5 h-0.5 w-5 md:-ml-2.25 md:w-4.5 rounded-full bg-[#d9d9d9] line" />
       <span className="absolute top-1/2 left-1/2 -mt-px -ml-2.5 h-0.5 w-5 md:-ml-2.25 md:w-4.5 rounded-full bg-[#d9d9d9] line" />

@@ -107,7 +107,7 @@ export const Navbar = ({ minimal = false, loaded }) => {
           </button>
         )}
         <Wipe delay={0.11} className={`relative ml-4 rounded-full md:ml-6 ${minimal ? "md:hidden" : ""}`}>
-          <button type="button" aria-label="Toggle sound" aria-pressed={playing} onClick={toggleSound} className="size-10 overflow-hidden rounded-full md:size-12">
+          <button type="button" aria-label="Toggle sound" aria-pressed={playing} onClick={toggleSound} className="size-10 overflow-hidden rounded-full md:size-12 2xl:[zoom:1.25]">
             <Visualizer analyser={analyser} playing={playing} />
           </button>
         </Wipe>

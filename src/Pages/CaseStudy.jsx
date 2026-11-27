@@ -139,7 +139,7 @@ export const CaseStudy = ({ study, loaded }) => {
             <div className="reveal">
               <Wipe release className="relative w-fit">
                 <a href="/" className="flex w-fit items-center gap-2 text-[0.875rem] leading-none md:text-[1.25rem] text-[#7d7d7d] 2xl:text-[1.5625rem]">
-                  <span className="flex size-6 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button">
+                  <span className="flex size-6 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button 2xl:[zoom:1.25]">
                     <svg viewBox="0 0 24 24" className="mr-0.5 size-3.5 fill-none stroke-white stroke-2">
                       <path d="M15 5l-7 7 7 7" />
                     </svg>
@@ -172,9 +172,9 @@ export const CaseStudy = ({ study, loaded }) => {
                       href={study.website}
                       target="_blank"
                       rel="noreferrer"
-                      className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2"
+                      className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2 2xl:[zoom:1.25]"
                     >
-                      <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 2xl:h-13.75 2xl:w-47.5 2xl:pl-5 md:justify-start md:pl-4 md:text-[1.125rem] 2xl:text-[1.40625rem]">
+                      <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 md:justify-start md:pl-4 md:text-[1.125rem]">
                         <span className="pt-1">Visit Website</span>
                         <svg viewBox="0 0 10 16" className="ml-2.5 hidden h-4 w-2.5 fill-none stroke-white stroke-[1.5] md:block">
                           <path d="M1.5 1.5l7 6.5-7 6.5" />

@@ -25,7 +25,7 @@ export const Button = ({ href, className = "", children }) => {
       aria-label={children}
       onMouseEnter={() => roll(-100)}
       onMouseLeave={() => roll(0)}
-      className={`relative flex h-12 w-32.25 items-center justify-center rounded-full bg-[#e85626] pt-0.75 font-helvetica text-[1.0625rem] font-medium leading-none text-white shadow-button 2xl:text-[1.328125rem] ${className}`}
+      className={`relative flex h-12 w-32.25 items-center justify-center rounded-full bg-[#e85626] pt-0.75 font-helvetica text-[1.0625rem] font-medium leading-none text-white shadow-button 2xl:[zoom:1.25] ${className}`}
     >
       <span aria-hidden="true" className="flex overflow-hidden">
         {[...children].map((char, i) =>

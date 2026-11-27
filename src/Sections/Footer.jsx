@@ -162,7 +162,7 @@ export function Footer() {
                   target="_blank"
                   rel="noreferrer"
                   aria-label={social.name}
-                  className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button"
+                  className="flex size-11.5 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button 2xl:[zoom:1.25]"
                 >
                   <svg viewBox="0 0 24 24" className="size-4.25 fill-white">
                     <path d={social.icon} />

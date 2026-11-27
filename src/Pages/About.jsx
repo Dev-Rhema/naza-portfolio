@@ -138,38 +138,38 @@ export const About = ({ loaded }) => {
           <section ref={hero} className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-29.5 md:pb-9.25">
             <Navbar loaded={loaded} />
 
-            <Wipe className="relative w-full md:absolute md:top-29.5 md:right-20 md:w-150">
+            <Wipe className="relative w-full md:absolute md:top-29.5 md:right-20 md:w-150 2xl:w-[35vw]">
               <div className="relative aspect-392/406 w-full md:aspect-600/800">
                 <RippleDistortion src={photo} className="absolute inset-0" />
-                <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5" />
+                <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5 2xl:top-[0.875vw] 2xl:left-[0.9333vw] 2xl:w-[11.783vw]" />
                 <img
                   src={barcodeTop}
                   alt=""
-                  className="pointer-events-none absolute top-2 right-1.75 h-12.5 w-40.25 select-none md:top-4 md:right-4 md:h-25 md:w-61.5"
+                  className="pointer-events-none absolute top-2 right-1.75 h-12.5 w-40.25 select-none md:top-4 md:right-4 md:h-25 md:w-61.5 2xl:top-[0.9333vw] 2xl:right-[0.9333vw] 2xl:h-[5.8333vw] 2xl:w-[14.35vw]"
                 />
                 <img
                   src={barcodeBottom}
                   alt=""
-                  className="pointer-events-none absolute bottom-2 left-2 h-12.75 w-44 select-none md:bottom-4 md:left-4 md:h-25 md:w-67"
+                  className="pointer-events-none absolute bottom-2 left-2 h-12.75 w-44 select-none md:bottom-4 md:left-4 md:h-25 md:w-67 2xl:bottom-[0.9333vw] 2xl:left-[0.9333vw] 2xl:h-[5.8333vw] 2xl:w-[15.633vw]"
                 />
                 <img
                   src={captionBottom}
                   alt=""
-                  className="pointer-events-none absolute right-2.5 bottom-1.75 w-26 select-none md:right-4.5 md:bottom-7 md:w-33.5"
+                  className="pointer-events-none absolute right-2.5 bottom-1.75 w-26 select-none md:right-4.5 md:bottom-7 md:w-33.5 2xl:right-[1.05vw] 2xl:bottom-[1.6333vw] 2xl:w-[7.8167vw]"
                 />
               </div>
             </Wipe>
 
-            <div className="pointer-events-none hidden w-160 select-none md:flex">
+            <div className="pointer-events-none hidden w-160 select-none md:flex 2xl:w-240">
               <div data-fade={0} className="w-1/2 overflow-hidden">
-                <img src={heroSketch} alt="" className="w-160 max-w-none" />
+                <img src={heroSketch} alt="" className="w-160 max-w-none 2xl:w-240" />
               </div>
               <div data-fade={0.38} className="w-1/2 overflow-hidden">
-                <img src={heroSketch} alt="" className="-ml-80 w-160 max-w-none" />
+                <img src={heroSketch} alt="" className="-ml-80 w-160 max-w-none 2xl:-ml-120 2xl:w-240" />
               </div>
             </div>
 
-            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] min-[96rem]:-mt-24 min-[96rem]:text-[7.5rem]">
+            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] min-[96rem]:-mt-24 min-[96rem]:text-[7.5rem] 2xl:-mt-[0.8em] 2xl:text-[6.25vw]">
               <div className="hidden md:block">
                 <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
                   <span className="pb-[0.2em]">Product Designer creating</span>
@@ -193,7 +193,7 @@ export const About = ({ loaded }) => {
                 </Wipe>
               </div>
             </h1>
-            <div className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 2xl:w-156.25 md:text-[1.5rem] 2xl:text-[1.875rem]">
+            <div className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 2xl:mt-4.5 2xl:w-187.5 md:text-[1.5rem] 2xl:text-[2.25rem]">
               <Wipe delay={0.06} className="relative w-fit">
                 <span>Design should make us better. Design should draw</span>
               </Wipe>
@@ -204,7 +204,7 @@ export const About = ({ loaded }) => {
                 <span>been some of my guides over the years</span>
               </Wipe>
             </div>
-            <Wipe delay={0.28} className="relative mt-[1.59375rem] w-fit rounded-full md:mt-[1.40625rem]">
+            <Wipe delay={0.28} className="relative mt-[1.59375rem] w-fit rounded-full md:mt-[1.40625rem] 2xl:[zoom:1.2]">
               <Button href="#contact">Book a Call</Button>
             </Wipe>
           </section>
@@ -253,14 +253,14 @@ export const About = ({ loaded }) => {
           </section>
 
           <section ref={career} className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25">
-            <div className="relative md:w-170 md:self-start 2xl:w-212.5">
+            <div className="relative md:w-170 md:self-start 2xl:w-255">
               <Wipe className="relative w-fit">
-                <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem] 2xl:text-[1.25rem]">
-                  <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
+                <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem] 2xl:gap-3 2xl:text-[1.5rem]">
+                  <img src={sectionIcon} alt="" className="size-4 md:size-4.5 2xl:size-6.75" />
                   <span className="pt-0.5">MY EXPERIENCE</span>
                 </p>
               </Wipe>
-              <h2 className="mt-[1.05rem] font-helvetica text-[1.75rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-6.25 md:text-[3rem] 2xl:text-[3.75rem]">
+              <h2 className="mt-[1.05rem] font-helvetica text-[1.75rem] font-normal leading-[1.1] tracking-[-0.04em] text-white md:mt-6.25 md:text-[3rem] 2xl:mt-[2.34375rem] 2xl:text-[4.5rem]">
                 <Wipe delay={0.02} className="relative w-fit">
                   <span>Over the years I have helped</span>
                 </Wipe>
@@ -270,7 +270,7 @@ export const About = ({ loaded }) => {
               </h2>
               <p
                 data-delays="0.18,0.25,0.3"
-                className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-110 md:text-[1.25rem] experience-copy 2xl:text-[1.5625rem]"
+                className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-110 md:text-[1.25rem] experience-copy 2xl:mt-[1.265625rem] 2xl:ml-45 2xl:w-165 2xl:text-[1.875rem]"
               >
                 My experience has usually revolved around assisting startups define their visual language and establish a cohesive identity that is impossible
                 to ignore
@@ -279,7 +279,7 @@ export const About = ({ loaded }) => {
                 src={experienceIllustration}
                 alt=""
                 loading="lazy"
-                className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block illustration"
+                className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block 2xl:top-60 2xl:w-76.5 illustration"
               />
             </div>
 
