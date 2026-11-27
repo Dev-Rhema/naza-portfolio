@@ -93,12 +93,12 @@ export const Navbar = ({ minimal = false, loaded }) => {
             onClick={toggleSound}
             onPointerEnter={(e) => hint(e, true)}
             onPointerLeave={(e) => hint(e, false)}
-            className="relative font-mono text-[1rem] leading-none tracking-widest text-[#666666]"
+            className="relative font-mono text-[1rem] leading-none tracking-widest text-[#666666] 2xl:text-[1.25rem]"
           >
             <Wipe delay={0.23} className="relative -my-0.5">
               <span className="py-0.5">SOUND</span>
             </Wipe>
-            <span className="invisible absolute bottom-full left-1/2 mb-1 h-6.5 w-12 -translate-x-1/2 overflow-hidden rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0">
+            <span className="invisible absolute bottom-full left-1/2 mb-1 h-6.5 w-12 -translate-x-1/2 overflow-hidden rounded-full bg-[#1f1f1f] text-[0.875rem] tracking-wider text-white opacity-0 2xl:text-[1.09375rem]">
               <span ref={roll} className="flex flex-col gap-6.5">
                 <span className="flex h-6.5 items-center justify-center">{playing ? "ON" : "OFF"}</span>
                 <span className="flex h-6.5 items-center justify-center">{playing ? "OFF" : "ON"}</span>

@@ -37,39 +37,39 @@ export function Loader({ onComplete, onReveal, quick }) {
 
                 <Reveal
                   id="quem"
-                  className="top-1/2 -mt-51 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[6rem] md:h-29.25"
+                  className="top-1/2 -mt-51 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-21.5 md:mt-0 md:right-auto md:left-20 md:text-left md:text-[6rem] md:h-29.25 2xl:h-[9.140625rem] 2xl:text-[7.5rem]"
                 >
                   QUEM
                 </Reveal>
-                <p className="absolute top-[1.4rem] right-6 font-helvetica font-medium text-[1rem] leading-[1.2] text-[#4d4d4d] fade md:top-[5.04375rem] md:right-20 md:text-[1.5rem]">
+                <p className="absolute top-[1.4rem] right-6 font-helvetica font-medium text-[1rem] leading-[1.2] text-[#4d4d4d] fade md:top-[5.04375rem] md:right-20 md:text-[1.5rem] 2xl:text-[1.875rem]">
                   <span className="count">0</span>%
                 </p>
 
                 <Reveal
                   id="name"
-                  className="top-1/2 -mt-24.25 inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-0.103125rem] md:right-auto md:font-medium md:left-20 md:text-left md:text-[3rem] md:h-[3.1625rem]"
+                  className="top-1/2 -mt-24.25 inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-white md:mt-[-0.103125rem] md:right-auto md:font-medium md:left-20 md:text-left md:text-[3rem] md:h-[3.1625rem] 2xl:h-[3.953125rem] 2xl:text-[3.75rem]"
                 >
                   Chinaza Icheke
                 </Reveal>
                 <Reveal
                   id="como"
-                  className="top-1/2 -mt-8.75 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-3.4625rem] md:text-[6rem] md:h-[7.4625rem]"
+                  className="top-1/2 -mt-8.75 inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:mt-[-3.4625rem] md:text-[6rem] md:h-[7.4625rem] 2xl:mt-[-4.328125rem] 2xl:h-[9.328125rem] 2xl:text-[7.5rem]"
                 >
                   COMO
                 </Reveal>
                 <Reveal
                   id="role"
-                  className="top-1/2 mt-[4.53125rem] inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-[#4d4d4d] md:mt-[0.175rem] md:tracking-[-0.0285em] md:left-auto md:font-medium md:right-[5.0875rem] md:text-left md:text-[2.5rem] md:h-[2.8875rem]"
+                  className="top-1/2 mt-[4.53125rem] inset-x-0 text-center font-helvetica font-normal text-[1.5rem] leading-[1.2] tracking-[-0.0105em] text-[#4d4d4d] md:mt-[0.175rem] md:tracking-[-0.0285em] md:left-auto md:font-medium md:right-[5.0875rem] md:text-left md:text-[2.5rem] md:h-[2.8875rem] 2xl:h-[3.609375rem] 2xl:text-[3.125rem]"
                 >
                   Product Designer
                 </Reveal>
 
-                <p className="absolute bottom-[1.65625rem] left-6 font-helvetica font-medium text-[1rem] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] fade md:bottom-[4.475rem] md:left-20 md:text-[1.5rem]">
+                <p className="absolute bottom-[1.65625rem] left-6 font-helvetica font-medium text-[1rem] leading-[1.2] tracking-[-0.0056em] text-[#4d4d4d] fade md:bottom-[4.475rem] md:left-20 md:text-[1.5rem] 2xl:text-[1.875rem]">
                   Loading
                 </p>
                 <Reveal
                   id="deus"
-                  className="top-1/2 mt-[8.40625rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-auto md:mt-0 md:left-auto md:right-20 md:bottom-[4.81875rem] md:text-left md:text-[6rem]"
+                  className="top-1/2 mt-[8.40625rem] inset-x-0 text-center font-kalnia text-[3.5rem] leading-[1.2] font-medium text-white font-stretch-100% md:top-auto md:mt-0 md:left-auto md:right-20 md:bottom-[4.81875rem] md:text-left md:text-[6rem] 2xl:text-[7.5rem]"
                 >
                   DEUS
                 </Reveal>

@@ -64,6 +64,7 @@ export function createMenuTimeline(scope) {
     .timeline()
     .from(q(".menu-decor"), { scaleY: 0, ...columns }, 0)
     .fromTo(q(".menu-slice"), { height: "0%" }, { height: "100%", ...columns }, 0.065)
+    .set(q(".menu-decor"), { autoAlpha: 0 }, ">")
     .addLabel("content", columnCount() === 12 ? 0.99 : 0.51)
     .from(q(".menu-corner"), { opacity: 0, duration: 1.075, ease: "menuCorners" }, "content")
     .fromTo(q(".menu-painting"), { height: "0%" }, { height: "100%", duration: 1.03, ease: "menuBanner" }, "content+=0.015")
@@ -100,7 +101,7 @@ export function createWipe(wipes) {
   const done = (i, el) => delay(i, el) + 1.07;
 
   return gsap
-    .timeline()
+    .timeline({ paused: true })
     .fromTo(q(".wipe-window"), { yPercent: -100, y: -2 }, { yPercent: 0, y: 0, ...content }, 0)
     .fromTo(q(".wipe-inner"), { yPercent: 100, y: 2 }, { yPercent: 0, y: 0, ...content }, 0)
     .fromTo(q(".wipe-band"), { yPercent: 0, y: -2 }, { yPercent: 100, y: 0, ...content }, 0)
@@ -109,7 +110,8 @@ export function createWipe(wipes) {
     .to(q(".wipe-band"), { autoAlpha: 1, duration: 0, delay }, 0)
     .to(q(".wipe-band"), { autoAlpha: 0, duration: 0, delay: done }, 0)
     .to([...q(".wipe-window"), ...q(".wipe-inner")], { clearProps: "transform", duration: 0, delay: done }, 0)
-    .to([...released, ...released.map((el) => el.querySelector(".wipe-window"))], { overflow: "visible", duration: 0, delay: done }, 0);
+    .to([...released, ...released.map((el) => el.querySelector(".wipe-window"))], { overflow: "visible", duration: 0, delay: done }, 0)
+    .play();
 }
 
 export function wipeLines(lines) {

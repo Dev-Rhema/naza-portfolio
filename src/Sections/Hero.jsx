@@ -63,7 +63,7 @@ export function Hero({ loaded }) {
         </Wipe>
       </div>
 
-      <div className="mt-8 hidden shrink-0 items-baseline justify-between md:flex overflow-hidden font-helvetica text-[1.5rem] leading-none tracking-[-0.04em]">
+      <div className="mt-8 hidden shrink-0 items-baseline justify-between md:flex overflow-hidden font-helvetica text-[1.5rem] leading-none tracking-[-0.04em] 2xl:text-[1.875rem]">
         <Wipe delay={0.27} className="relative">
           <p className="pb-1 font-medium text-white will-change-transform slide">Product Designer</p>
         </Wipe>
@@ -79,7 +79,7 @@ export function Hero({ loaded }) {
 
       <div className="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-64 bg-linear-to-b from-transparent to-[#030303] md:h-86" />
 
-      <div className="absolute bottom-9.75 left-20 z-20 hidden font-helvetica md:block text-[1.5rem] font-normal leading-[1.8rem] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d]">
+      <div className="absolute bottom-9.75 left-20 z-20 hidden font-helvetica md:block text-[1.5rem] font-normal leading-[1.8rem] tracking-[-0.04em] whitespace-nowrap text-[#7d7d7d] 2xl:text-[1.875rem] 2xl:leading-9">
         <Wipe delay={0.32} className="relative w-fit">
           <span>Creating to inspire has always been my drive. This has</span>
         </Wipe>
@@ -100,7 +100,7 @@ export function Hero({ loaded }) {
         </Wipe>
       </div>
 
-      <div className="absolute right-6 bottom-19 left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-6.5 tracking-[-0.04em] text-[#7d7d7d] md:hidden hero-copy">
+      <div className="absolute right-6 bottom-19 left-6 z-20 font-helvetica text-[1.25rem] font-normal leading-6.5 tracking-[-0.04em] text-[#7d7d7d] md:hidden hero-copy 2xl:text-[1.5625rem] 2xl:leading-[2.03125rem]">
         <Wipe delay={0.32} className="relative w-fit">
           <span>Creating to inspire has always been my drive.</span>
         </Wipe>

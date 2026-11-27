@@ -32,13 +32,13 @@ export function About() {
       <div className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-34 bg-linear-to-b from-[#030303] to-transparent" />
 
       <Wipe className="relative w-fit">
-        <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium md:gap-2 md:text-[1rem] leading-none tracking-[-0.04em] text-white">
+        <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium md:gap-2 md:text-[1rem] leading-none tracking-[-0.04em] text-white 2xl:text-[1.25rem]">
           <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
           <span className="pt-0.5">ABOUT ME</span>
         </p>
       </Wipe>
 
-      <h2 className="isolate mt-6 hidden font-helvetica text-[3rem] font-normal leading-[1.2] tracking-[-0.04em] text-white md:block">
+      <h2 className="isolate mt-6 hidden font-helvetica text-[3rem] font-normal leading-[1.2] tracking-[-0.04em] text-white md:block 2xl:text-[3.75rem]">
         <Wipe delay={0.05} release className="relative w-fit">
           <span>
             Design is an avenue to create memories <Icon src={aboutHand} /> and for 7 years I
@@ -56,7 +56,7 @@ export function About() {
         </Wipe>
       </h2>
 
-      <h2 className="isolate mt-[1.03125rem] font-helvetica text-[2rem] font-normal leading-[1.2] tracking-[-0.04em] text-white md:hidden">
+      <h2 className="isolate mt-[1.03125rem] font-helvetica text-[2rem] font-normal leading-[1.2] tracking-[-0.04em] text-white md:hidden 2xl:text-[2.5rem]">
         <Wipe delay={0.05} className="relative w-fit">
           <span>Design is an avenue to create</span>
         </Wipe>
@@ -87,7 +87,7 @@ export function About() {
         <Wipe delay={0.3} className="relative rounded-full">
           <Button href="/about">About Me</Button>
         </Wipe>
-        <div className="relative -z-10 font-helvetica text-[0.875rem] leading-4.25 md:mb-[-0.34375rem] md:w-120 md:text-[1rem] md:leading-4.75 tracking-[-0.04em] text-[#7d7d7d]">
+        <div className="relative -z-10 font-helvetica text-[0.875rem] leading-4.25 md:mb-[-0.34375rem] md:w-120 2xl:w-150 md:text-[1rem] md:leading-4.75 tracking-[-0.04em] text-[#7d7d7d] 2xl:text-[1.25rem] 2xl:leading-[1.484375rem]">
           <div className="hidden md:block">
             <Wipe delay={0.1} className="relative w-fit">
               <span>With experience in designing for various sectors, I am able to provide</span>

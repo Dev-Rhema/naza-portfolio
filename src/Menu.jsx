@@ -43,10 +43,10 @@ const MenuContent = ({ band }) => (
         className="pointer-events-none absolute top-1/2 left-1/2 -mt-53.25 -ml-37 w-74 max-w-none select-none menu-crest"
       />
       <div className="absolute bottom-18 left-10 font-helvetica leading-none">
-        <p className="overflow-hidden text-[1.5rem] font-normal text-white">
+        <p className="overflow-hidden text-[1.5rem] font-normal text-white 2xl:text-[1.875rem]">
           <span className="block menu-caption">The Coronation of the Virgin</span>
         </p>
-        <p className="mt-4 overflow-hidden whitespace-pre text-[1rem] font-normal text-[#999999]">
+        <p className="mt-4 overflow-hidden whitespace-pre text-[1rem] font-normal text-[#999999] 2xl:text-[1.25rem]">
           <span className="block menu-caption">Diego Velázquez  1641-1644</span>
         </p>
       </div>
@@ -54,18 +54,18 @@ const MenuContent = ({ band }) => (
 
     <div className="relative flex w-full flex-1 flex-col md:w-auto">
       <nav className="min-h-0 flex-1 overflow-y-auto pt-25 font-helvetica">
-        <p className="overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:pl-10">
+        <p className="overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:pl-10 2xl:text-[1.25rem]">
           <span className="block menu-label">WORKS</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
+        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13 2xl:text-[2.5rem] 2xl:leading-16.25">
           {works.map((item) => (
             <Item key={item.name} item={item} band={band} />
           ))}
         </ul>
-        <p className="mt-5 overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10">
+        <p className="mt-5 overflow-hidden pl-6 font-mono text-[1rem] leading-none tracking-[0.1875rem] text-[#666666] md:mt-11 md:pl-10 2xl:text-[1.25rem]">
           <span className="block menu-label">ME</span>
         </p>
-        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13">
+        <ul className="mt-3 text-[2rem] font-normal leading-14 text-white md:leading-13 2xl:text-[2.5rem] 2xl:leading-16.25">
           {me.map((item) => (
             <Item key={item.name} item={item} band={band} />
           ))}
@@ -73,7 +73,7 @@ const MenuContent = ({ band }) => (
       </nav>
 
       <div className="h-10.5 shrink-0 overflow-hidden menu-bar md:h-14">
-        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:flex md:justify-between md:px-8.75">
+        <div className="grid h-full w-full grid-cols-3 items-center bg-[#030303] px-6 pt-1.25 font-helvetica text-[1.1875rem] font-medium leading-none tracking-[-0.02em] text-white md:h-14 md:w-[44.4444vw] md:flex md:justify-between md:px-8.75 2xl:text-[1.484375rem]">
           {socials.map((social) => (
             <a key={social.name} href={social.href} target={social.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer" className="even:text-center last:text-right">
               {social.name}

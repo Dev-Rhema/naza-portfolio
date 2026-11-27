@@ -37,10 +37,10 @@ const fades = [0, 0.06, 0.11, 0.17];
 const Credit = ({ label, name, right = false, className = "" }) => (
   <div className={className}>
     <Wipe delay={0.07} className={`relative w-max ${right ? "ml-auto" : ""}`}>
-      <p className="font-normal text-[#4f4f4f] md:text-[1rem]">{label}</p>
+      <p className="font-normal text-[#4f4f4f] md:text-[1rem] 2xl:text-[1.25rem]">{label}</p>
     </Wipe>
     <Wipe delay={0.07} className={`relative mt-3 w-max md:mt-[0.73125rem] ${right ? "ml-auto" : ""}`}>
-      <p className="font-medium text-white md:text-[1.125rem]">{name}</p>
+      <p className="font-medium text-white md:text-[1.125rem] 2xl:text-[1.40625rem]">{name}</p>
     </Wipe>
   </div>
 );
@@ -84,8 +84,8 @@ export function Footer() {
   };
 
   return (
-    <footer ref={footer} onPointerUp={(e) => e.pointerType !== "mouse" && active.current && pick(null)} className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 md:px-20 md:pt-[2.53125rem]">
-      <div className="absolute top-42 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex">
+    <footer ref={footer} onPointerUp={(e) => e.pointerType !== "mouse" && active.current && pick(null)} className="relative h-234.5 overflow-hidden px-6 pt-8 md:h-190.75 2xl:h-228 md:px-20 md:pt-[2.53125rem]">
+      <div className="absolute top-42 left-1/2 -ml-160.5 hidden w-321.75 items-end gap-4 select-none md:flex 2xl:origin-top 2xl:scale-125">
         {windows.map(({ src, name }, i) => (
           <div key={name} data-fade={fades[Math.abs(i - 3)]} onPointerEnter={(e) => hover(e, name)} onPointerLeave={(e) => hover(e, null)} onPointerUp={(e) => tap(e, name)} className={`relative ${src === cross ? "w-53.25" : "w-40.75"}`}>
             <img src={src} alt={name} data-glow={name} loading="lazy" decoding="async" className="w-full opacity-45" />
@@ -99,13 +99,13 @@ export function Footer() {
         {mobileWindows.map(({ src, name }, i) => (
           <div key={name} data-fade={fades[Math.abs(i - 1)]} onPointerUp={(e) => tap(e, `mobile ${name}`)} className={`relative shrink-0 ${src === cross ? "w-[9.769rem]" : "w-[7.477rem]"}`}>
             <img src={src} alt={name} data-glow={`mobile ${name}`} loading="lazy" decoding="async" className="w-full opacity-45" />
-            <span data-show={`mobile ${name}`} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0">
+            <span data-show={`mobile ${name}`} className="pointer-events-none invisible absolute bottom-full left-1/2 mb-2.75 -translate-x-1/2 flex h-7.5 items-center rounded-full bg-[#141414] px-3.5 pt-1 font-helvetica text-[0.875rem] font-normal leading-none whitespace-nowrap text-white opacity-0 2xl:text-[1.09375rem]">
               {name}
             </span>
           </div>
         ))}
       </div>
-      <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25">
+      <div className="pointer-events-none absolute top-144 left-9 aspect-914/780 w-83 select-none md:top-[23.34375rem] md:left-1/2 md:-ml-63.25 md:w-114.25 2xl:origin-[15.8125rem_-12.84375rem] 2xl:scale-125">
         <div data-fade={0.25} className="absolute inset-0 mask-[linear-gradient(to_bottom,black_60.9%,transparent_90%)]">
           <div className="absolute top-0 left-[66.41%] w-[19.756%] will-change-transform sway">
             <img loading="lazy" src={head} alt="" className="w-full will-change-transform head" />
@@ -127,21 +127,21 @@ export function Footer() {
         <div data-show="music" className="invisible absolute bottom-[110.3%] left-[69.8%] flex w-max -translate-x-1/2 translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 card">
           <img src={musicCover} alt="" className="size-10 rounded-lg" />
           <div>
-            <p className="text-[0.875rem] text-white">Fork In The Road</p>
-            <p className="mt-2 text-[0.75rem] text-[#7d7d7d]">NOISEMAKER</p>
+            <p className="text-[0.875rem] text-white 2xl:text-[1.09375rem]">Fork In The Road</p>
+            <p className="mt-2 text-[0.75rem] text-[#7d7d7d] 2xl:text-[0.9375rem]">NOISEMAKER</p>
           </div>
         </div>
         <div data-show="book" className="invisible absolute right-[45.3%] bottom-[69.5%] flex w-max translate-y-1.5 items-center gap-2.5 rounded-xl border border-[#2a2a2a] bg-[#0f0f0f] py-2 pr-2.5 pl-2 font-helvetica leading-none whitespace-nowrap opacity-0 card">
           <img src={bookCover} alt="" className="size-10 rounded-lg" />
           <div>
-            <p className="text-[0.875rem] text-white">Assassin’s Apprentice</p>
-            <p className="mt-2 text-[0.75rem] text-[#7d7d7d]">Robin Hobb</p>
+            <p className="text-[0.875rem] text-white 2xl:text-[1.09375rem]">Assassin’s Apprentice</p>
+            <p className="mt-2 text-[0.75rem] text-[#7d7d7d] 2xl:text-[0.9375rem]">Robin Hobb</p>
           </div>
         </div>
       </div>
 
       <div className="relative">
-        <h2 className="font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white">
+        <h2 className="font-helvetica text-[2rem] font-normal leading-[1.1] tracking-[-0.04em] text-white 2xl:text-[2.5rem]">
           <Wipe delay={0.07} className="relative w-fit">
             <span>Let us make something</span>
           </Wipe>
@@ -173,11 +173,11 @@ export function Footer() {
         </div>
 
         <div className="mt-[2.425rem] flex font-helvetica leading-none tracking-[-0.04em] md:absolute md:top-[-0.28125rem] md:right-0 md:mt-0">
-          <div className="w-34">
+          <div className="w-34 2xl:w-42.5">
             <Wipe delay={0.07} className="relative w-fit">
-              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Works</p>
+              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem] 2xl:text-[1.25rem]">Works</p>
             </Wipe>
-            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
+            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem] 2xl:text-[1.40625rem]">
               {works
                 .filter((work) => work.footer)
                 .map((work, i) => (
@@ -189,11 +189,11 @@ export function Footer() {
                 ))}
             </ul>
           </div>
-          <div className="md:w-22">
+          <div className="md:w-22 2xl:w-27.5">
             <Wipe delay={0.17} className="relative w-fit">
-              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem]">Me</p>
+              <p className="text-[0.875rem] font-normal text-[#4f4f4f] md:text-[1rem] 2xl:text-[1.25rem]">Me</p>
             </Wipe>
-            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem]">
+            <ul className="mt-[1.1375rem] flex flex-col gap-4.25 text-[1rem] font-medium text-white md:mt-5 md:text-[1.125rem] 2xl:text-[1.40625rem]">
               {me.map((item) => (
                 <li key={item.name}>
                   <Wipe delay={0.17} className="relative w-fit">
@@ -206,7 +206,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="absolute inset-x-6 bottom-9 flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem]">
+      <div className="absolute inset-x-6 bottom-9 flex flex-col gap-y-3 font-helvetica text-[0.875rem] leading-none tracking-[-0.04em] md:inset-x-20 md:bottom-[2.71875rem] md:flex-row md:items-end md:justify-between md:gap-0 md:text-[1rem] 2xl:text-[1.25rem]">
         <div className="flex gap-6 md:gap-0">
           <Credit label="Built by" name="Rhema" />
           <Credit label="3D art by" name="Kewve" className="md:ml-[2.34375rem]" />

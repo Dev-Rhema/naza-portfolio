@@ -25,7 +25,7 @@ export function Reel() {
   return (
     <section ref={section} className="px-6 py-10 md:px-20 md:py-22">
       <Wipe className="relative mx-auto w-fit">
-        <p className="flex items-center justify-center gap-1.75 font-helvetica text-[0.875rem] font-medium md:gap-2 md:text-[1rem] leading-none tracking-[-0.04em] text-white">
+        <p className="flex items-center justify-center gap-1.75 font-helvetica text-[0.875rem] font-medium md:gap-2 md:text-[1rem] leading-none tracking-[-0.04em] text-white 2xl:text-[1.25rem]">
           <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
           <span className="pt-0.5">A DRAMATIC PRODUCT REEL</span>
         </p>

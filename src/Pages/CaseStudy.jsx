@@ -64,7 +64,7 @@ const Video = ({ src, poster }) => {
 const Text = ({ title, paragraphs }) => (
   <div className="reveal">
     {title && (
-      <h2 className="text-[1.125rem] leading-[1.2] text-white md:text-[1.5rem]">
+      <h2 className="text-[1.125rem] leading-[1.2] text-white md:text-[1.5rem] 2xl:text-[1.875rem]">
         <Wipe className="relative w-fit">
           <span>{title}</span>
         </Wipe>
@@ -92,9 +92,9 @@ export const CaseStudy = ({ study, loaded }) => {
   useGSAP(
     () => {
       gsap.utils.toArray(".reveal").forEach((block) => {
-        let wipe;
+        let wipe, played;
         const build = () => {
-          wipe = createWipe(block.matches(".wipe") ? [block] : gsap.utils.toArray(".wipe", block)).pause();
+          wipe = createWipe(block.matches(".wipe") ? [block] : gsap.utils.toArray(".wipe", block)).paused(!played);
           if (!block.querySelector(".painting")) return wipe;
           return wipe
             .fromTo(block.querySelector(".painting"), { opacity: 0.001 }, { opacity: 1, duration: 0.88, ease: "reelFade", clearProps: "opacity" }, 0.36)
@@ -111,7 +111,16 @@ export const CaseStudy = ({ study, loaded }) => {
             },
           });
         } else build();
-        if (loaded) ScrollTrigger.create({ trigger: block, start: block.querySelector("img") ? "top 60%" : "top 80%", once: true, onEnter: () => wipe.play() });
+        if (loaded)
+          ScrollTrigger.create({
+            trigger: block,
+            start: block.querySelector("img") ? "top 60%" : "top 80%",
+            once: true,
+            onEnter: () => {
+              played = true;
+              wipe.play();
+            },
+          });
       });
     },
     { scope: page, dependencies: [loaded] },
@@ -129,7 +138,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             <div className="reveal">
               <Wipe release className="relative w-fit">
-                <a href="/" className="flex w-fit items-center gap-2 text-[0.875rem] leading-none md:text-[1.25rem] text-[#7d7d7d]">
+                <a href="/" className="flex w-fit items-center gap-2 text-[0.875rem] leading-none md:text-[1.25rem] text-[#7d7d7d] 2xl:text-[1.5625rem]">
                   <span className="flex size-6 items-center justify-center rounded-full bg-[#1f1f1f] shadow-button">
                     <svg viewBox="0 0 24 24" className="mr-0.5 size-3.5 fill-none stroke-white stroke-2">
                       <path d="M15 5l-7 7 7 7" />
@@ -141,7 +150,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
               <h1
                 data-delays="0.05,0.09,0.15"
-                className="case-copy mt-10 text-[1.5rem] leading-[1.1] tracking-[-0.04em] text-[#353535] md:mt-10.25 md:text-[3rem]"
+                className="case-copy mt-10 text-[1.5rem] leading-[1.1] tracking-[-0.04em] text-[#353535] md:mt-10.25 md:text-[3rem] 2xl:text-[3.75rem]"
               >
                 <span className="text-white">{study.name}:</span> {study.title}
               </h1>
@@ -165,7 +174,7 @@ export const CaseStudy = ({ study, loaded }) => {
                       rel="noreferrer"
                       className="absolute bottom-2 left-2 rounded-full p-1 shadow-glass backdrop-blur-sm md:bottom-8 md:left-8 md:p-2"
                     >
-                      <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 md:justify-start md:pl-4 md:text-[1.125rem]">
+                      <span className="flex h-8 w-27 items-center justify-center rounded-full bg-[#1f1f1f] text-[0.875rem] leading-none tracking-[-0.01em] text-white shadow-button md:h-11 md:w-38 2xl:h-13.75 2xl:w-47.5 2xl:pl-5 md:justify-start md:pl-4 md:text-[1.125rem] 2xl:text-[1.40625rem]">
                         <span className="pt-1">Visit Website</span>
                         <svg viewBox="0 0 10 16" className="ml-2.5 hidden h-4 w-2.5 fill-none stroke-white stroke-[1.5] md:block">
                           <path d="M1.5 1.5l7 6.5-7 6.5" />
@@ -180,7 +189,7 @@ export const CaseStudy = ({ study, loaded }) => {
             <div className={`mt-9.5 grid gap-8 md:mt-9.25 md:grid-cols-2 tablet:mt-[3.515625rem] ${study.newDesign ? "md:gap-x-12" : "md:gap-x-20"}`}>
               <Text title="Overview" paragraphs={study.overview} />
               <div className="reveal">
-                <h2 className="text-[1.125rem] leading-[1.2] text-white md:text-[1.5rem]">
+                <h2 className="text-[1.125rem] leading-[1.2] text-white md:text-[1.5rem] 2xl:text-[1.875rem]">
                   <Wipe className="relative w-fit">
                     <span>Key Metrics</span>
                   </Wipe>
@@ -188,12 +197,14 @@ export const CaseStudy = ({ study, loaded }) => {
                 <dl className="mt-4 grid grid-cols-2 gap-x-6 gap-y-4 md:mt-3.25 md:gap-y-3.5">
                   {study.metrics.map((metric, i) => (
                     <div key={metric.label}>
-                      <dt className="text-[0.875rem] leading-[1.2] md:text-[1rem] text-[#7d7d7d] uppercase">
+                      <dt className="text-[0.875rem] leading-[1.2] md:text-[1rem] text-[#7d7d7d] uppercase 2xl:text-[1.25rem]">
                         <Wipe delay={0.05 + i * 0.04} className="relative w-fit">
                           <span>{metric.label}</span>
                         </Wipe>
                       </dt>
-                      <dd className={`mt-2.25 text-[1.125rem] md:text-[1.5rem] leading-[1.2] text-white ${study.newDesign ? "md:mt-1.5" : "md:mt-1.75"}`}>
+                      <dd
+                        className={`mt-2.25 text-[1.125rem] md:text-[1.5rem] leading-[1.2] text-white 2xl:text-[1.875rem] ${study.newDesign ? "md:mt-1.5" : "md:mt-1.75"}`}
+                      >
                         <Wipe delay={0.09 + i * 0.04} className="relative w-fit">
                           <span>{metric.value}</span>
                         </Wipe>
@@ -249,7 +260,9 @@ export const CaseStudy = ({ study, loaded }) => {
               </Wipe>
             )}
 
-            <h2 className={`mt-8.25 text-[1.125rem] md:text-[1.5rem] tablet:mt-[3.515625rem] leading-[1.2] text-white reveal ${study.moreSpacing}`}>
+            <h2
+              className={`mt-8.25 text-[1.125rem] md:text-[1.5rem] tablet:mt-[3.515625rem] leading-[1.2] text-white reveal 2xl:text-[1.875rem] ${study.moreSpacing}`}
+            >
               <Wipe className="relative w-fit">
                 <span>More Case Studies</span>
               </Wipe>
@@ -270,12 +283,12 @@ export const CaseStudy = ({ study, loaded }) => {
                       />
                     </picture>
                   </Wipe>
-                  <Wipe delay={0.05 + i * 0.05} className="relative mt-5.5 w-fit text-[1rem] leading-[1.2] text-[#7d7d7d] md:mt-9.5">
+                  <Wipe delay={0.05 + i * 0.05} className="relative mt-5.5 w-fit text-[1rem] leading-[1.2] text-[#7d7d7d] md:mt-9.5 2xl:text-[1.25rem]">
                     <p>{caseStudies[slug].name}</p>
                   </Wipe>
                   <h3
                     data-delays={0.09 + i * 0.05}
-                    className="case-copy mt-1.75 text-[1.25rem] leading-6 md:mt-1.25 md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white"
+                    className="case-copy mt-1.75 text-[1.25rem] leading-6 md:mt-1.25 md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white 2xl:text-[2.5rem] 2xl:leading-[2.96875rem]"
                   >
                     {caseStudies[slug].tagline}
                   </h3>

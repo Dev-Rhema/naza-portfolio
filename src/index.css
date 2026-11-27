@@ -2,6 +2,10 @@
 
 @custom-variant tablet (@media (width >= 48rem) and (width < 90rem));
 
+@theme {
+  --breakpoint-2xl: 120rem;
+}
+
 @font-face {
   font-family: "Kalnia";
   src: url("/fonts/kalnia-variable.woff2") format("woff2-variations");
