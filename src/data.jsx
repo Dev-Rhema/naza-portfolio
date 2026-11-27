@@ -3,15 +3,13 @@ import vidaioIcon from "./assets/images/aboutPageImgs/aboutPageIcons/vidaio.svg"
 import hippiusIcon from "./assets/images/aboutPageImgs/aboutPageIcons/hippius.svg";
 import premblyIcon from "./assets/images/aboutPageImgs/aboutPageIcons/premly.svg";
 import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.svg";
-import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.jpg?w=1280;1920;2560&format=avif;jpg&as=picture";
-import footiumMobileBanner from "./assets/images/CaseStudyImages/footium/footiumMobileBanner.jpg?w=784&format=avif;jpg&as=picture";
+import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
 import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&format=avif;jpg&as=picture";
 import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&format=avif;jpg&as=picture";
-import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.jpg?w=1280;1920;2560&format=avif;jpg&as=picture";
-import taoMobileBanner from "./assets/images/CaseStudyImages/Taostat/taoMobileBanner.jpg?w=784&format=avif;jpg&as=picture";
+import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
@@ -21,6 +19,7 @@ import vidaioOverviewL from "./assets/images/CaseStudyImages/vidaio/overviewL.pn
 import vidaioOverviewR from "./assets/images/CaseStudyImages/vidaio/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import vidaioProblemL from "./assets/images/CaseStudyImages/vidaio/problemL.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import vidaioProblemR from "./assets/images/CaseStudyImages/vidaio/problemR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import vidaioBanner from "./assets/images/CaseStudyImages/vidaio/vidaioBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import vidaioImpact from "./assets/images/CaseStudyImages/vidaio/impact.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import attentionFactoryCover from "./assets/images/CaseStudyImages/attentionFactory.png?w=640;800;1232&format=avif;jpg&as=picture";
 import afOverviewL from "./assets/images/CaseStudyImages/attentionFactory/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
@@ -35,6 +34,7 @@ import afPoster from "./assets/images/CaseStudyImages/attentionFactory/attention
 import afImpactWide from "./assets/images/CaseStudyImages/attentionFactory/impactWide.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import ebukaOverviewL from "./assets/images/CaseStudyImages/ebuka/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import ebukaOverviewR from "./assets/images/CaseStudyImages/ebuka/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
+import ebukaBanner from "./assets/images/CaseStudyImages/ebuka/ebukaBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import ebukaImpact from "./assets/images/CaseStudyImages/ebuka/impact.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 
 export const works = [
@@ -117,11 +117,10 @@ export const caseStudies = {
     title: (
       <>
         The future of football
-        <br className="max-md:hidden" /> management games
+        <span className="md:block" /> management games
       </>
     ),
     banner: footiumBanner,
-    mobileBanner: footiumMobileBanner,
     website: "https://footium.club/",
     overview: [
       "Footium is a novel idea, still one of my favourite blockchain projects till date.",
@@ -162,11 +161,10 @@ export const caseStudies = {
     title: (
       <>
         Bringing the power of opensource intelligence
-        <br className="max-md:hidden" /> to everyone through <span className="md:text-white">The Incentive Layer</span> documentary
+        <span className="md:block" /> to everyone through <span className="md:text-white">The Incentive Layer</span> documentary
       </>
     ),
     banner: taoBanner,
-    mobileBanner: taoMobileBanner,
     website: "https://www.theincentivelayer.com/",
     overview: [
       "The era of opensource has brought about the best of innovative technologies known to man. With the emergence of AI, the main players have always been the large corporations with expensive price tags and closed off development",
@@ -209,11 +207,10 @@ export const caseStudies = {
     title: (
       <>
         Designing for the future of video processing
-        <br className="max-md:hidden" /> powered by Bittensor
+        <span className="md:block" /> powered by Bittensor
       </>
     ),
-    banner: taoBanner,
-    mobileBanner: taoMobileBanner,
+    banner: vidaioBanner,
     overview: [
       "While most of the content processed on the internet is video. This brings about the need for the active processing of said content to be able to deliver them to areas with low cellular activities while maintaining the quality",
       "Vidaio solves this problem. Video processing encompasses compression, upscaling, streaming and more.",
@@ -250,11 +247,10 @@ export const caseStudies = {
     title: (
       <>
         Designing the next university
-        <br className="max-md:hidden" /> for AI education
+        <span className="md:block" /> for AI education
       </>
     ),
     banner: afBanner,
-    mobileBanner: afBanner,
     bannerPosition: "object-[24%_50%]",
     website: "https://www.attentionfactory.io/",
     overview: [
@@ -286,8 +282,8 @@ export const caseStudies = {
     tagline: "Creating an online presence for a digital marketer par excellence",
     cover: ebukaCover,
     title: "Building a portfolio for a digital marketer aimed at conversion while showing off skillset",
-    banner: taoBanner,
-    mobileBanner: taoMobileBanner,
+    banner: ebukaBanner,
+    bannerPosition: "object-[70%_50%]",
     website: "https://ebuka.marketing",
     overview: [
       "As my brother, Ebuka has shown his skills in digital marketing for the longest time and for the first time in a while he needed to create his very own presence on the internet",
