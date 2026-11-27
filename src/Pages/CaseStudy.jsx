@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { SplitText } from "gsap/SplitText";
 import Navbar from "../Navbar";
 import Noise from "../noise";
-import { createSmoother, createWipe, wipeLines } from "../animations";
+import { createSmoother, createWipe, underline, wipeLines } from "../animations";
 import Wipe from "../Wipe";
 import { Footer } from "../Sections/Footer";
 import { caseStudies } from "../data";
@@ -269,7 +269,7 @@ export const CaseStudy = ({ study, loaded }) => {
             </h2>
             <div className={`mt-4.25 grid gap-4.5 md:grid-cols-2 md:gap-12 ${study.newDesign ? "md:mt-7.75" : "md:mt-8"}`}>
               {study.more.map((slug, i) => (
-                <a key={slug} href={`/works/${slug}`} className="reveal">
+                <a key={slug} href={`/works/${slug}`} onMouseEnter={(e) => underline(e, "100%")} onMouseLeave={(e) => underline(e, "0%")} className="reveal">
                   <Wipe delay={i * 0.05} className="relative">
                     <picture className="w-full">
                       <source type="image/avif" srcSet={caseStudies[slug].cover.sources.avif} sizes="(min-width: 768px) 43vw, 89vw" />
@@ -290,7 +290,7 @@ export const CaseStudy = ({ study, loaded }) => {
                     data-delays={0.09 + i * 0.05}
                     className="case-copy mt-1.75 text-[1.25rem] leading-6 md:mt-1.25 md:text-[2rem] md:leading-9.5 tracking-[-0.04em] text-white 2xl:text-[2.5rem] 2xl:leading-[2.96875rem]"
                   >
-                    {caseStudies[slug].tagline}
+                    <span className="bg-[linear-gradient(white,white)] bg-size-[var(--line)_0.0625rem] bg-position-[0_calc(100%-0.125em)] bg-no-repeat [--line:0%] underline-line">{caseStudies[slug].tagline}</span>
                   </h3>
                 </a>
               ))}

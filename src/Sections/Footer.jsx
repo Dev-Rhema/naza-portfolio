@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Button from "../Button";
 import Wipe from "../Wipe";
-import { createWipe } from "../animations";
+import { createWipe, underline } from "../animations";
 import saint1 from "../assets/images/footerImgs/saint1.png?format=webp&lossless=true";
 import saint2 from "../assets/images/footerImgs/saint2.png?format=webp&lossless=true";
 import saint3 from "../assets/images/footerImgs/saint3.png?format=webp&lossless=true";
@@ -183,7 +183,9 @@ export function Footer() {
                 .map((work, i) => (
                   <li key={work.name} className="last:hidden md:last:block">
                     <Wipe delay={i === 0 ? 0.12 : 0.17} className="relative w-fit">
-                      <a href={work.href}>{work.name}</a>
+                      <a href={work.href} onMouseEnter={(e) => underline(e, "100%")} onMouseLeave={(e) => underline(e, "0%")}>
+                        <span className="bg-[linear-gradient(white,white)] bg-size-[var(--line)_0.0625rem] bg-position-[0_calc(100%-0.125em)] bg-no-repeat [--line:0%] underline-line">{work.name}</span>
+                      </a>
                     </Wipe>
                   </li>
                 ))}
@@ -197,7 +199,9 @@ export function Footer() {
               {me.map((item) => (
                 <li key={item.name}>
                   <Wipe delay={0.17} className="relative w-fit">
-                    <a href={item.href}>{item.name}</a>
+                    <a href={item.href} onMouseEnter={(e) => underline(e, "100%")} onMouseLeave={(e) => underline(e, "0%")}>
+                      <span className="bg-[linear-gradient(white,white)] bg-size-[var(--line)_0.0625rem] bg-position-[0_calc(100%-0.125em)] bg-no-repeat [--line:0%] underline-line">{item.name}</span>
+                    </a>
                   </Wipe>
                 </li>
               ))}

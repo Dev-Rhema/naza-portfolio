@@ -23,6 +23,7 @@ CustomEase.create("archFade", "0.5,0,0.3,1");
 CustomEase.create("wipe", "0.85,0,0.15,1");
 CustomEase.create("reelFade", "0.5,0,0.46,1");
 CustomEase.create("reelScale", "1,0,0.15,1");
+CustomEase.create("cardHover", "0.82,0,0,1");
 
 export const columnCount = () => (innerWidth < 768 ? 4 : 12);
 
@@ -91,6 +92,8 @@ export function createMenuClose(scope) {
 export function createSmoother() {
   if (ScrollTrigger.isTouch !== 1) ScrollSmoother.create({ smooth: 1.5 });
 }
+
+export const underline = (e, size) => gsap.to(e.currentTarget.querySelectorAll(".underline-line"), { "--line": size, duration: 0.96, ease: "cardHover", overwrite: true });
 
 export function createWipe(wipes) {
   const q = (part) => wipes.map((el) => el.querySelector(part));
