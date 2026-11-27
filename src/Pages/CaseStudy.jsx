@@ -123,7 +123,7 @@ export const CaseStudy = ({ study, loaded }) => {
         if (loaded)
           ScrollTrigger.create({
             trigger: block,
-            start: block.querySelector("img") ? "top 60%" : "top 80%",
+            start: "top 80%",
             once: true,
             onEnter: () => {
               played = true;
