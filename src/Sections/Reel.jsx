@@ -5,7 +5,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Wipe from "../Wipe";
 import { createWipe } from "../animations";
 import sectionIcon from "../assets/images/sectionIcon.svg";
-import painting from "../assets/images/reelPainting.webp?w=1280;1920;2560&format=avif;jpg&as=picture";
+import painting from "../assets/images/reelPainting.webp?w=1280;1920&format=avif;jpg&as=picture";
 import corner from "../assets/images/corner.webp";
 
 export function Reel() {

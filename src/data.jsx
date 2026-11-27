@@ -12,7 +12,7 @@ import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;12
 import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
-import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
+import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;1920&format=avif;jpg&as=picture";
 import taoVideo from "./assets/images/CaseStudyImages/Taostat/taostats.mp4";
 import taoPoster from "./assets/images/CaseStudyImages/Taostat/taostatsPoster.jpg?w=1680&format=webp";
 import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg?w=640;800;1232&format=avif;jpg&as=picture";

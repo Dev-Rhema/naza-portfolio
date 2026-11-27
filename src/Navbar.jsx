@@ -68,15 +68,11 @@ export const Navbar = ({ minimal = false, loaded }) => {
   });
 
   useEffect(() => {
-    const preload = () => {
-      (innerWidth < 768 ? [background] : [painting, crest, corner, background]).forEach((src) => {
-        Object.assign(new Image(), { sizes: "55vw", srcset: src });
-      });
-    };
-    if (document.readyState === "complete") preload();
-    else addEventListener("load", preload, { once: true });
-    return () => removeEventListener("load", preload);
-  }, []);
+    if (!loaded) return;
+    (innerWidth < 768 ? [background] : [painting, crest, corner, background]).forEach((src) => {
+      Object.assign(new Image(), { sizes: "55vw", srcset: src });
+    });
+  }, [loaded]);
 
   return (
     <header ref={header} className="absolute inset-x-0 top-0 z-40 flex h-30 items-start justify-between px-6 pt-8 md:px-20 md:pt-10">
