@@ -22,7 +22,7 @@ export function About() {
   useGSAP(
     () => {
       const wipe = createWipe(gsap.utils.toArray(".wipe", section.current)).pause();
-      ScrollTrigger.create({ trigger: section.current, start: "top 80%", once: true, onEnter: () => wipe.play() });
+      ScrollTrigger.create({ trigger: section.current, start: innerWidth < 768 ? "top 95%" : "top 80%", once: true, onEnter: () => wipe.play() });
     },
     { scope: section },
   );

@@ -79,7 +79,7 @@ export const About = ({ loaded }) => {
       });
       ScrollTrigger.create({
         trigger: designer.current,
-        start: "top 80%",
+        start: innerWidth < 768 ? "top 95%" : "top 80%",
         once: true,
         onEnter: () => {
           played = true;
@@ -107,7 +107,7 @@ export const About = ({ loaded }) => {
       });
       ScrollTrigger.create({
         trigger: career.current,
-        start: "top 80%",
+        start: innerWidth < 768 ? "top 95%" : "top 80%",
         once: true,
         onEnter: () => {
           played = true;

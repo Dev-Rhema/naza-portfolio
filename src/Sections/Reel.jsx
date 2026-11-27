@@ -17,7 +17,7 @@ export function Reel() {
         .fromTo(".painting", { opacity: 0.001 }, { opacity: 1, duration: 0.88, ease: "reelFade", clearProps: "opacity" }, 0.36)
         .fromTo(".screen", { scale: 0.9 }, { scale: 1, duration: 0.76, ease: "reelScale", clearProps: "transform" }, 0.42)
         .pause();
-      ScrollTrigger.create({ trigger: section.current, start: "top 80%", once: true, onEnter: () => wipe.play() });
+      ScrollTrigger.create({ trigger: section.current, start: innerWidth < 768 ? "top 95%" : "top 80%", once: true, onEnter: () => wipe.play() });
     },
     { scope: section },
   );

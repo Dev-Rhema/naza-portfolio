@@ -123,7 +123,7 @@ export const CaseStudy = ({ study, loaded }) => {
         if (loaded)
           ScrollTrigger.create({
             trigger: block,
-            start: "top 80%",
+            start: innerWidth < 768 ? "top 95%" : "top 80%",
             once: true,
             onEnter: () => {
               played = true;

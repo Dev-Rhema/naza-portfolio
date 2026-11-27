@@ -52,7 +52,7 @@ export function Footer() {
     const reveal = createWipe(gsap.utils.toArray(".wipe", footer.current))
       .fromTo("[data-fade]", { opacity: 0.001 }, { opacity: 1, duration: 0.9, ease: "archFade", delay: (i, el) => +el.dataset.fade, clearProps: "opacity" }, 0)
       .pause();
-    ScrollTrigger.create({ trigger: footer.current, start: "top 80%", once: true, onEnter: () => reveal.play() });
+    ScrollTrigger.create({ trigger: footer.current, start: innerWidth < 768 ? "top 95%" : "top 80%", once: true, onEnter: () => reveal.play() });
     gsap.set(".card", { y: "0.375rem" });
     gsap.set([".sway", ".head"], { transformOrigin: "95.38% 78.31%" });
     gsap
