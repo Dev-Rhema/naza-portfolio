@@ -13,7 +13,8 @@ import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.png?w=1
 import taoOverviewL from "./assets/images/CaseStudyImages/Taostat/overviewL.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import taoOverviewR from "./assets/images/CaseStudyImages/Taostat/overviewR.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import taoVideoBg from "./assets/images/CaseStudyImages/Taostat/taoVideoBg.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
-import taoPlaceholder from "./assets/images/CaseStudyImages/Taostat/placeHolder.jpg?w=720;1120;2240&format=avif;jpg&as=picture";
+import taoVideo from "./assets/images/CaseStudyImages/Taostat/taostats.mp4";
+import taoPoster from "./assets/images/CaseStudyImages/Taostat/taostatsPoster.jpg?w=1680&format=webp";
 import ebukaCover from "./assets/images/CaseStudyImages/ebuka.jpg?w=640;800;1232&format=avif;jpg&as=picture";
 import vidaioOverviewL from "./assets/images/CaseStudyImages/vidaio/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import vidaioOverviewR from "./assets/images/CaseStudyImages/vidaio/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
@@ -35,6 +36,8 @@ import afImpactWide from "./assets/images/CaseStudyImages/attentionFactory/impac
 import ebukaOverviewL from "./assets/images/CaseStudyImages/ebuka/overviewL.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import ebukaOverviewR from "./assets/images/CaseStudyImages/ebuka/overviewR.png?w=640;1024;1232&format=avif;jpg&as=picture";
 import ebukaBanner from "./assets/images/CaseStudyImages/ebuka/ebukaBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
+import ebukaVideo from "./assets/images/CaseStudyImages/ebuka/ebuka.mp4";
+import ebukaPoster from "./assets/images/CaseStudyImages/ebuka/ebukaPoster.jpg?w=1680&format=webp";
 import ebukaImpact from "./assets/images/CaseStudyImages/ebuka/impact.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 
 export const works = [
@@ -186,7 +189,7 @@ export const caseStudies = {
       "To do this we needed to complete a website that hosted the video and communicated at a purview what the network was a trailblazer in decentralized compute",
     ],
     recording: taoVideoBg,
-    placeholder: taoPlaceholder,
+    recordingVideo: { src: taoVideo, poster: taoPoster },
     impact: [
       "With the little time given for engineering and development we were able to deliver a comprehensive website with little to no bugs that allowed for optimal viewing experience on all devices.",
       "I was able to achieve this with the amazing team by asking questions, understanding the problem and utilizing my design thinking tool kit which allowed for quick reiterations and scrapping ideas that do not work or features that do not achieve the main goal of helping communicate value.",
@@ -298,7 +301,7 @@ export const caseStudies = {
     images: [ebukaOverviewL, ebukaOverviewR],
     problem: ["There are not many digital marketing portfolios on the internet, and we therefore had to create inspired by his personality"],
     recording: taoVideoBg,
-    placeholder: taoPlaceholder,
+    recordingVideo: { src: ebukaVideo, poster: ebukaPoster },
     impact: [
       "We took a different approach to creating his case studies, creating videos instead of text as marketers usually have to speak more than type many times. This was widely received with popular acclaim",
     ],

@@ -214,19 +214,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             {study.recording && (
               <Recording background={study.recording} className="mt-8.75 md:mt-8.25">
-                {study.placeholder && (
-                  <picture>
-                    <source type="image/avif" srcSet={study.placeholder.sources.avif} sizes="78vw" />
-                    <img
-                      srcSet={study.placeholder.sources.jpeg}
-                      sizes="78vw"
-                      alt=""
-                      loading="lazy"
-                      decoding="async"
-                      className="absolute top-1/2 left-1/2 aspect-1120/566 w-[87.5%] -translate-1/2 rounded-lg shadow-card screen"
-                    />
-                  </picture>
-                )}
+                {study.recordingVideo && <Video src={study.recordingVideo.src} poster={study.recordingVideo.poster} />}
               </Recording>
             )}
 
