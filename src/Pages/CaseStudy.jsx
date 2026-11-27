@@ -23,6 +23,15 @@ const Images = ({ images, className }) => (
   </div>
 );
 
+const WideImage = ({ image, className }) => (
+  <Wipe className={`relative mt-8.75 tablet:mt-[3.515625rem] reveal ${className}`}>
+    <picture className="w-full">
+      <source type="image/avif" srcSet={image.sources.avif} sizes="88vw" />
+      <img srcSet={image.sources.jpeg} sizes="88vw" width={image.img.w} height={image.img.h} alt="" loading="lazy" decoding="async" className="w-full" />
+    </picture>
+  </Wipe>
+);
+
 const Recording = ({ background, className, children }) => (
   <Wipe delay={0.03} release className={`relative tablet:mt-[3.515625rem] reveal ${className}`}>
     <div className="relative w-full">
@@ -223,6 +232,8 @@ export const CaseStudy = ({ study, loaded }) => {
 
             {study.problemImages && <Images images={study.problemImages} className="mt-8.75 md:mt-8.25" />}
 
+            {study.problemImage && <WideImage image={study.problemImage} className="md:mt-8.25" />}
+
             {study.recording && (
               <Recording background={study.recording} className="mt-8.75 md:mt-8.25">
                 {study.recordingVideo && <Video src={study.recordingVideo.src} poster={study.recordingVideo.poster} />}
@@ -242,23 +253,7 @@ export const CaseStudy = ({ study, loaded }) => {
 
             {study.impactImages && <Images images={study.impactImages} className={`mt-8.75 ${study.video ? "md:mt-10" : "md:mt-8.25"}`} />}
 
-            {study.impactImage && (
-              <Wipe className={`relative mt-8.75 tablet:mt-[3.515625rem] reveal ${study.impactImages ? "md:mt-10" : "md:mt-8.25"}`}>
-                <picture className="w-full">
-                  <source type="image/avif" srcSet={study.impactImage.sources.avif} sizes="88vw" />
-                  <img
-                    srcSet={study.impactImage.sources.jpeg}
-                    sizes="88vw"
-                    width={study.impactImage.img.w}
-                    height={study.impactImage.img.h}
-                    alt=""
-                    loading="lazy"
-                    decoding="async"
-                    className="w-full"
-                  />
-                </picture>
-              </Wipe>
-            )}
+            {study.impactImage && <WideImage image={study.impactImage} className={study.impactImages ? "md:mt-10" : "md:mt-8.25"} />}
 
             <h2
               className={`mt-8.25 text-[1.125rem] md:text-[1.5rem] tablet:mt-[3.515625rem] leading-[1.2] text-white reveal 2xl:text-[1.875rem] ${study.moreSpacing}`}

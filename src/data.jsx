@@ -6,7 +6,7 @@ import footiumIcon from "./assets/images/aboutPageImgs/aboutPageIcons/footium.sv
 import footiumBanner from "./assets/images/CaseStudyImages/footium/footiumBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import footiumField from "./assets/images/CaseStudyImages/footium/footiumField.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
 import footiumFormation from "./assets/images/CaseStudyImages/footium/footiumFormation.jpg?w=640;1024;1232&format=avif;jpg&as=picture";
-import footiumRecording from "./assets/images/CaseStudyImages/footium/footiumScreenRecording.jpg?w=960;1440;2560&format=avif;jpg&as=picture";
+import footiumProblem from "./assets/images/CaseStudyImages/footium/footiumProblem.png?w=1280;1920;2560&format=avif;jpg&as=picture";
 import taostatsCover from "./assets/images/CaseStudyImages/TaoStat.jpg?w=640;800;1232&format=avif;jpg&as=picture";
 import vidaioCover from "./assets/images/CaseStudyImages/vidaio.jpg?w=640;800;1232&format=avif;jpg&as=picture";
 import taoBanner from "./assets/images/CaseStudyImages/Taostat/taoBanner.png?w=1280;1920;2560&format=avif;jpg&as=picture";
@@ -141,7 +141,7 @@ export const caseStudies = {
     problem: [
       "Everyone loves football manager, that is the key to its success. How can we take the best parts of fantasy football, simplify it and ensure it is easily accessible to those who are native to web3 and those who are not",
     ],
-    recording: footiumRecording,
+    problemImage: footiumProblem,
     impact: [
       "My focus at Footium was on the Tactics page which is where most of our players will spend their time. My essential idea for this page was the use of iconography and motion to ensure clarity.",
       "Together with the engineering team, marketing teams and senior designer, I was able to come up with a base for the tactics page which evolved over the years. It has served its purpose in being an easily accessible means for players to have an overview of where their players are in terms of fitness, growth and readiness for training.",
