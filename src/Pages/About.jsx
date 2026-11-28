@@ -27,7 +27,12 @@ import { experiences } from "../data";
 
 const Icon = ({ src, className }) => (
   <span className="relative -my-1 inline-block size-8 align-middle md:mr-0.5 md:ml-1.25 md:size-12">
-    <img src={src} alt="" loading="lazy" className={`pointer-events-none absolute top-[-0.33333rem] -z-10 max-w-none select-none md:-top-2 ${className}`} />
+    <img
+      src={src}
+      alt=""
+      loading="lazy"
+      className={`pointer-events-none absolute top-[-0.33333rem] -z-10 max-w-none select-none md:-top-2 ${className}`}
+    />
   </span>
 );
 
@@ -54,10 +59,18 @@ export const About = ({ loaded }) => {
 
   useGSAP(
     () => {
-      const reveal = createWipe(gsap.utils.toArray(".wipe:not(header *)", hero.current)).fromTo(
+      const reveal = createWipe(
+        gsap.utils.toArray(".wipe:not(header *)", hero.current),
+      ).fromTo(
         "[data-fade]",
         { opacity: 0.001 },
-        { opacity: 1, duration: (i, el) => (+el.dataset.fade ? 0.96 : 1.2), ease: "archFade", delay: (i, el) => +el.dataset.fade, clearProps: "opacity" },
+        {
+          opacity: 1,
+          duration: (i, el) => (+el.dataset.fade ? 0.96 : 1.2),
+          ease: "archFade",
+          delay: (i, el) => +el.dataset.fade,
+          clearProps: "opacity",
+        },
         0,
       );
       if (!loaded) reveal.pause();
@@ -73,7 +86,9 @@ export const About = ({ loaded }) => {
         autoSplit: true,
         onSplit: (split) => {
           wipeLines(split.lines);
-          wipe = createWipe(gsap.utils.toArray(".wipe", designer.current)).paused(!played);
+          wipe = createWipe(
+            gsap.utils.toArray(".wipe", designer.current),
+          ).paused(!played);
           return wipe;
         },
       });
@@ -99,8 +114,28 @@ export const About = ({ loaded }) => {
         onSplit: (split) => {
           wipeLines(split.lines);
           wipe = createWipe(gsap.utils.toArray(".wipe", career.current))
-            .fromTo(".timeline", { opacity: 0.001 }, { opacity: 1, duration: 1, ease: "reelFade", clearProps: "opacity" }, 0.04)
-            .fromTo(".illustration", { opacity: 0.001 }, { opacity: 1, duration: 0.84, ease: "archFade", clearProps: "opacity" }, 0.28)
+            .fromTo(
+              ".timeline",
+              { opacity: 0.001 },
+              {
+                opacity: 1,
+                duration: 1,
+                ease: "reelFade",
+                clearProps: "opacity",
+              },
+              0.04,
+            )
+            .fromTo(
+              ".illustration",
+              { opacity: 0.001 },
+              {
+                opacity: 1,
+                duration: 0.84,
+                ease: "archFade",
+                clearProps: "opacity",
+              },
+              0.28,
+            )
             .paused(!played);
           return wipe;
         },
@@ -115,13 +150,15 @@ export const About = ({ loaded }) => {
         },
       });
       if (innerWidth < 768) return;
-      const gap = () => 5.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
+      const gap = () =>
+        5.5 * parseFloat(getComputedStyle(document.documentElement).fontSize);
       const illustration = career.current.querySelector(".illustration");
       ScrollTrigger.create({
         trigger: career.current.firstElementChild,
         start: () => `top ${gap()}px`,
         endTrigger: career.current.lastElementChild,
-        end: () => `bottom ${gap() + illustration.offsetTop + illustration.offsetHeight}px`,
+        end: () =>
+          `bottom ${gap() + illustration.offsetTop + illustration.offsetHeight}px`,
         pin: true,
         pinSpacing: false,
         invalidateOnRefresh: true,
@@ -135,13 +172,20 @@ export const About = ({ loaded }) => {
       <Noise visible={loaded} />
       <div id="smooth-wrapper">
         <div id="smooth-content">
-          <section ref={hero} className="relative px-6 pt-24 pb-7.5 md:px-20 md:pt-29.5 md:pb-9.25">
+          <section
+            ref={hero}
+            className="relative px-6 pt-24 pb-7.5 md:h-[59.6875rem] md:px-20 md:pt-29.5 md:pb-9.25 2xl:h-[calc(9.6875rem+46.6667vw)]"
+          >
             <Navbar loaded={loaded} />
 
             <Wipe className="relative w-full md:absolute md:top-29.5 md:right-20 md:w-150 2xl:w-[35vw]">
               <div className="relative aspect-392/406 w-full md:aspect-600/800">
                 <RippleDistortion src={photo} className="absolute inset-0" />
-                <img src={captionTop} alt="" className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5 2xl:top-[0.875vw] 2xl:left-[0.9333vw] 2xl:w-[11.783vw]" />
+                <img
+                  src={captionTop}
+                  alt=""
+                  className="pointer-events-none absolute top-2 left-2 w-39.25 select-none md:top-3.75 md:left-4 md:w-50.5 2xl:top-[0.875vw] 2xl:left-[0.9333vw] 2xl:w-[11.783vw]"
+                />
                 <img
                   src={barcodeTop}
                   alt=""
@@ -162,54 +206,74 @@ export const About = ({ loaded }) => {
 
             <div className="pointer-events-none hidden w-160 select-none md:flex 2xl:w-240">
               <div data-fade={0} className="w-1/2 overflow-hidden">
-                <img src={heroSketch} alt="" className="w-160 max-w-none 2xl:w-240" />
+                <img
+                  src={heroSketch}
+                  alt=""
+                  className="w-160 max-w-none 2xl:w-240"
+                />
               </div>
               <div data-fade={0.38} className="w-1/2 overflow-hidden">
-                <img src={heroSketch} alt="" className="-ml-80 w-160 max-w-none 2xl:-ml-120 2xl:w-240" />
+                <img
+                  src={heroSketch}
+                  alt=""
+                  className="-ml-80 w-160 max-w-none 2xl:-ml-120 2xl:w-240"
+                />
               </div>
             </div>
 
-            <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:-mt-14 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] min-[96rem]:-mt-24 min-[96rem]:text-[7.5rem] 2xl:-mt-[0.8em] 2xl:text-[6.25vw]">
-              <div className="hidden md:block">
-                <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">Product Designer creating</span>
+            <div className="md:absolute md:bottom-9.25 md:left-20">
+              <h1 className="relative z-10 mt-[2.03125rem] font-helvetica text-[2.5rem] font-normal leading-10 tracking-[-0.03em] text-white md:mt-0 md:tracking-[-0.04em] md:leading-none md:text-[4.5rem] min-[96rem]:text-[7.5rem] 2xl:text-[6.25vw]">
+                <div className="hidden md:block">
+                  <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">
+                      Product Designer creating
+                    </span>
+                  </Wipe>
+                  <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">
+                      interfaces that challenge
+                    </span>
+                  </Wipe>
+                  <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">the norm</span>
+                  </Wipe>
+                </div>
+                <div className="md:hidden">
+                  <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">Product Designer</span>
+                  </Wipe>
+                  <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">creating interfaces that</span>
+                  </Wipe>
+                  <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
+                    <span className="pb-[0.2em]">challenge the norm</span>
+                  </Wipe>
+                </div>
+              </h1>
+              <div className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 2xl:mt-4.5 2xl:w-187.5 md:text-[1.5rem] 2xl:text-[2.25rem]">
+                <Wipe delay={0.06} className="relative w-fit">
+                  <span>Design should make us better. Design should draw</span>
                 </Wipe>
-                <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">interfaces that challenge</span>
+                <Wipe delay={0.11} className="relative w-fit">
+                  <span>out positive emotions from our users. These have</span>
                 </Wipe>
-                <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">the norm</span>
+                <Wipe delay={0.15} className="relative w-fit">
+                  <span>been some of my guides over the years</span>
                 </Wipe>
               </div>
-              <div className="md:hidden">
-                <Wipe delay={0.05} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">Product Designer</span>
-                </Wipe>
-                <Wipe delay={0.09} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">creating interfaces that</span>
-                </Wipe>
-                <Wipe delay={0.15} className="relative -mb-[0.2em] w-fit">
-                  <span className="pb-[0.2em]">challenge the norm</span>
-                </Wipe>
-              </div>
-            </h1>
-            <div className="mt-4.75 font-helvetica text-[1.125rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-3 md:w-125 2xl:mt-4.5 2xl:w-187.5 md:text-[1.5rem] 2xl:text-[2.25rem]">
-              <Wipe delay={0.06} className="relative w-fit">
-                <span>Design should make us better. Design should draw</span>
-              </Wipe>
-              <Wipe delay={0.11} className="relative w-fit">
-                <span>out positive emotions from our users. These have</span>
-              </Wipe>
-              <Wipe delay={0.15} className="relative w-fit">
-                <span>been some of my guides over the years</span>
+              <Wipe
+                delay={0.28}
+                className="relative mt-[1.59375rem] w-fit rounded-full md:mt-[1.40625rem] 2xl:[zoom:1.2]"
+              >
+                <Button href="#contact">Book a Call</Button>
               </Wipe>
             </div>
-            <Wipe delay={0.28} className="relative mt-[1.59375rem] w-fit rounded-full md:mt-[1.40625rem] 2xl:[zoom:1.2]">
-              <Button href="#contact">Book a Call</Button>
-            </Wipe>
           </section>
 
-          <section ref={designer} className="px-6 pt-10 pb-[5.03125rem] md:px-20 md:pt-22 md:pb-40">
+          <section
+            ref={designer}
+            className="px-6 pt-10 pb-[5.03125rem] md:px-20 md:pt-22 md:pb-40"
+          >
             <Wipe className="relative w-fit">
               <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem] 2xl:text-[1.25rem]">
                 <img src={sectionIcon} alt="" className="size-4 md:size-4.5" />
@@ -220,18 +284,22 @@ export const About = ({ loaded }) => {
               className="isolate mt-3.75 font-helvetica text-[2rem] font-normal leading-10 tracking-[-0.04em] text-[#4f4f4f] md:hidden designer-copy 2xl:text-[2.5rem] 2xl:leading-12.5"
               data-delays="0.05"
             >
-              While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
+              While I wear many hats <Icon src={hatIcon} className={wide} />{" "}
+              depending on the situation my areas of expertise are in{" "}
               <span className="text-white">
-                Product Design <Icon src={brushIcon} className={wide} /> , Design Systems <Icon src={hexagonIcon} className={wide} /> , Pitch Decks{" "}
-                <Icon src={megaphoneIcon} className={megaphone} /> <span className="whitespace-nowrap">, and</span> Motion for Interfaces{" "}
-                <Icon src={pendulumIcon} className={wide} />
+                Product Design <Icon src={brushIcon} className={wide} /> ,
+                Design Systems <Icon src={hexagonIcon} className={wide} /> ,
+                Pitch Decks <Icon src={megaphoneIcon} className={megaphone} />{" "}
+                <span className="whitespace-nowrap">, and</span> Motion for
+                Interfaces <Icon src={pendulumIcon} className={wide} />
               </span>
             </p>
             <p
               className="isolate hidden font-helvetica font-normal tracking-[-0.04em] text-[#4f4f4f] md:mt-[2.15625rem] md:block md:text-[3rem] md:leading-12.5 designer-copy 2xl:text-[3.75rem] 2xl:leading-[3.90625rem]"
               data-delays="0.05"
             >
-              While I wear many hats <Icon src={hatIcon} className={wide} /> depending on the situation my areas of expertise are in{" "}
+              While I wear many hats <Icon src={hatIcon} className={wide} />{" "}
+              depending on the situation my areas of expertise are in{" "}
               <span className="whitespace-nowrap text-white">
                 <Icon src={brushIcon} className={wide} /> Product Design,
               </span>{" "}
@@ -242,21 +310,32 @@ export const About = ({ loaded }) => {
                 <Icon src={megaphoneIcon} className={megaphone} /> Pitch Decks,
               </span>{" "}
               <span className="whitespace-nowrap text-white">
-                <Icon src={pendulumIcon} className={wide} /> Motion for Interfaces
+                <Icon src={pendulumIcon} className={wide} /> Motion for
+                Interfaces
               </span>
             </p>
-            <Wipe delay={0.3} className="relative mt-7.25 w-fit rounded-full md:mt-[2.59375rem]">
+            <Wipe
+              delay={0.3}
+              className="relative mt-7.25 w-fit rounded-full md:mt-[2.59375rem]"
+            >
               <Button href="#resume" className="bg-[#262626]!">
                 My Resume
               </Button>
             </Wipe>
           </section>
 
-          <section ref={career} className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25">
+          <section
+            ref={career}
+            className="flex flex-col gap-[0.96875rem] px-6 pb-[2.34375rem] md:flex-row md:gap-0 md:px-20 md:pb-17.25"
+          >
             <div className="relative md:w-170 md:self-start 2xl:w-255">
               <Wipe className="relative w-fit">
                 <p className="flex items-center gap-1.75 font-helvetica text-[0.875rem] font-medium leading-none tracking-[-0.04em] text-white md:gap-2 md:text-[1rem] 2xl:gap-3 2xl:text-[1.5rem]">
-                  <img src={sectionIcon} alt="" className="size-4 md:size-4.5 2xl:size-6.75" />
+                  <img
+                    src={sectionIcon}
+                    alt=""
+                    className="size-4 md:size-4.5 2xl:size-6.75"
+                  />
                   <span className="pt-0.5">MY EXPERIENCE</span>
                 </p>
               </Wipe>
@@ -272,14 +351,15 @@ export const About = ({ loaded }) => {
                 data-delays="0.18,0.25,0.3"
                 className="mt-[1.15625rem] font-helvetica text-[0.875rem] font-normal leading-[1.2] tracking-[-0.04em] text-[#7d7d7d] md:mt-[0.84375rem] md:ml-30 md:w-110 md:text-[1.25rem] experience-copy 2xl:mt-[1.265625rem] 2xl:ml-45 2xl:w-165 2xl:text-[1.875rem]"
               >
-                My experience has usually revolved around assisting startups define their visual language and establish a cohesive identity that is impossible
-                to ignore
+                My experience has usually revolved around assisting startups
+                define their visual language and establish a cohesive identity
+                that is impossible to ignore
               </p>
               <img
                 src={experienceIllustration}
                 alt=""
                 loading="lazy"
-                className="pointer-events-none absolute top-40 left-0 hidden w-51 select-none md:block 2xl:top-60 2xl:w-76.5 illustration"
+                className="pointer-events-none absolute top-40 left-0 hidden aspect-408/900 w-51 select-none md:block 2xl:top-60 2xl:w-76.5 illustration"
               />
             </div>
 
@@ -288,11 +368,18 @@ export const About = ({ loaded }) => {
                 <li key={experience.name}>
                   <Wipe delay={timings[i].head} className="relative">
                     <div className="flex h-8 w-full items-center font-helvetica tracking-[-0.04em] md:h-10">
-                      <img src={experience.icon} alt="" loading="lazy" className="size-8 md:size-10" />
+                      <img
+                        src={experience.icon}
+                        alt=""
+                        loading="lazy"
+                        className="size-8 md:size-10"
+                      />
                       <h3 className="ml-2 pt-1.25 text-[1.5rem] font-medium leading-none text-white md:ml-4 md:pt-0 md:text-[2rem] 2xl:text-[2.5rem]">
                         {experience.name}
                       </h3>
-                      <p className="ml-auto pt-1.5 text-[1rem] font-normal leading-none text-[#7d7d7d] italic md:pt-0 2xl:text-[1.25rem]">{experience.dates}</p>
+                      <p className="ml-auto pt-1.5 text-[1rem] font-normal leading-none text-[#7d7d7d] italic md:pt-0 2xl:text-[1.25rem]">
+                        {experience.dates}
+                      </p>
                     </div>
                   </Wipe>
                   <div className="relative mt-[0.84375rem] pl-10 font-helvetica tracking-[-0.04em] text-[#7d7d7d] md:mt-4 md:pt-[0.15625rem] md:pl-14">
@@ -302,7 +389,9 @@ export const About = ({ loaded }) => {
                       <span className="size-4.5 shrink-0 rounded-full bg-[#1f1f1f] md:size-6 shadow-dot" />
                     </div>
                     <Wipe delay={timings[i].role} className="relative w-fit">
-                      <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem] 2xl:text-[1.5625rem]">{experience.role}</p>
+                      <p className="text-[1rem] font-normal leading-[1.2] md:text-[1.25rem] 2xl:text-[1.5625rem]">
+                        {experience.role}
+                      </p>
                     </Wipe>
                     <p
                       data-delays={timings[i].lines}
